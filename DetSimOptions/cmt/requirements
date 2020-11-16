@@ -1,0 +1,27 @@
+package DetSimOptions
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+use DetSimAlg       v*  Simulation/DetSimV2
+
+use PhysiSim        v*  Simulation/DetSimV2
+use PMTSim          v*  Simulation/DetSimV2
+#use GenSim          v*  Simulation/DetSimV2
+use SimUtil         v*  Simulation/DetSimV2
+use MCParamsSvc     v*  Simulation/DetSimV2
+
+use CentralDetector v*  Simulation/DetSimV2
+use AnalysisCode    v*  Simulation/DetSimV2
+
+use TopTracker      v*  Simulation/DetSimV2
+use CalibUnit       v*  Simulation/DetSimV2
+use Chimney         v*  Simulation/DetSimV2
+
+use GenTools        v*  Simulation
+
+library DetSimOptions *.cc
+apply_pattern linker_library library=DetSimOptions
+include_dirs "$(DETSIMOPTIONSROOT)/include"
+
+apply_pattern install_python_modules
+macro_append DetSimOptions_cppflags "" opticks " -g "

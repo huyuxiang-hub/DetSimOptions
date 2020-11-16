@@ -1,0 +1,73 @@
+####/dyb2/det/pmt/type/name HelloPMT 
+####/dyb2/det/water/thickness 0.8 m
+####/dyb2/det/acrylic/thickness 12 cm
+####
+#####/dyb2/det/filemode/path Det1PMTPos.csv 
+####/dyb2/det/strut/path strut_new.csv
+####/dyb2/det/filemode/initialize
+####
+/run/initialize
+#####
+##### Macro file for the initialization phase of "exampleN02.cc"
+##### when runing in interactive mode
+#####
+##### Sets some default verbose
+#####
+#####/control/verbose 2
+#####/run/verbose 2
+####/control/verbose 0
+####/run/verbose 0
+####
+#####
+##### create empty scene
+#####
+####/vis/scene/create
+#####
+##### Create a scene handler for a specific graphics system
+##### (Edit the next line(s) to choose another graphics system)
+#####
+#/vis/open OGLIQt
+/vis/open OGL 600x600-0+0
+#
+####/vis/open OGLSXm
+####/vis/open HepRepXML
+#
+#/vis/open DAWNFILE
+#
+# draw scene
+#
+/vis/drawVolume worlds
+
+/vis/viewer/set/upVector 0 0 1
+/vis/viewer/set/viewpointThetaPhi 90 180
+#
+#/vis/viewer/addCutawayPlane 0 0 0 
+#/vis/viewer/set/viewpointThetaPhi 45 145 deg
+#/vis/viewer/zoom 2
+#
+# for drawing the tracks
+/tracking/storeTrajectory 1
+/vis/scene/add/trajectories
+# (if too many tracks cause core dump => /tracking/storeTrajectory 0)
+# for drawing the hits, uncomment next line
+# /vis/scene/add/hits
+# (if you prefer refreshing each event, comment out next line)
+#/vis/scene/endOfEventAction accumulate
+#
+#/vis/viewer/addCutawayPlane 0 0 0 m 1 0 0
+#/dyb/generator opticalphoton 0 0 0
+#/dyb/generator opticalphoton 16.0 0. 0
+#/vis/viewer/set/viewpointThetaPhi 45 145 deg
+#/vis/viewer/zoom 2
+# /vis/viewer/set/viewpointThetaPhi 90 0
+#/run/beamOn 2
+
+#/vis/geometry/set/daughtersInvisible lWorld 3 false
+/vis/geometry/set/visibility lWorld -1 false
+/vis/geometry/set/visibility lBtmRock 0 false
+/vis/geometry/set/visibility lExpHall 0 false
+/vis/geometry/set/visibility lPoolLining 0 false
+/vis/geometry/set/visibility lReflectorInCD 0 false
+/vis/geometry/set/visibility lInnerWater 0 false
+/vis/geometry/set/visibility lSurftubeV1_0 0 true
+/vis/geometry/set/visibility lSurftubeV1_1 0 true

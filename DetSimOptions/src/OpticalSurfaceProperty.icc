@@ -1,0 +1,31 @@
+//------------------define OpticalTeflonMirror reflectivity by Zhang Feiyang------------------------
+//the OpticalTeflonMirror used in Calibration assembly
+G4OpticalSurface *OpticalTeflonMirror = new G4OpticalSurface("OpticalTeflonMirror");
+OpticalTeflonMirror->SetModel(unified);
+OpticalTeflonMirror->SetType(dielectric_metal);
+OpticalTeflonMirror->SetFinish(polished);
+
+const G4int NUM = 2;
+G4double vessel_PP[NUM]   = { 1.5*eV, 7.50*eV };
+
+G4double ICEREFLECTIVITY[NUM] = {0.95,0.95};
+G4MaterialPropertiesTable *SteelMirrorMPT = new G4MaterialPropertiesTable();
+SteelMirrorMPT->AddProperty("REFLECTIVITY", vessel_PP, ICEREFLECTIVITY,NUM);
+OpticalTeflonMirror->SetMaterialPropertiesTable(SteelMirrorMPT);
+
+
+G4OpticalSurface *SSMirror = new G4OpticalSurface("SSMirror");
+SSMirror->SetModel(unified);
+SSMirror->SetType(dielectric_metal);
+SSMirror->SetFinish(polished);
+
+
+G4double SSREFLECTIVITY[NUM] = {0.4,0.4};
+G4MaterialPropertiesTable *SteelMirror = new G4MaterialPropertiesTable();
+SteelMirror->AddProperty("REFLECTIVITY", vessel_PP, SSREFLECTIVITY,NUM);
+SSMirror->SetMaterialPropertiesTable(SteelMirror);
+
+
+
+
+

@@ -1,0 +1,8 @@
+
+/run/verbose 2
+
+#/run/initialize
+#/process/inactivate Scintillation
+#/process/inactivate Cerenkov
+
+
