@@ -74,6 +74,9 @@ DetSim0Svc::DetSim0Svc(const std::string& name)
     declProp("TTEnabled", m_tt_enabled=true);
 
     declProp("OpticksMode", m_opticksMode=0);
+    
+    declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode=0);
+    declProp("FlatQE", m_flatQE);
 }
 
 DetSim0Svc::~DetSim0Svc()
@@ -195,6 +198,10 @@ DetSim0Svc::createDetectorConstruction()
         dc->setLowerChimneyName(m_chimney_lower_name);
     }
     dc->setOpticksMode(m_opticksMode);
+
+    dc->setGdLSAbsLengthMode(m_GdLSAbsLengthMode);
+    dc->setFlatQE(m_flatQE);
+
     return dc;
 }
 

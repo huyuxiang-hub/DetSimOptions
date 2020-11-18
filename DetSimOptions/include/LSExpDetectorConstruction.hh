@@ -375,6 +375,15 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      static G4Opticks* SetupOpticks(const G4VPhysicalVolume* world, const G4VSensitiveDetector* sd_);
      G4Opticks* m_g4opticks ; 
 #endif
+
+
+  private:
+     int m_GdLSAbsLengthMode;
+     bool m_flatQE;
+  public:
+     void setGdLSAbsLengthMode(int GdLSAbsLengthMode) {m_GdLSAbsLengthMode = GdLSAbsLengthMode ;}
+    void setFlatQE(bool flatQE) {m_flatQE = flatQE; }
+
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

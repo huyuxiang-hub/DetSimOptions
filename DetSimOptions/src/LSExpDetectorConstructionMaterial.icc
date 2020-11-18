@@ -150,7 +150,7 @@
 
         if (1 && (!use_param_svc)) { // from code
         LSMPT->AddProperty("RINDEX",   GdLSRefIndexEnergy, GdLSRefIndex, 18);
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy, GdLSABSLength, 502);
+        //LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy, GdLSABSLength, 502);
         LSMPT->AddProperty("FASTCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
         LSMPT->AddProperty("SLOWCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
         LSMPT->AddProperty("REEMISSIONPROB", GdLSReemEnergy, GdLSReem, 28);
@@ -202,12 +202,12 @@
         //LSMPT->AddProperty("bisMSBCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
         //LSMPT->AddProperty("bisMSBTIMECONSTANT", component, GdLSReemissionFastTimeConstant,2);
 
-        LSMPT->AddProperty("PPOABSLENGTH", PPOABSEnergy, PPOABSLENGTH, 576);
+        LSMPT->AddProperty("PPOABSLENGTH", PPOABSEnergy, PPOABSLENGTH, 578);
         LSMPT->AddProperty("PPOREEMISSIONPROB", PPO_ReemMomentum, PPO_Reemission, 13);
         LSMPT->AddProperty("PPOCOMPONENT", PPOCOMEnergy, PPOCOMPONENT, 300);
         LSMPT->AddProperty("PPOTIMECONSTANT", component, PPOTimeConstant,2);
 
-        LSMPT->AddProperty("bisMSBABSLENGTH", bisMSBABSEnergy, bisMSBABSLENGTH, 379);
+        LSMPT->AddProperty("bisMSBABSLENGTH", bisMSBABSEnergy, bisMSBABSLENGTH, 381);
         LSMPT->AddProperty("bisMSBREEMISSIONPROB", bisMSB_ReemMomentum, bisMSB_Reemission, 20);
         LSMPT->AddProperty("bisMSBCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
         LSMPT->AddProperty("bisMSBTIMECONSTANT", component, bisMSBTimeConstant,2);
@@ -306,7 +306,7 @@
 
         G4MaterialPropertiesTable* LABMPT = new G4MaterialPropertiesTable();
         LABMPT->AddProperty("RINDEX",   GdLSRefIndexEnergy, GdLSRefIndex, 18);
-        LABMPT->AddProperty("ABSLENGTH", GdLSABSEnergy, GdLSABSLength, 502);
+        //LABMPT->AddProperty("ABSLENGTH", GdLSABSEnergy, GdLSABSLength, 402);
         LABMPT->AddProperty("RAYLEIGH", GdLSRayEnergy, GdLSRayLength, 11);
         LAB->SetMaterialPropertiesTable(LABMPT);
     //}
@@ -668,9 +668,9 @@
     }
 
     G4Material* Photocathode_mat_MCP20inch = G4Material::GetMaterial("photocathode_MCP20inch", any_warnings);
-    if (Photocathode_mat_MCP20inch) {
+    //if (Photocathode_mat_MCP20inch) {
 
-    } else {
+    //} else {
         density = 5. *g/cm3; // true??
         Photocathode_mat_MCP20inch = new G4Material("photocathode_MCP20inch",density,1);
         Photocathode_mat_MCP20inch->AddElement(K, 1);
@@ -682,7 +682,7 @@
         PhotocathodeMPT_MCP20inch->AddProperty("EFFICIENCY", fPP_PhCQE_AverageMCP20inch, fPhCEFFICIENCY_AverageMCP20inch, 43);
         PhotocathodeMPT_MCP20inch->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
         Photocathode_mat_MCP20inch->SetMaterialPropertiesTable(PhotocathodeMPT_MCP20inch);
-    }
+    //}
 
     G4Material* Photocathode_mat_MCP8inch = G4Material::GetMaterial("photocathode_MCP8inch", any_warnings);
     if (Photocathode_mat_MCP8inch) {
@@ -701,9 +701,9 @@
     }
 
     G4Material* Photocathode_mat_Ham20inch = G4Material::GetMaterial("photocathode_Ham20inch", any_warnings);
-    if (Photocathode_mat_Ham20inch) {
+    //if (Photocathode_mat_Ham20inch) {
 
-    } else {
+    //} else {
         density = 5. *g/cm3; // true??
         Photocathode_mat_Ham20inch = new G4Material("photocathode_Ham20inch",density,1);
         Photocathode_mat_Ham20inch->AddElement(K, 1);
@@ -712,10 +712,10 @@
         PhotocathodeMPT_Ham20inch->AddProperty("KINDEX", fPP_PhC, fPhCKINDEX, 4);
         PhotocathodeMPT_Ham20inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
         //PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Ham20inch, fPhCEFFICIENCY_Ham20inch, 43);
-        PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch, 43);
+        //PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch, 43);
         PhotocathodeMPT_Ham20inch->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
         Photocathode_mat_Ham20inch->SetMaterialPropertiesTable(PhotocathodeMPT_Ham20inch);
-    } 
+    //} 
 
     G4Material* Photocathode_mat_Ham8inch = G4Material::GetMaterial("photocathode_Ham8inch", any_warnings);
     if (Photocathode_mat_Ham8inch) {

@@ -109,6 +109,11 @@ private:
     bool finalizeOpticks() ;
     void dumpOpticks(const char* msg) ;  
     int m_opticksMode ; 
+
+
+private:
+    int m_GdLSAbsLengthMode;
+    bool m_flatQE;
 };
 
 #endif

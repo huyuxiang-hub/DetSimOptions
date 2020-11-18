@@ -106,6 +106,8 @@ LSExpDetectorConstruction::LSExpDetectorConstruction()
  , pmt_det_veto(0)
  , m_scope(0)
  , m_opticksMode(0)
+ , m_GdLSAbsLengthMode(0)
+ , m_flatQE(false)
 #ifdef WITH_G4OPTICKS
  , m_g4opticks(NULL) 
 #endif
@@ -206,6 +208,23 @@ void LSExpDetectorConstruction::DefineMaterials()
 
 #include "LSExpDetectorConstructionMaterial.icc"
 #include "OpticalSurfaceProperty.icc"
+
+  if(m_GdLSAbsLengthMode == 0) // LAB AbsLength
+        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy0, GdLSABSLength0, 428);
+  else if (m_GdLSAbsLengthMode == 1) // New LS AbsLength
+        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy1, GdLSABSLength1, 402);
+  else if (m_GdLSAbsLengthMode == 2) // Old LS AbsLength
+        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy2, GdLSABSLength2, 502);
+  else
+      G4cout << "Unknown Type of GdLSAbsLengthMode ! " << G4endl; 
+// flat qe
+  if(!m_flatQE) {
+        PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch, 43);
+        PhotocathodeMPT_MCP20inch->AddProperty("EFFICIENCY", fPP_PhCQE_AverageMCP20inch, fPhCEFFICIENCY_AverageMCP20inch, 43);
+  } else if (m_flatQE) {
+        PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch_one, 43);
+        PhotocathodeMPT_MCP20inch->AddProperty("EFFICIENCY", fPP_PhCQE_AverageMCP20inch, fPhCEFFICIENCY_AverageMCP20inch_one, 43);
+  }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -497,9 +516,9 @@ LSExpDetectorConstruction::ModifyOpticalProperty()
 {
     // Before setup properties for materials, we could scale them.
 
-    G4int len_of_GdLSABSLength = 502;
-    for (int i=0; i < len_of_GdLSABSLength; ++i) {
-        GdLSABSLength[i] *= coeff_abslen;
+    G4int len_of_GdLSABSLength2 = 502;
+    for (int i=0; i < len_of_GdLSABSLength2; ++i) {
+        GdLSABSLength2[i] *= coeff_abslen;
          // GdLSABSLength[i] = 99999999999999*m;
     }
 
