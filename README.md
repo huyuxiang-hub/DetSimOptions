@@ -9,4 +9,20 @@ grp_pmt_op.add_argument("--old-optical-model", dest="new_optical_model", action=
                   help=mh("Use the old optical model"))
 grp_pmt_op.set_defaults(new_optical_model=False)
 ```
-* 
+* 如果想要找到与之相关的代码，请查询关键字new_optical_model
+```python
+if args.new_optical_model:
+            op_process.property("UseAbsReemit").set(True)
+            op_process.property("UseScintSimple").set(True)
+        else:
+            op_process.property("UseAbsReemit").set(False)
+            op_process.property("UseScintSimple").set(False)
+```
+
+以及下面的代码
+```python
+ if args.new_optical_model:
+            detsimfactory.property("GdLSAbsLengthMode").set(1)
+        else:
+            detsimfactory.property("GdLSAbsLengthMode").set(0)
+```
