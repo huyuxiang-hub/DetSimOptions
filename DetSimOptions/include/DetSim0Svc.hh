@@ -113,7 +113,7 @@ private:
 
 private:
     int m_GdLSAbsLengthMode;
-    bool m_flatQE;
+//   bool m_flatQE;
 };
 
 #endif

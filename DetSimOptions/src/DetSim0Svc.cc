@@ -76,7 +76,7 @@ DetSim0Svc::DetSim0Svc(const std::string& name)
     declProp("OpticksMode", m_opticksMode=0);
     
     declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode=0);
-    declProp("FlatQE", m_flatQE);
+//   declProp("FlatQE", m_flatQE);
 }
 
 DetSim0Svc::~DetSim0Svc()
@@ -200,7 +200,7 @@ DetSim0Svc::createDetectorConstruction()
     dc->setOpticksMode(m_opticksMode);
 
     dc->setGdLSAbsLengthMode(m_GdLSAbsLengthMode);
-    dc->setFlatQE(m_flatQE);
+ //   dc->setFlatQE(m_flatQE);
 
     return dc;
 }

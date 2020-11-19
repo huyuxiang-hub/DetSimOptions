@@ -379,10 +379,10 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
 
   private:
      int m_GdLSAbsLengthMode;
-     bool m_flatQE;
+ //    bool m_flatQE;
   public:
      void setGdLSAbsLengthMode(int GdLSAbsLengthMode) {m_GdLSAbsLengthMode = GdLSAbsLengthMode ;}
-    void setFlatQE(bool flatQE) {m_flatQE = flatQE; }
+  //  void setFlatQE(bool flatQE) {m_flatQE = flatQE; }
 
 };
 
