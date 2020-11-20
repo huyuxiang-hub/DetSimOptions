@@ -63,6 +63,8 @@ public:
 public:
   HepMC::GenEvent* load_gen_event();
 public:
+    // MT related
+    void setMTmode(bool flag);
 
 private:
   LSExpParticleGun* particleGun;
@@ -76,6 +78,10 @@ private:
   G4int m_verbosity;
 private:
   Task* m_scope;
+
+private:
+    bool m_isMT; // disabled by default
+
 };
 
 #endif

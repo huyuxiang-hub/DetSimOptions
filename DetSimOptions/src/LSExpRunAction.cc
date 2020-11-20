@@ -34,7 +34,6 @@
 
 #include "DetSimAlg/MgrOfAnaElem.h"
 
-
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
 LSExpRunAction::LSExpRunAction()

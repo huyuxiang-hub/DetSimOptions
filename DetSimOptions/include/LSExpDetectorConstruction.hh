@@ -58,6 +58,8 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
   public:
   
      G4VPhysicalVolume* Construct();
+     // for the MT mode: each thread owns its SD and field.
+     void ConstructSDandField();
 
   public:
      void setScope(Task* scope) {m_scope = scope;}
@@ -137,6 +139,9 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      {m_chimney_top_name=  top_chimney_name;}
      void setLowerChimneyName(const std::string& lower_chimney_name)
      {m_chimney_lower_name=  lower_chimney_name;}
+
+     void setMTmode(bool flag);
+
   private:
      void DefineMaterials();
 
@@ -376,13 +381,19 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      G4Opticks* m_g4opticks ; 
 #endif
 
-
+  private:
+    bool m_isMTmode;
+ 
   private:
      int m_GdLSAbsLengthMode;
- //    bool m_flatQE;
+  //   bool m_flatQE;
   public:
      void setGdLSAbsLengthMode(int GdLSAbsLengthMode) {m_GdLSAbsLengthMode = GdLSAbsLengthMode ;}
   //  void setFlatQE(bool flatQE) {m_flatQE = flatQE; }
+  
+
+
+
 
 };
 

@@ -3,7 +3,7 @@
 #====================================
 #  Library DetSimOptions
 #
-#   Generated Thu Nov 19 16:21:17 2020  by huyuxiang
+#   Generated Fri Nov 20 09:41:06 2020  by huyuxiang
 #
 #====================================
 
@@ -110,7 +110,7 @@ DetSimOptionsprototype :  ;
 
 endif
 
-DetSimOptionscompile : $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o ;
+DetSimOptionscompile : $(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o ;
 
 #-- end of libary_header ----------------
 #-- start of libary ----------------------
@@ -118,10 +118,10 @@ DetSimOptionscompile : $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(
 DetSimOptionsLIB :: $(DetSimOptionslib) $(DetSimOptionsshstamp)
 	$(echo) "DetSimOptions : library ok"
 
-$(DetSimOptionslib) :: $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o
+$(DetSimOptionslib) :: $(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o
 	$(lib_echo) "static library $@"
 	$(lib_silent) [ ! -f $@ ] || \rm -f $@
-	$(lib_silent) $(ar) $(DetSimOptionslib) $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o
+	$(lib_silent) $(ar) $(DetSimOptionslib) $(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o
 	$(lib_silent) $(ranlib) $(DetSimOptionslib)
 	$(lib_silent) cat /dev/null >$(DetSimOptionsstamp)
 
@@ -151,8 +151,8 @@ $(DetSimOptionsshstamp) :: $(DetSimOptionslibname).$(shlibsuffix)
 
 DetSimOptionsclean ::
 	$(cleanup_echo) objects DetSimOptions
-	$(cleanup_silent) /bin/rm -f $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o
-	$(cleanup_silent) /bin/rm -f $(patsubst %.o,%.d,$(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o) $(patsubst %.o,%.dep,$(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o) $(patsubst %.o,%.d.stamp,$(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o)
+	$(cleanup_silent) /bin/rm -f $(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o
+	$(cleanup_silent) /bin/rm -f $(patsubst %.o,%.d,$(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o) $(patsubst %.o,%.dep,$(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o) $(patsubst %.o,%.d.stamp,$(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o)
 	$(cleanup_silent) cd $(bin); /bin/rm -rf DetSimOptions_deps DetSimOptions_dependencies.make
 
 #-----------------------------------------------------------------
@@ -204,7 +204,7 @@ ifneq ($(MAKECMDGOALS),DetSimOptionsprototype)
 
 $(bin)DetSimOptions_dependencies.make : $(use_requirements) $(cmt_final_setup_DetSimOptions)
 	$(echo) "(DetSimOptions.make) Rebuilding $@"; \
-	  $(build_dependencies) -out=$@ -start_all $(src)LSExpPrimaryGeneratorAction.cc $(src)DetSim0Svc.cc $(src)WaterPoolConstruction.cc $(src)LSExpTrackingAction.cc $(src)LSExpEventAction.cc $(src)LSExpRunAction.cc $(src)ExpHallConstruction.cc $(src)RockConstruction.cc $(src)LSExpSteppingAction.cc $(src)LSExpDetectorConstruction.cc $(src)LSExpParticleGun.cc $(src)LSExpPhysicsList.cc $(src)DetPrototypeSvc.cc $(src)GlobalGeomInfo.cc -end_all $(includes) $(app_DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) -name=DetSimOptions $? -f=$(cmt_dependencies_in_DetSimOptions) -without_cmt
+	  $(build_dependencies) -out=$@ -start_all $(src)LSExpActionInitialization.cc $(src)LSExpPrimaryGeneratorAction.cc $(src)DetSim0Svc.cc $(src)WaterPoolConstruction.cc $(src)LSExpTrackingAction.cc $(src)LSExpEventAction.cc $(src)LSExpRunAction.cc $(src)ExpHallConstruction.cc $(src)RockConstruction.cc $(src)LSExpSteppingAction.cc $(src)LSExpDetectorConstruction.cc $(src)LSExpParticleGun.cc $(src)LSExpPhysicsList.cc $(src)DetPrototypeSvc.cc $(src)GlobalGeomInfo.cc -end_all $(includes) $(app_DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) -name=DetSimOptions $? -f=$(cmt_dependencies_in_DetSimOptions) -without_cmt
 
 -include $(bin)DetSimOptions_dependencies.make
 
@@ -215,6 +215,36 @@ endif
 DetSimOptionsclean ::
 	$(cleanup_silent) \rm -rf $(bin)DetSimOptions_deps $(bin)DetSimOptions_dependencies.make
 #-- end of dependencies -------------------
+#-- start of cpp_library -----------------
+
+ifneq (,)
+
+ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)LSExpActionInitialization.d
+
+$(bin)$(binobj)LSExpActionInitialization.d :
+
+$(bin)$(binobj)LSExpActionInitialization.o : $(cmt_final_setup_DetSimOptions)
+
+$(bin)$(binobj)LSExpActionInitialization.o : $(src)LSExpActionInitialization.cc
+	$(cpp_echo) $(src)LSExpActionInitialization.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpActionInitialization_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpActionInitialization_cppflags) $(LSExpActionInitialization_cc_cppflags)  $(src)LSExpActionInitialization.cc
+endif
+endif
+
+else
+$(bin)DetSimOptions_dependencies.make : $(LSExpActionInitialization_cc_dependencies)
+
+$(bin)DetSimOptions_dependencies.make : $(src)LSExpActionInitialization.cc
+
+$(bin)$(binobj)LSExpActionInitialization.o : $(LSExpActionInitialization_cc_dependencies)
+	$(cpp_echo) $(src)LSExpActionInitialization.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpActionInitialization_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpActionInitialization_cppflags) $(LSExpActionInitialization_cc_cppflags)  $(src)LSExpActionInitialization.cc
+
+endif
+
+#-- end of cpp_library ------------------
 #-- start of cpp_library -----------------
 
 ifneq (,)

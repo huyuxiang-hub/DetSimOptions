@@ -238,5 +238,5 @@ class ConfAcrylic(object):
         pmtsdmgr = self.pmtsd_mgr()
         pmtsdmgr.property("PMTSD").set("junoSD_PMT_v2")
         # Optical Physics 
-        op = self.optical_process()
-        op.property("UsePMTOpticalModel").set(False)
+        #op = self.optical_process()
+        #op.property("UsePMTOpticalModel").set(False)

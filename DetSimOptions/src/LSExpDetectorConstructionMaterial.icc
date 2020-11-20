@@ -643,8 +643,8 @@
         Photocathode_mat = new G4Material("photocathode",density,1);
         Photocathode_mat->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT = new G4MaterialPropertiesTable();
-        PhotocathodeMPT->AddProperty("RINDEX", fPP_PhC, fPhCRINDEX, 4);
-        PhotocathodeMPT->AddProperty("KINDEX", fPP_PhC, fPhCKINDEX, 4);
+        PhotocathodeMPT->AddProperty("RINDEX", fPP_PhC_NEW, fPhCRINDEX_NEW, 4);
+        PhotocathodeMPT->AddProperty("KINDEX", fPP_PhC_NEW, fPhCKINDEX_NEW, 4);
         PhotocathodeMPT->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
         PhotocathodeMPT->AddProperty("EFFICIENCY", fPP_PhCQE_1inch_20140620, fPhCEFFICIENCY_1inch_20140620, 43);
         PhotocathodeMPT->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
@@ -675,8 +675,8 @@
         Photocathode_mat_MCP20inch = new G4Material("photocathode_MCP20inch",density,1);
         Photocathode_mat_MCP20inch->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT_MCP20inch = new G4MaterialPropertiesTable();
-        PhotocathodeMPT_MCP20inch->AddProperty("RINDEX", fPP_PhC, fPhCRINDEX, 4);
-        PhotocathodeMPT_MCP20inch->AddProperty("KINDEX", fPP_PhC, fPhCKINDEX, 4);
+        PhotocathodeMPT_MCP20inch->AddProperty("RINDEX", fPP_PhC_NEW, fPhCRINDEX_NEW, 4);
+        PhotocathodeMPT_MCP20inch->AddProperty("KINDEX", fPP_PhC_NEW, fPhCKINDEX_NEW, 4);
         PhotocathodeMPT_MCP20inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
         //PhotocathodeMPT_MCP20inch->AddProperty("EFFICIENCY", fPP_PhCQE_MCP20inch, fPhCEFFICIENCY_MCP20inch, 43);
         PhotocathodeMPT_MCP20inch->AddProperty("EFFICIENCY", fPP_PhCQE_AverageMCP20inch, fPhCEFFICIENCY_AverageMCP20inch, 43);
@@ -708,8 +708,8 @@
         Photocathode_mat_Ham20inch = new G4Material("photocathode_Ham20inch",density,1);
         Photocathode_mat_Ham20inch->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT_Ham20inch = new G4MaterialPropertiesTable();
-        PhotocathodeMPT_Ham20inch->AddProperty("RINDEX", fPP_PhC, fPhCRINDEX, 4);
-        PhotocathodeMPT_Ham20inch->AddProperty("KINDEX", fPP_PhC, fPhCKINDEX, 4);
+        PhotocathodeMPT_Ham20inch->AddProperty("RINDEX", fPP_PhC_NEW, fPhCRINDEX_NEW, 4);
+        PhotocathodeMPT_Ham20inch->AddProperty("KINDEX", fPP_PhC_NEW, fPhCKINDEX_NEW, 4);
         PhotocathodeMPT_Ham20inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
         //PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Ham20inch, fPhCEFFICIENCY_Ham20inch, 43);
         //PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch, 43);

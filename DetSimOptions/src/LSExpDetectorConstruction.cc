@@ -40,7 +40,7 @@
 #include "G4LogicalBorderSurface.hh"
 #include "G4PhysicalVolumeStore.hh"
 #include "G4OpticalSurface.hh"
-
+#include "G4LogicalVolumeStore.hh"
 #include "G4Isotope.hh"
 #include "G4Element.hh"
 
@@ -111,6 +111,7 @@ LSExpDetectorConstruction::LSExpDetectorConstruction()
 #ifdef WITH_G4OPTICKS
  , m_g4opticks(NULL) 
 #endif
+ , m_isMTmode(false)
 {
   Photocathode_opsurf = 0;
   Photocathode_opsurf_3inch = 0;
@@ -210,9 +211,9 @@ void LSExpDetectorConstruction::DefineMaterials()
 #include "OpticalSurfaceProperty.icc"
 
   if(m_GdLSAbsLengthMode == 0)// Old LS AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy2, GdLSABSLength2, 502);
+        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy0, GdLSABSLength0, 502);
   else if ( m_GdLSAbsLengthMode == 1) // LAB AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy0, GdLSABSLength0, 428);
+        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy1, GdLSABSLength1, 428);
   else
         G4cout << "Unknown Type of GdLSAbsLengthMode ! " << G4endl;
   
@@ -427,6 +428,48 @@ G4VPhysicalVolume* LSExpDetectorConstruction::Construct()
 }
 
 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void
+LSExpDetectorConstruction::ConstructSDandField() {
+    // for compatibility between single thread and multi threading, only invoke following code in MT mode.
+    if (m_isMTmode) {
+        // Note: getPMTSD will create a new instance for each time.
+        // To avoid the crash, the tool PMTSDMgr should be created at the master thread.
+        // G4SDManager is a thread local object.
+        G4SDManager* SDman = G4SDManager::GetSDMpointer();
+        G4VSensitiveDetector* not_a_leak = getPMTSD();
+        SDman->AddNewDetector(not_a_leak);
+
+        // now, loop all the logical volumes with SD and register the new one.
+        // In this code, we assume there is only one SD 
+
+        // See: void G4VUserDetectorConstruction::CloneSD()
+        //Loop on ALL logial volumes to search for attached SD
+        G4LogicalVolumeStore* const logVolStore = G4LogicalVolumeStore::GetInstance();
+        assert( logVolStore != NULL );
+
+        for ( G4LogicalVolumeStore::const_iterator it = logVolStore->begin() ; it != logVolStore->end() ; ++it ) {
+            G4LogicalVolume *g4LogicalVolume = *it;
+            //Use shadow of master to get the instance of SD
+            G4VSensitiveDetector* masterSD = g4LogicalVolume->GetMasterSensitiveDetector();
+            G4VSensitiveDetector* clonedSD = 0;
+            if ( masterSD ) {
+                clonedSD = not_a_leak;
+                g4LogicalVolume->SetSensitiveDetector(clonedSD);
+                G4cout << "Register SD to volume: " << g4LogicalVolume->GetName() << G4endl;
+            }
+
+        }
+
+    }
+} 
+
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+ 
+
+
+
 #ifdef WITH_G4OPTICKS
 /**
 LSExpDetectorConstruction::SetupOpticks
@@ -531,9 +574,9 @@ LSExpDetectorConstruction::ModifyOpticalProperty()
 {
     // Before setup properties for materials, we could scale them.
 
-    G4int len_of_GdLSABSLength2 = 502;
-    for (int i=0; i < len_of_GdLSABSLength2; ++i) {
-        GdLSABSLength2[i] *= coeff_abslen;
+    G4int len_of_GdLSABSLength0 = 502;
+    for (int i=0; i < len_of_GdLSABSLength0; ++i) {
+        GdLSABSLength0[i] *= coeff_abslen;
          // GdLSABSLength[i] = 99999999999999*m;
     }
 
@@ -1813,4 +1856,9 @@ LSExpDetectorConstruction::helper_mpt(G4MaterialPropertiesTable* MPT, const std:
     }
     MPT->AddProperty(mname.c_str(), vec);
     return true;
+}
+
+void
+LSExpDetectorConstruction::setMTmode(bool flag) {
+    m_isMTmode = flag;
 }

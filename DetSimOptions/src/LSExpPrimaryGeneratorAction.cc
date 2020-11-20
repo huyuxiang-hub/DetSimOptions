@@ -71,6 +71,17 @@ LSExpPrimaryGeneratorAction::~LSExpPrimaryGeneratorAction()
 
 void LSExpPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
+    // special case: no task in the MT mode
+    if (m_isMT && !m_scope) {
+        G4ParticleTable* particletbl = G4ParticleTable::GetParticleTable();
+        G4ParticleDefinition* particle_def = particletbl->FindParticle(particleName);
+        particleGun->SetParticleDefinition(particle_def);
+        particleGun->GeneratePrimaryVertex(anEvent);
+        return;
+    }
+
+    // normal case: load data from event data buffer
+
     HepMC::GenEvent* gep = 0;
     gep = load_gen_event();
     if (not gep) {
@@ -314,4 +325,8 @@ LSExpPrimaryGeneratorAction::load_gen_event() {
         return 0;
     }
     return gen_event->getEvent();
+}
+
+void LSExpPrimaryGeneratorAction::setMTmode(bool flag) {
+    m_isMT = flag;
 }
