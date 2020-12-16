@@ -121,6 +121,9 @@ def get_parser():
     parser.add_argument("--no-dae", dest="dae", action="store_false",
                                                   help=mh("Don't Save DAE."))
     parser.set_defaults(dae=False)
+    # print specified ID track information
+    parser.add_argument("--print-eventID", default=-1, nargs='+',type=int, help=mh("print the track information of event specified event ID "))
+
 
     # = Calibration =
     grp_calib_unit = parser.add_argument_group(mh("calibunits"), mh("Calibration Units."))
@@ -232,18 +235,6 @@ def get_parser():
     grp_pmt_op.add_argument("--pmt3inch-offset", type=float, default=-50.0,
                         help=mh("The offset of the 3inch PMT (mm)."))
 
-    # add new optical model
-    
-    grp_pmt_op.add_argument("--new-optical-model", dest="new_optical_model", action="store_true",
-                  help=mh("Use the new optical model."))
-    grp_pmt_op.add_argument("--old-optical-model", dest="new_optical_model", action="store_false",
-                  help=mh("Use the old optical model"))
-    grp_pmt_op.set_defaults(new_optical_model=False)
-   
-    
-
-
-
     grp_pmt_op.add_argument("--pmtsd-v2", dest="pmtsd_v2", action="store_true",
                   help=mh("Use the new PMT SD v2. (without old PMT Optical Model)"))
     grp_pmt_op.add_argument("--no-pmtsd-v2", dest="pmtsd_v2", action="store_false",
@@ -281,7 +272,6 @@ def get_parser():
     grp_pmt_op.set_defaults(cerenkov=True)
     # == enable/disable new optical model, absreemit ==
     # note: cerenkov_only means disable the scintillation.
-    '''
     grp_pmt_op.add_argument("--absreemit", dest="absreemit", action="store_true",
                         help=mh("Enable Absorption and Reemission by PPO and bis_MSB (default is disabled)"))
     grp_pmt_op.add_argument("--no-absreemit", dest="absreemit", action="store_false",
@@ -293,7 +283,6 @@ def get_parser():
     grp_pmt_op.add_argument("--no-scintsimple", dest="scintsimple", action="store_false",
                         help=mh("Disable scint process without re-emission in it. Use default one."))
     grp_pmt_op.set_defaults(scintsimple=False)
-    '''
     # == track optical photons first or not ==
     grp_pmt_op.add_argument("--track-op-first", dest="track_op_first", action="store_true",
                         help=mh("Track optical photon first."))
@@ -373,12 +362,6 @@ def get_parser():
     grp_anamgr.add_argument("--anamgr-normal", action="store_true", dest="anamgr_normal", help=mh("TBD"))
     grp_anamgr.add_argument("--no-anamgr-normal", action="store_false", dest="anamgr_normal", help=mh("TBD"))
     grp_anamgr.set_defaults(anamgr_normal=True)
-   
-    grp_anamgr.add_argument("--anamgr-normal-hit",action="store_true",dest="anamgr_normal_hit",help=mh("TBD"))
-    grp_anamgr.add_argument("--no-anamgr-normal-hit",action="store_false",dest="anamgr_normal_hit",help=mh("TBD"))
-    grp_anamgr.set_defaults(anamgr_normal_hit=False) 
-   
-
     # == genevt ==
     grp_anamgr.add_argument("--anamgr-genevt", action="store_true", dest="anamgr_genevt", help=mh("TBD"))
     grp_anamgr.add_argument("--no-anamgr-genevt", action="store_false", dest="anamgr_genevt", help=mh("TBD"))
@@ -1073,7 +1056,6 @@ if __name__ == "__main__":
         print("loaded seed status: ", seedstatus)
         rndm.property("SeedStatusInputVector").set(seedstatus)
 
-    
     # = root writer =
     print("== Root Writer ==")
     import RootWriter
@@ -1209,6 +1191,8 @@ if __name__ == "__main__":
         detsimfactory.property("CDEnabled").set(args.cd_enabled)
         detsimfactory.property("WPEnabled").set(args.wp_enabled)
         detsimfactory.property("TTEnabled").set(args.tt_enabled)
+
+        detsimfactory.property("print_eventID").set(args.print_eventID)
         if args.shutter:
             acrylic_conf.enable_shutter()
         # = analysis manager control =
@@ -1250,9 +1234,6 @@ if __name__ == "__main__":
         # == normal anamgr ==
         if args.anamgr_normal:
             detsimfactory.property("AnaMgrList").append("NormalAnaMgr")
-            if args.anamgr_normal_hit:
-               normal_anamgr=sim_conf.tool("NormalAnaMgr")
-               normal_anamgr.property("EnableHitInfo").set(args.anamgr_normal_hit)
         # == genevt anamgr ==
         if args.anamgr_genevt:
             detsimfactory.property("AnaMgrList").append("GenEvtInfoAnaMgr")
@@ -1362,15 +1343,8 @@ if __name__ == "__main__":
 
         op_process.property("UseQuenching").set(args.quenching)
         # new optical model
-        if args.new_optical_model:
-            op_process.property("UseAbsReemit").set(True)
-            op_process.property("UseScintSimple").set(True)
-        else:
-            op_process.property("UseAbsReemit").set(False)
-            op_process.property("UseScintSimple").set(False)
-
-       # op_process.property("UseAbsReemit").set(args.absreemit)
-       # op_process.property("UseScintSimple").set(args.scintsimple)
+        op_process.property("UseAbsReemit").set(args.absreemit)
+        op_process.property("UseScintSimple").set(args.scintsimple)
         # other flags:
         op_process.property("doTrackSecondariesFirst").set(args.track_op_first)
             
@@ -1424,13 +1398,10 @@ if __name__ == "__main__":
             pass
         pass    
 
-        # add LS AbsLength Mode #
-        if args.new_optical_model:
-            detsimfactory.property("GdLSAbsLengthMode").set(1)
-        else:
-            detsimfactory.property("GdLSAbsLengthMode").set(0)
-        #-----------------------------------------#     
-       
+
+
+
+
         detsimfactory.property("PMTName").set(args.pmt20inch_name)
         detsimfactory.property("LPMTExtra").set(args.pmt20inch_extra)
         if args.pmt20inch_name == "R12860":

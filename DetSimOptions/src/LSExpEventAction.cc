@@ -67,6 +67,23 @@ void LSExpEventAction::BeginOfEventAction(const G4Event* evt)
   //if(evt->GetEventID()%1000 == 0) G4cout << "Begin of Event --> " << evt->GetEventID() << G4endl;
   G4cout << "Begin of Event --> " << evt->GetEventID() << G4endl;
 
+  if(m_eventID[0]!=-1)
+   { 
+      std::vector<int>::iterator ret;
+      ret = std::find(m_eventID.begin(), m_eventID.end(), evt->GetEventID());
+     
+      if (ret!=m_eventID.end())
+        {
+          G4UImanager * UImanager = G4UImanager::GetUIpointer();
+          UImanager->ApplyCommand("/tracking/verbose 2");      
+        }
+      else
+        {
+          G4UImanager * UImanager = G4UImanager::GetUIpointer();
+          UImanager->ApplyCommand("/tracking/verbose 0");
+        }
+   }
+
   //G4UImanager* uiMgr = G4UImanager::GetUIpointer();
   //if(evt->GetEventID() == 1537)
   // uiMgr->ApplyCommand("/tracking/verbose 1");
