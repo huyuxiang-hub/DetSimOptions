@@ -76,10 +76,8 @@ DetSim0Svc::DetSim0Svc(const std::string& name)
     declProp("OpticksMode", m_opticksMode=0);
     
     declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode=0);
-//   declProp("FlatQE", m_flatQE);
-    // print track infomation of specified Event
-
-    declProp("print_eventID",m_eventID);
+       
+   
 }
 
 DetSim0Svc::~DetSim0Svc()
@@ -240,9 +238,7 @@ DetSim0Svc::createRunAction()
 G4UserEventAction*  
 DetSim0Svc::createEventAction() 
 {
-   LSExpEventAction * ea = new LSExpEventAction;
-   ea -> setEventID (m_eventID );
-   return ea;
+   return new LSExpEventAction;
 }
 
 G4UserStackingAction*  

@@ -113,10 +113,7 @@ private:
 
 private:
     int m_GdLSAbsLengthMode;
-//   bool m_flatQE;
-//print track information
-private:
-    std::vector<int> m_eventID;
+
 
 };
 

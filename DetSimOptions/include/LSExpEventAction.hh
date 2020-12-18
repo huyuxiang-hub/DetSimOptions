@@ -32,7 +32,8 @@
 
 #include "G4UserEventAction.hh"
 #include "globals.hh"
-#include <vector>
+
+
 class LSExpEventActionMessenger;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
@@ -48,10 +49,11 @@ class LSExpEventAction : public G4UserEventAction
     void EndOfEventAction(const G4Event* anEvent);
     
     void SetDrawFlag(G4String val)  {drawFlag = val;};
-    void setEventID(std::vector<int>& f ){  m_eventID = f;}
+       
+
+
   private:
     G4String drawFlag;                         // control the drawing of event
-    std::vector<int> m_eventID;
 };
 
 #endif

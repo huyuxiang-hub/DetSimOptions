@@ -121,9 +121,6 @@ def get_parser():
     parser.add_argument("--no-dae", dest="dae", action="store_false",
                                                   help=mh("Don't Save DAE."))
     parser.set_defaults(dae=False)
-    # print specified ID track information
-    parser.add_argument("--print-eventID", default=-1, nargs='+',type=int, help=mh("print the track information of event specified event ID "))
-
 
     # = Calibration =
     grp_calib_unit = parser.add_argument_group(mh("calibunits"), mh("Calibration Units."))
@@ -389,6 +386,10 @@ def get_parser():
     grp_anamgr.add_argument("--anamgr-photon-tracking", action="store_true", dest="anamgr_photon_tracking", help=mh("TBD"))
     grp_anamgr.add_argument("--no-anamgr-photon-tracking", action="store_false", dest="anamgr_photon_tracking", help=mh("TBD"))
     grp_anamgr.set_defaults(anamgr_photon_tracking=False)
+
+  
+    grp_anamgr.add_argument("--anamgr-print-trackinfo", help=mh("print track information of specified event"))
+
     # == extend the anamgr ==
     grp_anamgr.add_argument("--anamgr-list", action="append", metavar="anamgr", default=[],
             help=mh("append anamgr to the anamgr list. You can specify anamgrs multiple times. "
@@ -1191,8 +1192,6 @@ if __name__ == "__main__":
         detsimfactory.property("CDEnabled").set(args.cd_enabled)
         detsimfactory.property("WPEnabled").set(args.wp_enabled)
         detsimfactory.property("TTEnabled").set(args.tt_enabled)
-
-        detsimfactory.property("print_eventID").set(args.print_eventID)
         if args.shutter:
             acrylic_conf.enable_shutter()
         # = analysis manager control =
@@ -1232,6 +1231,17 @@ if __name__ == "__main__":
             dmwws = sim_conf.tool("DataModelWriterWithSplit")
             dmwws.property("HitsMax").set(args.split_maxhits)
         # == normal anamgr ==
+        
+        if args.anamgr_print_trackinfo:
+            detsimfactory.property("AnaMgrList").append("PrintTrackInfoAnaMgr")
+            print_anamgr = sim_conf.tool("PrintTrackInfoAnaMgr")
+            with open ( args.anamgr_print_trackinfo , 'r')  as f :
+                lines=[l[:-1] for l in f.readlines()]
+                lines = [l.strip() for l in lines if len(l.strip())>0]
+            lines_num=[ int(x) for x in lines ]
+            print_anamgr.property("VerBose").set(lines_num[0])
+            del lines_num[0]
+            print_anamgr.property("EventID").set(lines_num)
         if args.anamgr_normal:
             detsimfactory.property("AnaMgrList").append("NormalAnaMgr")
         # == genevt anamgr ==
