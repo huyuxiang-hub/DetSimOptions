@@ -77,7 +77,6 @@ DetSim0Svc::DetSim0Svc(const std::string& name)
     
     declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode=0);
        
-   
 }
 
 DetSim0Svc::~DetSim0Svc()

@@ -2,7 +2,7 @@ document install_python DetSimOptions_python
 make_fragment make_header /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-branch/ExternalLibs/CMT/v1r26/mgr/fragments/make_header
 make_fragment dependencies /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-branch/ExternalLibs/CMT/v1r26/mgr/fragments/dependencies
 make_fragment cleanup_header /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-branch/ExternalLibs/CMT/v1r26/mgr/fragments/cleanup_header
-make_fragment install_python -header=install_python_header /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/sniper/SniperPolicy/cmt/fragments/install_python
-make_fragment install_python_header /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre0/sniper/SniperPolicy/cmt/fragments/install_python_header
+make_fragment install_python -header=install_python_header /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/sniper/SniperPolicy/cmt/fragments/install_python
+make_fragment install_python_header /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/sniper/SniperPolicy/cmt/fragments/install_python_header
 make_fragment document_header /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-branch/ExternalLibs/CMT/v1r26/mgr/fragments/document_header
 make_fragment dependency /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-branch/ExternalLibs/CMT/v1r26/mgr/fragments/dependency

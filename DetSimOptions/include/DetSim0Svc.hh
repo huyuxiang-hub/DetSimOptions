@@ -114,7 +114,6 @@ private:
 private:
     int m_GdLSAbsLengthMode;
 
-
 };
 
 #endif
