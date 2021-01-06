@@ -39,6 +39,7 @@ class ConfAcrylic(object):
         self._factory.property("PMTPosFile").set(DetSimOptions.data_load("PMTPos_Acrylic_with_chimney.csv"))
         self._factory.property("3inchPMTPosFile").set(DetSimOptions.data_load("3inch_pos.csv"))
         self._factory.property("StrutPosFile").set(DetSimOptions.data_load("Strut_Acrylic.csv"))
+        self._factory.property("Strut2PosFile").set(DetSimOptions.data_load("StrutBar2_Acrylic.csv"))
         self._factory.property("FastenerPosFile").set(DetSimOptions.data_load("Strut_Acrylic.csv"))
         self._factory.property("XJanchorPosFile").set(DetSimOptions.data_load("XJanchor.csv"))
         self._factory.property("SJCLSanchorPosFile").set(DetSimOptions.data_load("SJCLSanchor.csv"))

@@ -7,8 +7,7 @@ import Sniper
 
 if __name__ == "__main__":
 
-    task = Sniper.Task("task")
-    task.asTop()
+    task = Sniper.TopTask("task")
     task.setEvtMax(3)
     task.setLogLevel(0)
     # = I/O Related =

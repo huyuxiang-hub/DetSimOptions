@@ -47,7 +47,9 @@ private:
     std::string m_strut_name;
     std::string m_strut_mother;
     std::string m_strut_pos_file;
-    
+    std::string m_strut2_pos_file; 
+
+   
     std::string m_fastener_name;
     std::string m_fastener_mother;
     std::string m_fastener_pos_file;

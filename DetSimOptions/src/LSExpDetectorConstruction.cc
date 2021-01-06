@@ -120,7 +120,10 @@ LSExpDetectorConstruction::LSExpDetectorConstruction()
   m_rock_and_exphall = "RockAndExpHall";
 
   ball_r = 19.434*m; //19.5*m;
-  strut_r_acrylic =17820. *mm + 155.*mm + 600. *mm;  //17820. *mm + 165. *mm + 600. *mm + 35. *mm;
+  //strut_r_acrylic =17820. *mm + 155.*mm + 600. *mm;  //17820. *mm + 165. *mm + 600. *mm + 35. *mm;
+  strut_r_acrylic =17820. *mm + 637.*mm + 702.5 *mm;
+  strut2_r_acrylic =17820. *mm + 623.*mm + 762.5 *mm;
+
   strut_r_balloon =17715. *mm + 700 *mm + 5. *mm;
   fastener_r = 17820.*mm + 20.*mm; //17826. *mm;
   addition_r = 17820. *mm;
@@ -143,6 +146,7 @@ LSExpDetectorConstruction::LSExpDetectorConstruction()
   m_3inchpmt_pos_offset = -50.0*mm;
   m_veto_pmt_name = "R12860OnlyFrontMask";
   m_strut_name = "StrutAcrylic";
+  m_strut2_name="StrutBar2Acrylic";
   m_fastener_name = "FastenerAcrylic";
   m_upper_name = "UpperAcrylic";
   m_addition_name = "AdditionAcrylic";
@@ -269,6 +273,43 @@ G4VPhysicalVolume* LSExpDetectorConstruction::Construct()
                                  0);              // no field specific to volume
   // == Rock And Exp. Hall ==
   // For the prototype detector, we don't use this Rock and Exp. Hall
+ /*
+  IDetElement* strut_det = 0;
+  strut_det = det_elem("StrutAcrylicConstruction");
+  assert(strut_det);
+  
+  G4LogicalVolume* daughtervol = 0;
+  daughtervol=strut_det->getLV();
+  new G4PVPlacement(
+                0,
+                G4ThreeVector(),
+                daughtervol,
+                daughtervol->GetName()+"_phys",
+                logicWorld,
+                false,
+                0
+               );
+  
+  IDetElement* strut_det_2 = 0;
+  strut_det_2 = det_elem("StrutBar2AcrylicConstruction");
+  assert(strut_det_2);
+
+  G4LogicalVolume* daughtervol_2 = 0;
+  daughtervol_2=strut_det_2->getLV();
+  new G4PVPlacement(
+                0,
+                G4ThreeVector(),
+                daughtervol_2,
+                daughtervol_2->GetName()+"_phys",
+                logicWorld,
+                false,
+                0
+               );
+  
+*/
+
+
+  
   if (m_cd_name != "Prototype" and m_cd_name != "PrototypeOnePMT"
         and  m_rock_and_exphall == "RockAndExpHall") {
       G4cout<<"Begin Rock and Exp Hall Construction. " << G4endl;
@@ -278,7 +319,7 @@ G4VPhysicalVolume* LSExpDetectorConstruction::Construct()
       setupRockAndExpHall();
       G4cout<<"End Rock and Exp Hall Construction. " << G4endl;
   }
-
+ 
   // == Veto (Outer) Water Pool ==
   if (m_cd_name == "DetSim0" 
    or m_cd_name == "DetSim1"
@@ -303,7 +344,7 @@ G4VPhysicalVolume* LSExpDetectorConstruction::Construct()
           setupReflectorInCD();
       }
   }
-
+if(0){
   // == PMTs in CD and WP ==
   // === SD manager ===
   if (m_cd_name == "DetSim0" 
@@ -385,6 +426,7 @@ G4VPhysicalVolume* LSExpDetectorConstruction::Construct()
     
       m_calibunit_name = old_calibunit;
   }
+}
   
   //--------- Visualization attributes -------------------------------
   logicWorld->SetVisAttributes(G4VisAttributes::Invisible);
@@ -423,6 +465,7 @@ G4VPhysicalVolume* LSExpDetectorConstruction::Construct()
           << G4endl
           ; 
   }
+   
 
   return physiWorld;
 }
@@ -675,6 +718,7 @@ LSExpDetectorConstruction::setupCentralDetector()
 
   if (m_cd_name == "DetSim1"){
     m_strut_name = "StrutAcrylic";
+    m_strut2_name="StrutBar2Acrylic";
     m_fastener_name = "FastenerAcrylic";
     m_pmt_mother = "20inchInnerWater";
     m_strut_mother = "lWaterPool";
@@ -1485,6 +1529,29 @@ LSExpDetectorConstruction::setupCD_Sticks(IDetElement* cd_det) {
   assert (strut_detelem_pos);
   bool strut_status = cd_det->inject(m_strut_mother, strut_det, strut_detelem_pos);
   assert (strut_status);
+  
+//---------------
+//
+ IDetElement* strut2_det = 0;
+ IDetElementPos* strut2_detelem_pos = 0; 
+ if (m_strut_name == "StrutAcrylic"){
+  
+   if(m_strut2_name == "StrutBar2Acrylic"){
+      std::string new_name = m_strut2_name + "Construction";
+      strut2_det = det_elem(new_name);
+      strut2_r = strut2_r_acrylic;
+    } 
+   assert (strut2_det);
+   strut2_detelem_pos = new JUNO::Ball::HexagonPosBall(m_strut2_pos_file,strut2_r,false);
+  assert (strut2_detelem_pos);
+  bool strut2_status = cd_det->inject(m_strut_mother, strut2_det, strut2_detelem_pos);
+  assert (strut2_status); 
+   
+
+}
+   
+
+
 //--------------------------------------------------------------------
   IDetElement* fastener_det = 0;
   if (m_fastener_name == "FastenerAcrylic") {
