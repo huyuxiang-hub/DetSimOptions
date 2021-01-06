@@ -7,7 +7,7 @@ import Sniper
 
 if __name__ == "__main__":
 
-    task = Sniper.TopTask("task")
+    task = Sniper.Task("task")
     # task.asTop()
     task.setEvtMax(10)
     task.setLogLevel(0)
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     import Geometry
     pmt_param_svc = task.createSvc("PMTParamSvc")
     tt_geom_svc = task.createSvc("TTGeomSvc")
-   # tt_geom_svc.setLogLevel(6)
+    tt_geom_svc.setLogLevel(6)
 
     # == DetSimOptions ==
     Sniper.loadDll("libDetSimOptions.so")

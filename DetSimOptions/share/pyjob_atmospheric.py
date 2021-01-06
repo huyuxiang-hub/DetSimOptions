@@ -24,8 +24,8 @@ if __name__ == "__main__":
     parser = get_parser()
     args = parser.parse_args()
 
-    task = Sniper.TopTask("task")
-    
+    task = Sniper.Task("task")
+    task.asTop()
     task.setEvtMax(args.evtmax)
     #task.setEvtMax(25)
     #task.setLogLevel(0)

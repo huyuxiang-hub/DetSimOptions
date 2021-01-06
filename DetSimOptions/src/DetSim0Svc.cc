@@ -46,7 +46,6 @@ DetSim0Svc::DetSim0Svc(const std::string& name)
     declProp("3inchPMTPosFile", m_3inch_pmt_pos_file);
     declProp("3inchPMTPosOffset", m_3inch_pmt_pos_offset=-50.0);
     declProp("StrutPosFile", m_strut_pos_file);
-    declProp("Strut2PosFile", m_strut2_pos_file);
     declProp("FastenerPosFile", m_fastener_pos_file);
     declProp("XJanchorPosFile", m_xjanchor_pos_file);
     declProp("SJCLSanchorPosFile", m_sjclsanchor_pos_file);
@@ -77,6 +76,7 @@ DetSim0Svc::DetSim0Svc(const std::string& name)
     declProp("OpticksMode", m_opticksMode=0);
     
     declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode=0);
+    declProp("Turn_off", m_turn_off);
        
 }
 
@@ -166,7 +166,7 @@ DetSim0Svc::createDetectorConstruction()
     dc->setStrutName(m_strut_name); 
     dc->setStrutMother(m_strut_mother);
     dc->setStrutPosFile(m_strut_pos_file);
-    dc->setStrut2PosFile(m_strut2_pos_file);
+
     dc->setFastenerName(m_fastener_name);
     dc->setFastenerMother(m_fastener_mother);
     dc->setFastenerPosFile(m_fastener_pos_file);
@@ -202,6 +202,9 @@ DetSim0Svc::createDetectorConstruction()
 
     dc->setGdLSAbsLengthMode(m_GdLSAbsLengthMode);
  //   dc->setFlatQE(m_flatQE);
+ 
+    dc->setturnoff(m_turn_off);
+ 
 
     return dc;
 }
