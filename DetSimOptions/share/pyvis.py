@@ -50,7 +50,8 @@ if __name__ == "__main__":
     Sniper.loadDll("libG4Svc.so")
     g4svc = task.createSvc("G4Svc")
     print g4svc.objName()
-
+    
+    import DetSimOptions
     # == DetSimOptions ==
     Sniper.loadDll("libDetSimOptions.so")
     Sniper.loadDll("libAnalysisCode.so")
@@ -61,6 +62,10 @@ if __name__ == "__main__":
     detsim0 = task.createSvc("DetSim0Svc")
     detsim0.property("AnaMgrList").set(["GenEvtInfoAnaMgr", "NormalAnaMgr"])
     #detsim0.property("PMTPosFile").set("Det1PMTPos_new.csv")
+    detsim0.property("StrutPosFile").set(DetSimOptions.data_load("Strut_Acrylic.csv"))
+    detsim0.property("Strut2PosFile").set(DetSimOptions.data_load("StrutBar2_Acrylic.csv"))
+    detsim0.property("FastenerPosFile").set(DetSimOptions.data_load("Strut_Anchor_Acrylic.csv"))
+
     detsim0.property("CDName").set("DetSim1")
     detsim0.property("TTName").set("")
     detsim0.property("VetoPMTPosMode").set("")

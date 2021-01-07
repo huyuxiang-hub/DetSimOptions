@@ -27,8 +27,8 @@
 ##### (Edit the next line(s) to choose another graphics system)
 #####
 #/vis/open OGLIQt
-/vis/open OGLSX
-#
+#/vis/open OGLSX
+/vis/open OGL
 ####/vis/open OGLSXm
 ####/vis/open HepRepXML
 #
@@ -37,6 +37,8 @@
 # draw scene
 #
 /vis/drawVolume worlds
+
+#/vis/drawVolume lSteel
 #
 #/vis/viewer/addCutawayPlane 0 0 0 
 #/vis/viewer/set/viewpointThetaPhi 45 145 deg
@@ -50,7 +52,7 @@
 # /vis/scene/add/hits
 # (if you prefer refreshing each event, comment out next line)
 #/vis/scene/endOfEventAction accumulate
-#
+/vis/scene/add/axes  0 0 0 0.090
 #/vis/viewer/addCutawayPlane 0 0 0 m 1 0 0
 #/dyb/generator opticalphoton 0 0 0
 #/dyb/generator opticalphoton 16.0 0. 0

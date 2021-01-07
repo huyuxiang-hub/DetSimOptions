@@ -60,10 +60,7 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      G4VPhysicalVolume* Construct();
      // for the MT mode: each thread owns its SD and field.
      void ConstructSDandField();
-  private:
-      int m_turn_off;
-  public:
-      void setturnoff(int y) { m_turn_off=y;}
+
   public:
      void setScope(Task* scope) {m_scope = scope;}
      Task* getScope() {return m_scope;}
@@ -92,6 +89,7 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      void setStrutName(const std::string& strut_name) {m_strut_name = strut_name;}
      void setStrutMother(const std::string& strut_mother) {m_strut_mother=strut_mother;}
      void setStrutPosFile(const std::string& pos_file) {m_strut_pos_file=pos_file;}
+     void setStrut2PosFile(const std::string& pos_file) {m_strut2_pos_file=pos_file;}
      void setStrutPosDir(const std::string& pos_dir) {m_strut_pos_dir=pos_dir;}
  
      void setFastenerName(const std::string& fastener_name) {m_fastener_name = fastener_name;}
@@ -232,7 +230,11 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      G4double pmttube_h;
      G4double ball_r;
      G4double strut_r;
+     G4double strut2_r;
+     G4double strutballhead_r;
      G4double strut_r_acrylic;
+     G4double strut2_r_acrylic;
+     G4double strutballhead_r_acrylic;
      G4double strut_r_balloon;
      G4double fastener_r;
      G4double addition_r;
@@ -307,8 +309,11 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      std::string m_veto_pmt_pos_mode;
 
      std::string m_strut_name;
+     std::string m_strut2_name;
+     std::string m_strutballhead_name;
      std::string m_strut_mother;
      std::string m_strut_pos_file;
+     std::string m_strut2_pos_file;
      std::string m_strut_pos_dir;
      
      std::string m_fastener_name;
