@@ -3,7 +3,7 @@
 #====================================
 #  Library DetSimOptions
 #
-#   Generated Sat Jan  2 17:24:47 2021  by huyuxiang
+#   Generated Tue Feb  2 19:35:32 2021  by huyuxiang
 #
 #====================================
 
@@ -110,7 +110,7 @@ DetSimOptionsprototype :  ;
 
 endif
 
-DetSimOptionscompile : $(bin)LSExpTrackingAction.o $(bin)LSExpRunAction.o $(bin)DetPrototypeSvc.o $(bin)DetSim0Svc.o $(bin)GlobalGeomInfo.o $(bin)WaterPoolConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)LSExpEventAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpActionInitialization.o $(bin)LSExpSteppingAction.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o ;
+DetSimOptionscompile : $(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o ;
 
 #-- end of libary_header ----------------
 #-- start of libary ----------------------
@@ -118,10 +118,10 @@ DetSimOptionscompile : $(bin)LSExpTrackingAction.o $(bin)LSExpRunAction.o $(bin)
 DetSimOptionsLIB :: $(DetSimOptionslib) $(DetSimOptionsshstamp)
 	$(echo) "DetSimOptions : library ok"
 
-$(DetSimOptionslib) :: $(bin)LSExpTrackingAction.o $(bin)LSExpRunAction.o $(bin)DetPrototypeSvc.o $(bin)DetSim0Svc.o $(bin)GlobalGeomInfo.o $(bin)WaterPoolConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)LSExpEventAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpActionInitialization.o $(bin)LSExpSteppingAction.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o
+$(DetSimOptionslib) :: $(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o
 	$(lib_echo) "static library $@"
 	$(lib_silent) [ ! -f $@ ] || \rm -f $@
-	$(lib_silent) $(ar) $(DetSimOptionslib) $(bin)LSExpTrackingAction.o $(bin)LSExpRunAction.o $(bin)DetPrototypeSvc.o $(bin)DetSim0Svc.o $(bin)GlobalGeomInfo.o $(bin)WaterPoolConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)LSExpEventAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpActionInitialization.o $(bin)LSExpSteppingAction.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o
+	$(lib_silent) $(ar) $(DetSimOptionslib) $(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o
 	$(lib_silent) $(ranlib) $(DetSimOptionslib)
 	$(lib_silent) cat /dev/null >$(DetSimOptionsstamp)
 
@@ -151,8 +151,8 @@ $(DetSimOptionsshstamp) :: $(DetSimOptionslibname).$(shlibsuffix)
 
 DetSimOptionsclean ::
 	$(cleanup_echo) objects DetSimOptions
-	$(cleanup_silent) /bin/rm -f $(bin)LSExpTrackingAction.o $(bin)LSExpRunAction.o $(bin)DetPrototypeSvc.o $(bin)DetSim0Svc.o $(bin)GlobalGeomInfo.o $(bin)WaterPoolConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)LSExpEventAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpActionInitialization.o $(bin)LSExpSteppingAction.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o
-	$(cleanup_silent) /bin/rm -f $(patsubst %.o,%.d,$(bin)LSExpTrackingAction.o $(bin)LSExpRunAction.o $(bin)DetPrototypeSvc.o $(bin)DetSim0Svc.o $(bin)GlobalGeomInfo.o $(bin)WaterPoolConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)LSExpEventAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpActionInitialization.o $(bin)LSExpSteppingAction.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o) $(patsubst %.o,%.dep,$(bin)LSExpTrackingAction.o $(bin)LSExpRunAction.o $(bin)DetPrototypeSvc.o $(bin)DetSim0Svc.o $(bin)GlobalGeomInfo.o $(bin)WaterPoolConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)LSExpEventAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpActionInitialization.o $(bin)LSExpSteppingAction.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o) $(patsubst %.o,%.d.stamp,$(bin)LSExpTrackingAction.o $(bin)LSExpRunAction.o $(bin)DetPrototypeSvc.o $(bin)DetSim0Svc.o $(bin)GlobalGeomInfo.o $(bin)WaterPoolConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)LSExpEventAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpActionInitialization.o $(bin)LSExpSteppingAction.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o)
+	$(cleanup_silent) /bin/rm -f $(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o
+	$(cleanup_silent) /bin/rm -f $(patsubst %.o,%.d,$(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o) $(patsubst %.o,%.dep,$(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o) $(patsubst %.o,%.d.stamp,$(bin)LSExpActionInitialization.o $(bin)LSExpPrimaryGeneratorAction.o $(bin)DetSim0Svc.o $(bin)WaterPoolConstruction.o $(bin)LSExpTrackingAction.o $(bin)LSExpEventAction.o $(bin)LSExpRunAction.o $(bin)ExpHallConstruction.o $(bin)RockConstruction.o $(bin)LSExpSteppingAction.o $(bin)LSExpDetectorConstruction.o $(bin)LSExpParticleGun.o $(bin)LSExpPhysicsList.o $(bin)DetPrototypeSvc.o $(bin)GlobalGeomInfo.o)
 	$(cleanup_silent) cd $(bin); /bin/rm -rf DetSimOptions_deps DetSimOptions_dependencies.make
 
 #-----------------------------------------------------------------
@@ -204,7 +204,7 @@ ifneq ($(MAKECMDGOALS),DetSimOptionsprototype)
 
 $(bin)DetSimOptions_dependencies.make : $(use_requirements) $(cmt_final_setup_DetSimOptions)
 	$(echo) "(DetSimOptions.make) Rebuilding $@"; \
-	  $(build_dependencies) -out=$@ -start_all $(src)LSExpTrackingAction.cc $(src)LSExpRunAction.cc $(src)DetPrototypeSvc.cc $(src)DetSim0Svc.cc $(src)GlobalGeomInfo.cc $(src)WaterPoolConstruction.cc $(src)LSExpParticleGun.cc $(src)LSExpPhysicsList.cc $(src)LSExpEventAction.cc $(src)LSExpDetectorConstruction.cc $(src)LSExpActionInitialization.cc $(src)LSExpSteppingAction.cc $(src)LSExpPrimaryGeneratorAction.cc $(src)ExpHallConstruction.cc $(src)RockConstruction.cc -end_all $(includes) $(app_DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) -name=DetSimOptions $? -f=$(cmt_dependencies_in_DetSimOptions) -without_cmt
+	  $(build_dependencies) -out=$@ -start_all $(src)LSExpActionInitialization.cc $(src)LSExpPrimaryGeneratorAction.cc $(src)DetSim0Svc.cc $(src)WaterPoolConstruction.cc $(src)LSExpTrackingAction.cc $(src)LSExpEventAction.cc $(src)LSExpRunAction.cc $(src)ExpHallConstruction.cc $(src)RockConstruction.cc $(src)LSExpSteppingAction.cc $(src)LSExpDetectorConstruction.cc $(src)LSExpParticleGun.cc $(src)LSExpPhysicsList.cc $(src)DetPrototypeSvc.cc $(src)GlobalGeomInfo.cc -end_all $(includes) $(app_DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) -name=DetSimOptions $? -f=$(cmt_dependencies_in_DetSimOptions) -without_cmt
 
 -include $(bin)DetSimOptions_dependencies.make
 
@@ -221,26 +221,26 @@ ifneq (,)
 
 ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)LSExpTrackingAction.d
+-include $(bin)$(binobj)LSExpActionInitialization.d
 
-$(bin)$(binobj)LSExpTrackingAction.d :
+$(bin)$(binobj)LSExpActionInitialization.d :
 
-$(bin)$(binobj)LSExpTrackingAction.o : $(cmt_final_setup_DetSimOptions)
+$(bin)$(binobj)LSExpActionInitialization.o : $(cmt_final_setup_DetSimOptions)
 
-$(bin)$(binobj)LSExpTrackingAction.o : $(src)LSExpTrackingAction.cc
-	$(cpp_echo) $(src)LSExpTrackingAction.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpTrackingAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpTrackingAction_cppflags) $(LSExpTrackingAction_cc_cppflags)  $(src)LSExpTrackingAction.cc
+$(bin)$(binobj)LSExpActionInitialization.o : $(src)LSExpActionInitialization.cc
+	$(cpp_echo) $(src)LSExpActionInitialization.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpActionInitialization_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpActionInitialization_cppflags) $(LSExpActionInitialization_cc_cppflags)  $(src)LSExpActionInitialization.cc
 endif
 endif
 
 else
-$(bin)DetSimOptions_dependencies.make : $(LSExpTrackingAction_cc_dependencies)
+$(bin)DetSimOptions_dependencies.make : $(LSExpActionInitialization_cc_dependencies)
 
-$(bin)DetSimOptions_dependencies.make : $(src)LSExpTrackingAction.cc
+$(bin)DetSimOptions_dependencies.make : $(src)LSExpActionInitialization.cc
 
-$(bin)$(binobj)LSExpTrackingAction.o : $(LSExpTrackingAction_cc_dependencies)
-	$(cpp_echo) $(src)LSExpTrackingAction.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpTrackingAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpTrackingAction_cppflags) $(LSExpTrackingAction_cc_cppflags)  $(src)LSExpTrackingAction.cc
+$(bin)$(binobj)LSExpActionInitialization.o : $(LSExpActionInitialization_cc_dependencies)
+	$(cpp_echo) $(src)LSExpActionInitialization.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpActionInitialization_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpActionInitialization_cppflags) $(LSExpActionInitialization_cc_cppflags)  $(src)LSExpActionInitialization.cc
 
 endif
 
@@ -251,56 +251,26 @@ ifneq (,)
 
 ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)LSExpRunAction.d
+-include $(bin)$(binobj)LSExpPrimaryGeneratorAction.d
 
-$(bin)$(binobj)LSExpRunAction.d :
+$(bin)$(binobj)LSExpPrimaryGeneratorAction.d :
 
-$(bin)$(binobj)LSExpRunAction.o : $(cmt_final_setup_DetSimOptions)
+$(bin)$(binobj)LSExpPrimaryGeneratorAction.o : $(cmt_final_setup_DetSimOptions)
 
-$(bin)$(binobj)LSExpRunAction.o : $(src)LSExpRunAction.cc
-	$(cpp_echo) $(src)LSExpRunAction.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpRunAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpRunAction_cppflags) $(LSExpRunAction_cc_cppflags)  $(src)LSExpRunAction.cc
+$(bin)$(binobj)LSExpPrimaryGeneratorAction.o : $(src)LSExpPrimaryGeneratorAction.cc
+	$(cpp_echo) $(src)LSExpPrimaryGeneratorAction.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpPrimaryGeneratorAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpPrimaryGeneratorAction_cppflags) $(LSExpPrimaryGeneratorAction_cc_cppflags)  $(src)LSExpPrimaryGeneratorAction.cc
 endif
 endif
 
 else
-$(bin)DetSimOptions_dependencies.make : $(LSExpRunAction_cc_dependencies)
+$(bin)DetSimOptions_dependencies.make : $(LSExpPrimaryGeneratorAction_cc_dependencies)
 
-$(bin)DetSimOptions_dependencies.make : $(src)LSExpRunAction.cc
+$(bin)DetSimOptions_dependencies.make : $(src)LSExpPrimaryGeneratorAction.cc
 
-$(bin)$(binobj)LSExpRunAction.o : $(LSExpRunAction_cc_dependencies)
-	$(cpp_echo) $(src)LSExpRunAction.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpRunAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpRunAction_cppflags) $(LSExpRunAction_cc_cppflags)  $(src)LSExpRunAction.cc
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (,)
-
-ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)DetPrototypeSvc.d
-
-$(bin)$(binobj)DetPrototypeSvc.d :
-
-$(bin)$(binobj)DetPrototypeSvc.o : $(cmt_final_setup_DetSimOptions)
-
-$(bin)$(binobj)DetPrototypeSvc.o : $(src)DetPrototypeSvc.cc
-	$(cpp_echo) $(src)DetPrototypeSvc.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(DetPrototypeSvc_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(DetPrototypeSvc_cppflags) $(DetPrototypeSvc_cc_cppflags)  $(src)DetPrototypeSvc.cc
-endif
-endif
-
-else
-$(bin)DetSimOptions_dependencies.make : $(DetPrototypeSvc_cc_dependencies)
-
-$(bin)DetSimOptions_dependencies.make : $(src)DetPrototypeSvc.cc
-
-$(bin)$(binobj)DetPrototypeSvc.o : $(DetPrototypeSvc_cc_dependencies)
-	$(cpp_echo) $(src)DetPrototypeSvc.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(DetPrototypeSvc_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(DetPrototypeSvc_cppflags) $(DetPrototypeSvc_cc_cppflags)  $(src)DetPrototypeSvc.cc
+$(bin)$(binobj)LSExpPrimaryGeneratorAction.o : $(LSExpPrimaryGeneratorAction_cc_dependencies)
+	$(cpp_echo) $(src)LSExpPrimaryGeneratorAction.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpPrimaryGeneratorAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpPrimaryGeneratorAction_cppflags) $(LSExpPrimaryGeneratorAction_cc_cppflags)  $(src)LSExpPrimaryGeneratorAction.cc
 
 endif
 
@@ -341,36 +311,6 @@ ifneq (,)
 
 ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)GlobalGeomInfo.d
-
-$(bin)$(binobj)GlobalGeomInfo.d :
-
-$(bin)$(binobj)GlobalGeomInfo.o : $(cmt_final_setup_DetSimOptions)
-
-$(bin)$(binobj)GlobalGeomInfo.o : $(src)GlobalGeomInfo.cc
-	$(cpp_echo) $(src)GlobalGeomInfo.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(GlobalGeomInfo_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(GlobalGeomInfo_cppflags) $(GlobalGeomInfo_cc_cppflags)  $(src)GlobalGeomInfo.cc
-endif
-endif
-
-else
-$(bin)DetSimOptions_dependencies.make : $(GlobalGeomInfo_cc_dependencies)
-
-$(bin)DetSimOptions_dependencies.make : $(src)GlobalGeomInfo.cc
-
-$(bin)$(binobj)GlobalGeomInfo.o : $(GlobalGeomInfo_cc_dependencies)
-	$(cpp_echo) $(src)GlobalGeomInfo.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(GlobalGeomInfo_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(GlobalGeomInfo_cppflags) $(GlobalGeomInfo_cc_cppflags)  $(src)GlobalGeomInfo.cc
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (,)
-
-ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
-ifneq ($(MAKECMDGOALS),uninstall)
 -include $(bin)$(binobj)WaterPoolConstruction.d
 
 $(bin)$(binobj)WaterPoolConstruction.d :
@@ -391,6 +331,216 @@ $(bin)DetSimOptions_dependencies.make : $(src)WaterPoolConstruction.cc
 $(bin)$(binobj)WaterPoolConstruction.o : $(WaterPoolConstruction_cc_dependencies)
 	$(cpp_echo) $(src)WaterPoolConstruction.cc
 	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(WaterPoolConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(WaterPoolConstruction_cppflags) $(WaterPoolConstruction_cc_cppflags)  $(src)WaterPoolConstruction.cc
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (,)
+
+ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)LSExpTrackingAction.d
+
+$(bin)$(binobj)LSExpTrackingAction.d :
+
+$(bin)$(binobj)LSExpTrackingAction.o : $(cmt_final_setup_DetSimOptions)
+
+$(bin)$(binobj)LSExpTrackingAction.o : $(src)LSExpTrackingAction.cc
+	$(cpp_echo) $(src)LSExpTrackingAction.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpTrackingAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpTrackingAction_cppflags) $(LSExpTrackingAction_cc_cppflags)  $(src)LSExpTrackingAction.cc
+endif
+endif
+
+else
+$(bin)DetSimOptions_dependencies.make : $(LSExpTrackingAction_cc_dependencies)
+
+$(bin)DetSimOptions_dependencies.make : $(src)LSExpTrackingAction.cc
+
+$(bin)$(binobj)LSExpTrackingAction.o : $(LSExpTrackingAction_cc_dependencies)
+	$(cpp_echo) $(src)LSExpTrackingAction.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpTrackingAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpTrackingAction_cppflags) $(LSExpTrackingAction_cc_cppflags)  $(src)LSExpTrackingAction.cc
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (,)
+
+ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)LSExpEventAction.d
+
+$(bin)$(binobj)LSExpEventAction.d :
+
+$(bin)$(binobj)LSExpEventAction.o : $(cmt_final_setup_DetSimOptions)
+
+$(bin)$(binobj)LSExpEventAction.o : $(src)LSExpEventAction.cc
+	$(cpp_echo) $(src)LSExpEventAction.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpEventAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpEventAction_cppflags) $(LSExpEventAction_cc_cppflags)  $(src)LSExpEventAction.cc
+endif
+endif
+
+else
+$(bin)DetSimOptions_dependencies.make : $(LSExpEventAction_cc_dependencies)
+
+$(bin)DetSimOptions_dependencies.make : $(src)LSExpEventAction.cc
+
+$(bin)$(binobj)LSExpEventAction.o : $(LSExpEventAction_cc_dependencies)
+	$(cpp_echo) $(src)LSExpEventAction.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpEventAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpEventAction_cppflags) $(LSExpEventAction_cc_cppflags)  $(src)LSExpEventAction.cc
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (,)
+
+ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)LSExpRunAction.d
+
+$(bin)$(binobj)LSExpRunAction.d :
+
+$(bin)$(binobj)LSExpRunAction.o : $(cmt_final_setup_DetSimOptions)
+
+$(bin)$(binobj)LSExpRunAction.o : $(src)LSExpRunAction.cc
+	$(cpp_echo) $(src)LSExpRunAction.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpRunAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpRunAction_cppflags) $(LSExpRunAction_cc_cppflags)  $(src)LSExpRunAction.cc
+endif
+endif
+
+else
+$(bin)DetSimOptions_dependencies.make : $(LSExpRunAction_cc_dependencies)
+
+$(bin)DetSimOptions_dependencies.make : $(src)LSExpRunAction.cc
+
+$(bin)$(binobj)LSExpRunAction.o : $(LSExpRunAction_cc_dependencies)
+	$(cpp_echo) $(src)LSExpRunAction.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpRunAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpRunAction_cppflags) $(LSExpRunAction_cc_cppflags)  $(src)LSExpRunAction.cc
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (,)
+
+ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)ExpHallConstruction.d
+
+$(bin)$(binobj)ExpHallConstruction.d :
+
+$(bin)$(binobj)ExpHallConstruction.o : $(cmt_final_setup_DetSimOptions)
+
+$(bin)$(binobj)ExpHallConstruction.o : $(src)ExpHallConstruction.cc
+	$(cpp_echo) $(src)ExpHallConstruction.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(ExpHallConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(ExpHallConstruction_cppflags) $(ExpHallConstruction_cc_cppflags)  $(src)ExpHallConstruction.cc
+endif
+endif
+
+else
+$(bin)DetSimOptions_dependencies.make : $(ExpHallConstruction_cc_dependencies)
+
+$(bin)DetSimOptions_dependencies.make : $(src)ExpHallConstruction.cc
+
+$(bin)$(binobj)ExpHallConstruction.o : $(ExpHallConstruction_cc_dependencies)
+	$(cpp_echo) $(src)ExpHallConstruction.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(ExpHallConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(ExpHallConstruction_cppflags) $(ExpHallConstruction_cc_cppflags)  $(src)ExpHallConstruction.cc
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (,)
+
+ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)RockConstruction.d
+
+$(bin)$(binobj)RockConstruction.d :
+
+$(bin)$(binobj)RockConstruction.o : $(cmt_final_setup_DetSimOptions)
+
+$(bin)$(binobj)RockConstruction.o : $(src)RockConstruction.cc
+	$(cpp_echo) $(src)RockConstruction.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(RockConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(RockConstruction_cppflags) $(RockConstruction_cc_cppflags)  $(src)RockConstruction.cc
+endif
+endif
+
+else
+$(bin)DetSimOptions_dependencies.make : $(RockConstruction_cc_dependencies)
+
+$(bin)DetSimOptions_dependencies.make : $(src)RockConstruction.cc
+
+$(bin)$(binobj)RockConstruction.o : $(RockConstruction_cc_dependencies)
+	$(cpp_echo) $(src)RockConstruction.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(RockConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(RockConstruction_cppflags) $(RockConstruction_cc_cppflags)  $(src)RockConstruction.cc
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (,)
+
+ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)LSExpSteppingAction.d
+
+$(bin)$(binobj)LSExpSteppingAction.d :
+
+$(bin)$(binobj)LSExpSteppingAction.o : $(cmt_final_setup_DetSimOptions)
+
+$(bin)$(binobj)LSExpSteppingAction.o : $(src)LSExpSteppingAction.cc
+	$(cpp_echo) $(src)LSExpSteppingAction.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpSteppingAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpSteppingAction_cppflags) $(LSExpSteppingAction_cc_cppflags)  $(src)LSExpSteppingAction.cc
+endif
+endif
+
+else
+$(bin)DetSimOptions_dependencies.make : $(LSExpSteppingAction_cc_dependencies)
+
+$(bin)DetSimOptions_dependencies.make : $(src)LSExpSteppingAction.cc
+
+$(bin)$(binobj)LSExpSteppingAction.o : $(LSExpSteppingAction_cc_dependencies)
+	$(cpp_echo) $(src)LSExpSteppingAction.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpSteppingAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpSteppingAction_cppflags) $(LSExpSteppingAction_cc_cppflags)  $(src)LSExpSteppingAction.cc
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (,)
+
+ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)LSExpDetectorConstruction.d
+
+$(bin)$(binobj)LSExpDetectorConstruction.d :
+
+$(bin)$(binobj)LSExpDetectorConstruction.o : $(cmt_final_setup_DetSimOptions)
+
+$(bin)$(binobj)LSExpDetectorConstruction.o : $(src)LSExpDetectorConstruction.cc
+	$(cpp_echo) $(src)LSExpDetectorConstruction.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpDetectorConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpDetectorConstruction_cppflags) $(LSExpDetectorConstruction_cc_cppflags)  $(src)LSExpDetectorConstruction.cc
+endif
+endif
+
+else
+$(bin)DetSimOptions_dependencies.make : $(LSExpDetectorConstruction_cc_dependencies)
+
+$(bin)DetSimOptions_dependencies.make : $(src)LSExpDetectorConstruction.cc
+
+$(bin)$(binobj)LSExpDetectorConstruction.o : $(LSExpDetectorConstruction_cc_dependencies)
+	$(cpp_echo) $(src)LSExpDetectorConstruction.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpDetectorConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpDetectorConstruction_cppflags) $(LSExpDetectorConstruction_cc_cppflags)  $(src)LSExpDetectorConstruction.cc
 
 endif
 
@@ -461,26 +611,26 @@ ifneq (,)
 
 ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)LSExpEventAction.d
+-include $(bin)$(binobj)DetPrototypeSvc.d
 
-$(bin)$(binobj)LSExpEventAction.d :
+$(bin)$(binobj)DetPrototypeSvc.d :
 
-$(bin)$(binobj)LSExpEventAction.o : $(cmt_final_setup_DetSimOptions)
+$(bin)$(binobj)DetPrototypeSvc.o : $(cmt_final_setup_DetSimOptions)
 
-$(bin)$(binobj)LSExpEventAction.o : $(src)LSExpEventAction.cc
-	$(cpp_echo) $(src)LSExpEventAction.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpEventAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpEventAction_cppflags) $(LSExpEventAction_cc_cppflags)  $(src)LSExpEventAction.cc
+$(bin)$(binobj)DetPrototypeSvc.o : $(src)DetPrototypeSvc.cc
+	$(cpp_echo) $(src)DetPrototypeSvc.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(DetPrototypeSvc_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(DetPrototypeSvc_cppflags) $(DetPrototypeSvc_cc_cppflags)  $(src)DetPrototypeSvc.cc
 endif
 endif
 
 else
-$(bin)DetSimOptions_dependencies.make : $(LSExpEventAction_cc_dependencies)
+$(bin)DetSimOptions_dependencies.make : $(DetPrototypeSvc_cc_dependencies)
 
-$(bin)DetSimOptions_dependencies.make : $(src)LSExpEventAction.cc
+$(bin)DetSimOptions_dependencies.make : $(src)DetPrototypeSvc.cc
 
-$(bin)$(binobj)LSExpEventAction.o : $(LSExpEventAction_cc_dependencies)
-	$(cpp_echo) $(src)LSExpEventAction.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpEventAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpEventAction_cppflags) $(LSExpEventAction_cc_cppflags)  $(src)LSExpEventAction.cc
+$(bin)$(binobj)DetPrototypeSvc.o : $(DetPrototypeSvc_cc_dependencies)
+	$(cpp_echo) $(src)DetPrototypeSvc.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(DetPrototypeSvc_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(DetPrototypeSvc_cppflags) $(DetPrototypeSvc_cc_cppflags)  $(src)DetPrototypeSvc.cc
 
 endif
 
@@ -491,176 +641,26 @@ ifneq (,)
 
 ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)LSExpDetectorConstruction.d
+-include $(bin)$(binobj)GlobalGeomInfo.d
 
-$(bin)$(binobj)LSExpDetectorConstruction.d :
+$(bin)$(binobj)GlobalGeomInfo.d :
 
-$(bin)$(binobj)LSExpDetectorConstruction.o : $(cmt_final_setup_DetSimOptions)
+$(bin)$(binobj)GlobalGeomInfo.o : $(cmt_final_setup_DetSimOptions)
 
-$(bin)$(binobj)LSExpDetectorConstruction.o : $(src)LSExpDetectorConstruction.cc
-	$(cpp_echo) $(src)LSExpDetectorConstruction.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpDetectorConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpDetectorConstruction_cppflags) $(LSExpDetectorConstruction_cc_cppflags)  $(src)LSExpDetectorConstruction.cc
+$(bin)$(binobj)GlobalGeomInfo.o : $(src)GlobalGeomInfo.cc
+	$(cpp_echo) $(src)GlobalGeomInfo.cc
+	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(GlobalGeomInfo_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(GlobalGeomInfo_cppflags) $(GlobalGeomInfo_cc_cppflags)  $(src)GlobalGeomInfo.cc
 endif
 endif
 
 else
-$(bin)DetSimOptions_dependencies.make : $(LSExpDetectorConstruction_cc_dependencies)
+$(bin)DetSimOptions_dependencies.make : $(GlobalGeomInfo_cc_dependencies)
 
-$(bin)DetSimOptions_dependencies.make : $(src)LSExpDetectorConstruction.cc
+$(bin)DetSimOptions_dependencies.make : $(src)GlobalGeomInfo.cc
 
-$(bin)$(binobj)LSExpDetectorConstruction.o : $(LSExpDetectorConstruction_cc_dependencies)
-	$(cpp_echo) $(src)LSExpDetectorConstruction.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpDetectorConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpDetectorConstruction_cppflags) $(LSExpDetectorConstruction_cc_cppflags)  $(src)LSExpDetectorConstruction.cc
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (,)
-
-ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)LSExpActionInitialization.d
-
-$(bin)$(binobj)LSExpActionInitialization.d :
-
-$(bin)$(binobj)LSExpActionInitialization.o : $(cmt_final_setup_DetSimOptions)
-
-$(bin)$(binobj)LSExpActionInitialization.o : $(src)LSExpActionInitialization.cc
-	$(cpp_echo) $(src)LSExpActionInitialization.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpActionInitialization_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpActionInitialization_cppflags) $(LSExpActionInitialization_cc_cppflags)  $(src)LSExpActionInitialization.cc
-endif
-endif
-
-else
-$(bin)DetSimOptions_dependencies.make : $(LSExpActionInitialization_cc_dependencies)
-
-$(bin)DetSimOptions_dependencies.make : $(src)LSExpActionInitialization.cc
-
-$(bin)$(binobj)LSExpActionInitialization.o : $(LSExpActionInitialization_cc_dependencies)
-	$(cpp_echo) $(src)LSExpActionInitialization.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpActionInitialization_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpActionInitialization_cppflags) $(LSExpActionInitialization_cc_cppflags)  $(src)LSExpActionInitialization.cc
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (,)
-
-ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)LSExpSteppingAction.d
-
-$(bin)$(binobj)LSExpSteppingAction.d :
-
-$(bin)$(binobj)LSExpSteppingAction.o : $(cmt_final_setup_DetSimOptions)
-
-$(bin)$(binobj)LSExpSteppingAction.o : $(src)LSExpSteppingAction.cc
-	$(cpp_echo) $(src)LSExpSteppingAction.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpSteppingAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpSteppingAction_cppflags) $(LSExpSteppingAction_cc_cppflags)  $(src)LSExpSteppingAction.cc
-endif
-endif
-
-else
-$(bin)DetSimOptions_dependencies.make : $(LSExpSteppingAction_cc_dependencies)
-
-$(bin)DetSimOptions_dependencies.make : $(src)LSExpSteppingAction.cc
-
-$(bin)$(binobj)LSExpSteppingAction.o : $(LSExpSteppingAction_cc_dependencies)
-	$(cpp_echo) $(src)LSExpSteppingAction.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpSteppingAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpSteppingAction_cppflags) $(LSExpSteppingAction_cc_cppflags)  $(src)LSExpSteppingAction.cc
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (,)
-
-ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)LSExpPrimaryGeneratorAction.d
-
-$(bin)$(binobj)LSExpPrimaryGeneratorAction.d :
-
-$(bin)$(binobj)LSExpPrimaryGeneratorAction.o : $(cmt_final_setup_DetSimOptions)
-
-$(bin)$(binobj)LSExpPrimaryGeneratorAction.o : $(src)LSExpPrimaryGeneratorAction.cc
-	$(cpp_echo) $(src)LSExpPrimaryGeneratorAction.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpPrimaryGeneratorAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpPrimaryGeneratorAction_cppflags) $(LSExpPrimaryGeneratorAction_cc_cppflags)  $(src)LSExpPrimaryGeneratorAction.cc
-endif
-endif
-
-else
-$(bin)DetSimOptions_dependencies.make : $(LSExpPrimaryGeneratorAction_cc_dependencies)
-
-$(bin)DetSimOptions_dependencies.make : $(src)LSExpPrimaryGeneratorAction.cc
-
-$(bin)$(binobj)LSExpPrimaryGeneratorAction.o : $(LSExpPrimaryGeneratorAction_cc_dependencies)
-	$(cpp_echo) $(src)LSExpPrimaryGeneratorAction.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(LSExpPrimaryGeneratorAction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(LSExpPrimaryGeneratorAction_cppflags) $(LSExpPrimaryGeneratorAction_cc_cppflags)  $(src)LSExpPrimaryGeneratorAction.cc
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (,)
-
-ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)ExpHallConstruction.d
-
-$(bin)$(binobj)ExpHallConstruction.d :
-
-$(bin)$(binobj)ExpHallConstruction.o : $(cmt_final_setup_DetSimOptions)
-
-$(bin)$(binobj)ExpHallConstruction.o : $(src)ExpHallConstruction.cc
-	$(cpp_echo) $(src)ExpHallConstruction.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(ExpHallConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(ExpHallConstruction_cppflags) $(ExpHallConstruction_cc_cppflags)  $(src)ExpHallConstruction.cc
-endif
-endif
-
-else
-$(bin)DetSimOptions_dependencies.make : $(ExpHallConstruction_cc_dependencies)
-
-$(bin)DetSimOptions_dependencies.make : $(src)ExpHallConstruction.cc
-
-$(bin)$(binobj)ExpHallConstruction.o : $(ExpHallConstruction_cc_dependencies)
-	$(cpp_echo) $(src)ExpHallConstruction.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(ExpHallConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(ExpHallConstruction_cppflags) $(ExpHallConstruction_cc_cppflags)  $(src)ExpHallConstruction.cc
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (,)
-
-ifneq ($(MAKECMDGOALS),DetSimOptionsclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)RockConstruction.d
-
-$(bin)$(binobj)RockConstruction.d :
-
-$(bin)$(binobj)RockConstruction.o : $(cmt_final_setup_DetSimOptions)
-
-$(bin)$(binobj)RockConstruction.o : $(src)RockConstruction.cc
-	$(cpp_echo) $(src)RockConstruction.cc
-	$(cpp_silent) $(cppcomp)  -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(RockConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(RockConstruction_cppflags) $(RockConstruction_cc_cppflags)  $(src)RockConstruction.cc
-endif
-endif
-
-else
-$(bin)DetSimOptions_dependencies.make : $(RockConstruction_cc_dependencies)
-
-$(bin)DetSimOptions_dependencies.make : $(src)RockConstruction.cc
-
-$(bin)$(binobj)RockConstruction.o : $(RockConstruction_cc_dependencies)
-	$(cpp_echo) $(src)RockConstruction.cc
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(RockConstruction_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(RockConstruction_cppflags) $(RockConstruction_cc_cppflags)  $(src)RockConstruction.cc
+$(bin)$(binobj)GlobalGeomInfo.o : $(GlobalGeomInfo_cc_dependencies)
+	$(cpp_echo) $(src)GlobalGeomInfo.cc
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(DetSimOptions_pp_cppflags) $(lib_DetSimOptions_pp_cppflags) $(GlobalGeomInfo_pp_cppflags) $(use_cppflags) $(DetSimOptions_cppflags) $(lib_DetSimOptions_cppflags) $(GlobalGeomInfo_cppflags) $(GlobalGeomInfo_cc_cppflags)  $(src)GlobalGeomInfo.cc
 
 endif
 

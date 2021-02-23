@@ -202,13 +202,13 @@
         //LSMPT->AddProperty("bisMSBCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
         //LSMPT->AddProperty("bisMSBTIMECONSTANT", component, GdLSReemissionFastTimeConstant,2);
 
-        LSMPT->AddProperty("PPOABSLENGTH", PPOABSEnergy, PPOABSLENGTH, 578);
-        LSMPT->AddProperty("PPOREEMISSIONPROB", PPO_ReemMomentum, PPO_Reemission, 13);
-        LSMPT->AddProperty("PPOCOMPONENT", PPOCOMEnergy, PPOCOMPONENT, 300);
+        LSMPT->AddProperty("PPOABSLENGTH", PPOABSEnergy, PPOABSLENGTH, 779);
+        LSMPT->AddProperty("PPOREEMISSIONPROB", PPO_ReemMomentum, PPO_Reemission, 15);
+        LSMPT->AddProperty("PPOCOMPONENT", PPOCOMEnergy, PPOCOMPONENT, 302);
         LSMPT->AddProperty("PPOTIMECONSTANT", component, PPOTimeConstant,2);
 
         LSMPT->AddProperty("bisMSBABSLENGTH", bisMSBABSEnergy, bisMSBABSLENGTH, 381);
-        LSMPT->AddProperty("bisMSBREEMISSIONPROB", bisMSB_ReemMomentum, bisMSB_Reemission, 20);
+        LSMPT->AddProperty("bisMSBREEMISSIONPROB", bisMSB_ReemMomentum, bisMSB_Reemission, 23);
         LSMPT->AddProperty("bisMSBCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
         LSMPT->AddProperty("bisMSBTIMECONSTANT", component, bisMSBTimeConstant,2);
 
@@ -712,7 +712,7 @@
         PhotocathodeMPT_Ham20inch->AddProperty("KINDEX", fPP_PhC_NEW, fPhCKINDEX_NEW, 4);
         PhotocathodeMPT_Ham20inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
         //PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Ham20inch, fPhCEFFICIENCY_Ham20inch, 43);
-        //PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch, 43);
+        PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch, 43);
         PhotocathodeMPT_Ham20inch->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
         Photocathode_mat_Ham20inch->SetMaterialPropertiesTable(PhotocathodeMPT_Ham20inch);
     //} 
@@ -824,6 +824,12 @@
         Rock->SetMaterialPropertiesTable(RockMPT);
     }
 
+    double water_abslen_scale_factor = 40.*m/(2651.815*cm);
+        for (int j = 0; j < 316; ++j) {
+            fWaterABSORPTION[j] *= water_abslen_scale_factor;
+        }
+
+
    // Add vetoWater material for outer water veto system
     vetoWater = G4Material::GetMaterial("vetoWater", any_warnings);
     if (vetoWater) {
@@ -855,10 +861,12 @@
         WaterMPT->AddProperty("RINDEX", fPP_Water_RIN, fWaterRINDEX,36);
         //WaterMPT->AddProperty("RINDEX", fPP_Oil_RIN, fOilRINDEX, 9);
         // scale the water absorption length
-        double water_abslen_scale_factor = 90.*m/(2651.815*cm);
+       /* 
+       double water_abslen_scale_factor = 90.*m/(2651.815*cm);
         for (int j = 0; j < 316; ++j) {
             fWaterABSORPTION[j] *= water_abslen_scale_factor;
         }
+       */
         WaterMPT->AddProperty("ABSLENGTH", fPP_Water_ABS,fWaterABSORPTION, 316);
         //WaterMPT->AddProperty("ABSLENGTH",fPP_Oil_ABS, fOilABSORPTION, 543);
         Water->SetMaterialPropertiesTable(WaterMPT);

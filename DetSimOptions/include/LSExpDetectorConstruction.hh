@@ -393,11 +393,9 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
     bool m_isMTmode;
  
   private:
-     int m_GdLSAbsLengthMode;
-  //   bool m_flatQE;
+    std::string m_GdLSAbsLengthMode;
   public:
-     void setGdLSAbsLengthMode(int GdLSAbsLengthMode) {m_GdLSAbsLengthMode = GdLSAbsLengthMode ;}
-  //  void setFlatQE(bool flatQE) {m_flatQE = flatQE; }
+     void setGdLSAbsLengthMode(std::string GdLSAbsLengthMode) {m_GdLSAbsLengthMode = GdLSAbsLengthMode ;}
   
 
 

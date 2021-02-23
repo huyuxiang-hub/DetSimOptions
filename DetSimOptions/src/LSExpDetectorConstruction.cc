@@ -106,7 +106,6 @@ LSExpDetectorConstruction::LSExpDetectorConstruction()
  , pmt_det_veto(0)
  , m_scope(0)
  , m_opticksMode(0)
- , m_GdLSAbsLengthMode(0)
 // , m_flatQE(false)
 #ifdef WITH_G4OPTICKS
  , m_g4opticks(NULL) 
@@ -173,6 +172,8 @@ LSExpDetectorConstruction::LSExpDetectorConstruction()
   m_sjreceiver_fastener_mother = "lTarget";
 
 
+  m_GdLSAbsLengthMode = "old";
+
  // m_veto_pmt_pos_mode = "CalMode";//CalMode: auto input pmt; FileMode: need read pmt pos file
 //  m_pmt_pos_mode = "FileMode";
 //  m_pmt_pos_file = "/workfs/bes/lint/jmne/juno-dev/offline/Simulation/DetSim/DetSim1/share/Det1PMTPos_new.csv";
@@ -217,36 +218,16 @@ void LSExpDetectorConstruction::DefineMaterials()
 #include "LSExpDetectorConstructionMaterial.icc"
 #include "OpticalSurfaceProperty.icc"
 
-  if(m_GdLSAbsLengthMode == 0)// Old LS AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy0, GdLSABSLength0, 502);
-  else if ( m_GdLSAbsLengthMode == 1) // LAB AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy1, GdLSABSLength1, 428);
-  else
-        G4cout << "Unknown Type of GdLSAbsLengthMode ! " << G4endl;
-  
-  PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch, 43);
-  PhotocathodeMPT_MCP20inch->AddProperty("EFFICIENCY", fPP_PhCQE_AverageMCP20inch, fPhCEFFICIENCY_AverageMCP20inch, 43);
 
 
-/*
-  if(m_GdLSAbsLengthMode == 0) // LAB AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy0, GdLSABSLength0, 428);
-  else if (m_GdLSAbsLengthMode == 1) // New LS AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy1, GdLSABSLength1, 402);
-  else if (m_GdLSAbsLengthMode == 2) // Old LS AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy2, GdLSABSLength2, 502);
+  if(m_GdLSAbsLengthMode == "LAB") // LAB AbsLength
+        LSMPT->AddProperty("ABSLENGTH", GdLABABSEnergy, GdLABABSLength, 428);
+  else if (m_GdLSAbsLengthMode == "new") // New LS AbsLength
+        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_new, GdLSABSLength_new, 601);
+  else if (m_GdLSAbsLengthMode == "old") // Old LS AbsLength
+        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_old, GdLSABSLength_old, 502);
   else
       G4cout << "Unknown Type of GdLSAbsLengthMode ! " << G4endl; 
-*/
-// flat qe
- /* if(!m_flatQE) {
-        PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch, 43);
-        PhotocathodeMPT_MCP20inch->AddProperty("EFFICIENCY", fPP_PhCQE_AverageMCP20inch, fPhCEFFICIENCY_AverageMCP20inch, 43);
-  } else if (m_flatQE) {
-        PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch_one, 43);
-        PhotocathodeMPT_MCP20inch->AddProperty("EFFICIENCY", fPP_PhCQE_AverageMCP20inch, fPhCEFFICIENCY_AverageMCP20inch_one, 43);
-  }
-  */
 
 }
 
@@ -583,9 +564,9 @@ LSExpDetectorConstruction::ModifyOpticalProperty()
 {
     // Before setup properties for materials, we could scale them.
 
-    G4int len_of_GdLSABSLength0 = 502;
-    for (int i=0; i < len_of_GdLSABSLength0; ++i) {
-        GdLSABSLength0[i] *= coeff_abslen;
+    G4int len_of_GdLSABSLength_old = 502;
+    for (int i=0; i < len_of_GdLSABSLength_old; ++i) {
+        GdLSABSLength_old[i] *= coeff_abslen;
          // GdLSABSLength[i] = 99999999999999*m;
     }
 

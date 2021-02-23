@@ -1,1 +1,1 @@
-LSExpParticleGun_cc_dependencies =  ../src/LSExpParticleGun.cc   /home/huyuxiang/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/LSExpParticleGun.hh  $(bin)DetSimOptions_deps/LSExpParticleGun_cc.stamp
+LSExpParticleGun_cc_dependencies =  ../src/LSExpParticleGun.cc   /junofs/users/huyuxiang/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/LSExpParticleGun.hh  $(bin)DetSimOptions_deps/LSExpParticleGun_cc.stamp

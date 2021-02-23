@@ -114,7 +114,7 @@ private:
 
 
 private:
-    int m_GdLSAbsLengthMode;
+    std::string m_GdLSAbsLengthMode;
 
 };
 
