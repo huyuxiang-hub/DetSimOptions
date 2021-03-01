@@ -155,7 +155,7 @@
         LSMPT->AddProperty("SLOWCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
         LSMPT->AddProperty("REEMISSIONPROB", GdLSReemEnergy, GdLSReem, 28);
         LSMPT->AddProperty("RAYLEIGH", GdLSRayEnergy, GdLSRayLength, 11);
-        LSMPT->AddProperty("SCINTILLATIONYIELD", component, GdLSLY,2);
+        //LSMPT->AddProperty("SCINTILLATIONYIELD", component, GdLSLY,2);
         LSMPT->AddProperty("RESOLUTIONSCALE", component, GdLSResolutionScale,2);
 
         LSMPT->AddConstProperty("SCINTILLATIONYIELD", GdLSLY[0]);
@@ -361,12 +361,30 @@
         Acrylic->AddElement(O, 0.31961);
 
         G4MaterialPropertiesTable* AcrylicMPT = new G4MaterialPropertiesTable();
-        AcrylicMPT->AddProperty("ABSLENGTH", AcrylicAbsEnergy, AcrylicAbsLength, 9);
+        AcrylicMPT->AddProperty("ABSLENGTH", AcrylicAbsEnergy, AcrylicAbsLength, 27);
         AcrylicMPT->AddProperty("RAYLEIGH", AcrylicRayEnergy, AcrylicRayLength, 11);
         AcrylicMPT->AddProperty("RINDEX", AcrylicRefEnergy, AcrylicRefIndex, 18);
 
         Acrylic->SetMaterialPropertiesTable(AcrylicMPT);
     //}
+
+    //The Acrylic Mask
+     G4cout << "Acrylic Mask is constructed from the code." << G4endl;
+        AcrylicMask = new G4Material("AcrylicMask", 1.18*g/cm3, 3);
+        //Acrylic->AddElement(C, 0.59984);
+        AcrylicMask->AddElement(TS_C_of_Graphite, 0.59984);
+        //Acrylic->AddElement(H, 0.08055);
+        AcrylicMask->AddElement(TS_H_of_Polyethylene, 0.08055);
+        AcrylicMask->AddElement(O, 0.31961);
+
+        G4MaterialPropertiesTable* AcrylicMaskMPT = new G4MaterialPropertiesTable();
+        AcrylicMaskMPT->AddProperty("ABSLENGTH", AcrylicMaskAbsEnergy, AcrylicMaskAbsLength, 157);
+        AcrylicMaskMPT->AddProperty("RAYLEIGH", AcrylicRayEnergy, AcrylicRayLength, 11);
+        AcrylicMaskMPT->AddProperty("RINDEX", AcrylicRefEnergy, AcrylicRefIndex, 18);
+
+        AcrylicMask->SetMaterialPropertiesTable(AcrylicMaskMPT);
+
+
 
     // The Opacity Acrylic
     DummyAcrylic = G4Material::GetMaterial("DummyAcrylic", any_warnings);
@@ -412,6 +430,30 @@
         SteelMPT->AddProperty("ABSLENGTH", fPP_SteelTank, fSteelTankABSORPTION, 4);
         Steel->SetMaterialPropertiesTable(SteelMPT);
     }
+
+    // Latticed Shell
+    // -- Tao Lin, 18th Feb 2021
+    LatticedShellSteel = G4Material::GetMaterial("LatticedShellSteel", any_warnings);
+    if (LatticedShellSteel) {
+        G4cout << "LatticedShellSteel is constructed from the GDML file" << G4endl;
+    } else {
+        G4cout << "LatticedShellSteel is constructed from the code" << G4endl;
+        density = 8.1*g/cm3;
+        LatticedShellSteel = new G4Material("LatticedShellSteel", density, 8);
+        LatticedShellSteel->AddElement(Fe, 0.70845);
+        LatticedShellSteel->AddElement(C, 0.0008);
+        LatticedShellSteel->AddElement(Mn, 0.02);
+        LatticedShellSteel->AddElement(P, 0.00045);
+        LatticedShellSteel->AddElement(S, 0.00030);
+        LatticedShellSteel->AddElement(Si, 0.01);
+        LatticedShellSteel->AddElement(Cr, 0.18);
+        LatticedShellSteel->AddElement(Ni, 0.08);
+        G4MaterialPropertiesTable* LatticedShellSteelMPT = new G4MaterialPropertiesTable();
+        LatticedShellSteelMPT->AddProperty("ABSLENGTH", fPP_SteelTank, fSteelTankABSORPTION, 4);
+        LatticedShellSteel->SetMaterialPropertiesTable(LatticedShellSteelMPT);
+    }
+
+ 
 
     //Stainless Steel added by Xin Qian Nov 2nd 2014                              
     StainlessSteel = G4Material::GetMaterial("StainlessSteel", any_warnings);

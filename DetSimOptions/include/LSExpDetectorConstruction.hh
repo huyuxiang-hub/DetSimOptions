@@ -203,6 +203,7 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      G4Material* ESR;         // Detector material
      G4Material* Tyvek;         // Detector material
      G4Material* Acrylic;         // Detector material
+     G4Material* AcrylicMask;     // Detector material
      G4Material* DummyAcrylic;         // Detector material
      G4Material* Teflon;         // Detector material
      G4Material* ETFE;         // Detector material
@@ -211,6 +212,7 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      G4Material* PA;          // Default material---Nylon
      G4Material* Photocathode_mat;
      G4Material* Steel;
+     G4Material* LatticedShellSteel; // used for Latticed Shell
      G4Material* StainlessSteel;
      G4Material* Mylar;
      G4Material* Vacuum;
