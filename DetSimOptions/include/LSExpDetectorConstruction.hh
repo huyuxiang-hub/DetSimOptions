@@ -36,9 +36,7 @@ class G4Tubs;
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4VSensitiveDetector;
-#ifdef WITH_G4OPTICKS
 class G4Opticks ; 
-#endif
 class LSExpDetectorMessenger;
 class IDetElement;
 class IDetElementPos;
@@ -386,10 +384,7 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
   private:
      Task* m_scope;
      int m_opticksMode; 
-#ifdef WITH_G4OPTICKS
-     static G4Opticks* SetupOpticks(const G4VPhysicalVolume* world, const G4VSensitiveDetector* sd_);
      G4Opticks* m_g4opticks ; 
-#endif
 
   private:
     bool m_isMTmode;

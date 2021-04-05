@@ -361,8 +361,9 @@
         Acrylic->AddElement(O, 0.31961);
 
         G4MaterialPropertiesTable* AcrylicMPT = new G4MaterialPropertiesTable();
-        AcrylicMPT->AddProperty("ABSLENGTH", AcrylicAbsEnergy, AcrylicAbsLength, 27);
-        AcrylicMPT->AddProperty("RAYLEIGH", AcrylicRayEnergy, AcrylicRayLength, 11);
+      //   AcrylicMPT->AddProperty("ABSLENGTH", AcrylicAbsEnergy, AcrylicAbsLength, 27);
+       AcrylicMPT->AddProperty("ABSLENGTH", AcrylicAbsEnergy, AcrylicAbsLength, 9);
+      //  AcrylicMPT->AddProperty("RAYLEIGH", AcrylicRayEnergy, AcrylicRayLength, 11);
         AcrylicMPT->AddProperty("RINDEX", AcrylicRefEnergy, AcrylicRefIndex, 18);
 
         Acrylic->SetMaterialPropertiesTable(AcrylicMPT);
@@ -379,7 +380,7 @@
 
         G4MaterialPropertiesTable* AcrylicMaskMPT = new G4MaterialPropertiesTable();
         AcrylicMaskMPT->AddProperty("ABSLENGTH", AcrylicMaskAbsEnergy, AcrylicMaskAbsLength, 157);
-        AcrylicMaskMPT->AddProperty("RAYLEIGH", AcrylicRayEnergy, AcrylicRayLength, 11);
+       // AcrylicMaskMPT->AddProperty("RAYLEIGH", AcrylicRayEnergy, AcrylicRayLength, 11);
         AcrylicMaskMPT->AddProperty("RINDEX", AcrylicRefEnergy, AcrylicRefIndex, 18);
 
         AcrylicMask->SetMaterialPropertiesTable(AcrylicMaskMPT);
@@ -830,7 +831,7 @@
         Pyrex->AddMaterial(B2O2, .13);
         Pyrex->AddMaterial(Na2O, .07);
         G4MaterialPropertiesTable* PyrexMPT = new G4MaterialPropertiesTable();
-        PyrexMPT->AddProperty("RINDEX", fPP_Pyrex, fPyrexRINDEX, 6);
+        PyrexMPT->AddProperty("RINDEX", fPP_Pyrex, fPyrexRINDEX, 10);
         PyrexMPT->AddProperty("ABSLENGTH", fPP_PyrexABS, fPyrexABSORPTION, 9);
         Pyrex->SetMaterialPropertiesTable(PyrexMPT);
     }

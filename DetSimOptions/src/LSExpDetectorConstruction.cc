@@ -49,13 +49,6 @@
 
 #include "G4ios.hh"
 
-#ifdef WITH_G4OPTICKS
-#include "G4Opticks.hh"
-#include "junoSD_PMT_v2.hh"
-#include "PMTEfficiencyTable.hh"
-#include "PLOG.hh"
-#endif
-
 #include <sstream>
 #include "Randomize.hh"
 
@@ -84,6 +77,9 @@
 #include <boost/tuple/tuple_io.hpp>
 #include <MCParamsSvc/IMCParamsSvc.hh>
 
+#include "LSExpDetectorConstruction_Opticks.hh"
+
+
 using namespace std;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -107,9 +103,7 @@ LSExpDetectorConstruction::LSExpDetectorConstruction()
  , m_scope(0)
  , m_opticksMode(0)
 // , m_flatQE(false)
-#ifdef WITH_G4OPTICKS
  , m_g4opticks(NULL) 
-#endif
  , m_isMTmode(false)
 {
   Photocathode_opsurf = 0;
@@ -390,29 +384,13 @@ G4VPhysicalVolume* LSExpDetectorConstruction::Construct()
 
  // get the pointer to the User Interface manager 
 
-  if(m_opticksMode > 0)
-  {
-#ifdef WITH_G4OPTICKS
-      m_g4opticks = SetupOpticks(physiWorld, m_sd); 
-#else
-      G4cout 
-          << __FILE__ << ":" << __LINE__ 
-          << " m_opticksMode " << m_opticksMode 
-          << " FATAL non-zero opticksMode BUT WITH_G4OPTICKS not defined " 
-          << G4endl
-          ; 
-      assert(0);
-#endif
-  } 
-  else 
-  {
-      G4cout 
-          << __FILE__ << ":" << __LINE__ << " completed construction of physiWorld " 
-          << " m_opticksMode " << m_opticksMode 
-          << G4endl
-          ; 
-  }
-   
+  m_g4opticks = LSExpDetectorConstruction_Opticks::Setup( physiWorld, m_sd, m_opticksMode );
+
+  G4cout 
+      << __FILE__ << ":" << __LINE__ << " completed construction of physiWorld " 
+      << " m_opticksMode " << m_opticksMode 
+      << G4endl
+      ; 
 
   return physiWorld;
 }
@@ -459,83 +437,6 @@ LSExpDetectorConstruction::ConstructSDandField() {
  
 
 
-
-#ifdef WITH_G4OPTICKS
-/**
-LSExpDetectorConstruction::SetupOpticks
------------------------------------------
-
-1. pass geometry to Opticks, translate it to GPU and return sensor placements 
-2. use the placements to pass sensor data : efficiencies, categories, identifiers
-3. pass theta dependent efficiency tables for all sensor categories
-
-**/
-
-G4Opticks* LSExpDetectorConstruction::SetupOpticks(const G4VPhysicalVolume* world, const G4VSensitiveDetector* sd_) // static
-{
-    LOG(info) << "[ WITH_G4OPTICKS " ; 
-    assert(world); 
-
-    // 1. pass geometry to Opticks, translate it to GPU and return sensor placements  
-
-    G4Opticks* g4opticks = new G4Opticks ; 
-    g4opticks->setGeometry(world); 
-    const std::vector<G4PVPlacement*>& sensor_placements = g4opticks->getSensorPlacements() ;       
-    unsigned num_sensor = sensor_placements.size(); 
-
-    // 2. use the placements to pass sensor data : efficiencies, categories, identifiers  
-
-    const junoSD_PMT_v2* sd = dynamic_cast<const junoSD_PMT_v2*>(sd_) ;  
-    assert(sd) ; 
-    PMTParamSvc* pp = sd->getPMTParamSvc() ;  
-    assert(pp);
-    std::string SensorCategoryList = pp->PMTCategoryList() ;  
-    LOG(info) << " SensorCategoryList " << SensorCategoryList ; 
-
-    LOG(info) << "[ setSensorData num_sensor " << num_sensor ; 
-    for(unsigned i=0 ; i < num_sensor ; i++)
-    {
-        unsigned sensor_index = i ; 
-        const G4PVPlacement* pv = sensor_placements[sensor_index] ;  
-        G4int copyNo = pv->GetCopyNo();  
-        int pmtid = copyNo ; 
-        int pmtcat = pp->getPMTCategory(pmtid); 
-        float efficiency_1 = sd->getQuantumEfficiency(pmtid); 
-        float efficiency_2 = sd->getEfficiencyScale() ; 
-
-        g4opticks->setSensorData( sensor_index, efficiency_1, efficiency_2, pmtcat, pmtid ); 
-    }
-    g4opticks->setSensorDataMeta<std::string>("SensorCategoryList", SensorCategoryList);   
-    LOG(info) << "] setSensorData num_sensor " << num_sensor ; 
-
-    // 3. pass theta dependent efficiency tables for all sensor categories 
-
-    PMTEfficiencyTable* pt = sd->getPMTEfficiencyTable(); 
-    assert(pt);
-
-    const std::vector<int>& shape = pt->getShape(); 
-    const std::vector<float>& data = pt->getData(); 
-
-    int   theta_steps = pt->getThetaSteps();  
-    float theta_min = pt->getThetaMin(); 
-    float theta_max = pt->getThetaMax();
-    LOG(info) 
-         << "[ setSensorAngularEfficiency "
-         << " theta_steps " << theta_steps 
-         << " theta_min " << theta_min
-         << " theta_max " << theta_max
-         ; 
-  
-    g4opticks->setSensorAngularEfficiency(shape, data, theta_steps, theta_min, theta_max); 
-    g4opticks->setSensorAngularEfficiencyMeta<std::string>("SensorCategoryList", SensorCategoryList);   
-    LOG(info) << "] setSensorAngularEfficiency " ;
-
-    g4opticks->saveSensorArrays("$TMP/LSExpDetectorConstruction__SetupOpticks/SensorArrays") ; // just for debug 
-
-    LOG(info) << "] WITH_G4OPTICKS " ; 
-    return g4opticks ; 
-}
-#endif
 void
 LSExpDetectorConstruction::DefineOpticalPropertyCoefficient()
 {

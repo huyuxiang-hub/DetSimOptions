@@ -4035,65 +4035,98 @@ double GdLSABSLength_new[601] = {
 0.000000 //15.500000*eV
   };
 
-  double AcrylicAbsEnergy[27] = {
+/*  double AcrylicAbsEnergy[27] = {
 1.55  *eV,
 1.61  *eV,
 2.07  *eV,
 2.48  *eV,
-2.76  *eV,
-2.82  *eV,
-2.88  *eV,
-2.95    *eV, 
-3.02    *eV, 
-3.1    *eV, 
-3.18    *eV, 
-3.26    *eV, 
-3.35    *eV, 
-3.44    *eV, 
-3.54    *eV, 
-3.65    *eV, 
-3.76    *eV, 
-3.87    *eV, 
-4    *eV, 
-4.13    *eV, 
-4.28    *eV, 
-4.43    *eV, 
-4.59    *eV, 
-4.77    *eV, 
+
+2.76 *eV,
+2.82 *eV,
+2.88 *eV,
+2.95 *eV,
+3.02 *eV,
+3.1 *eV,
+3.18 *eV,
+3.26 *eV,
+3.35 *eV,
+3.44 *eV,
+3.54 *eV,
+3.65 *eV,
+3.76 *eV,
+3.87 *eV,
+4 *eV,
+4.13 *eV,
+4.28 *eV,
+4.43 *eV,
+4.59 *eV,
+4.77 *eV,
+
+
+
 6.20  *eV,
 10.33 *eV,
 15.5  *eV
   };
 
   double AcrylicAbsLength[27] = {
-42284 *mm,
-42723 *mm,
-49572 *mm,
-89595 *mm,
-190403 *mm,
-18695 *mm,
-7674 *mm,
-3814 *mm,
-1826 *mm,
-813 *mm,
-302 *mm,
-104 *mm,
-40 *mm,
-22 *mm,
-19 *mm,
-20 *mm,
-22 *mm,
-24 *mm,
-27 *mm,
-29 *mm,
-33 *mm,
-42 *mm,
-60 *mm,
-99 *mm,
+64012.12 *mm,
+64012.12 *mm,
+64012.12 *mm,
+64012.12 *mm,
+
+64012.12 *mm,
+15309.87 *mm,
+6954 *mm,
+3580.5 *mm,
+1754.15 *mm,
+796.93 *mm,
+300.34 *mm,
+104.18 *mm,
+40.05 *mm,
+22.7 *mm,
+20.71 *mm,
+21.25 *mm,
+22.84 *mm,
+25.06 *mm,
+27.16 *mm,
+29.48 *mm,
+33.51 *mm,
+42.68 *mm,
+59.39 *mm,
+97.51 *mm,
+
+
 8.0e-3*mm,
 8.0e-3*mm,
 8.0e-3*mm
   };
+
+*/
+double AcrylicAbsEnergy[9] = {
+                1.55  *eV,
+                1.61  *eV,
+                2.07  *eV,
+                2.48  *eV,
+                3.76  *eV,
+                4.13  *eV,
+                6.20  *eV,
+                10.33 *eV,
+                15.5  *eV
+  };
+
+  double AcrylicAbsLength[9] = {
+                4.0e3*mm,
+                4.0e3*mm,
+                4.0e3*mm,
+                4.0e3*mm,
+                4.0e3*mm,
+                4.0e3*mm,
+                8.0e-3*mm,
+                8.0e-3*mm,
+                8.0e-3*mm
+  };
+
 
 double AcrylicMaskAbsEnergy[157]={
 1.55 *eV,
@@ -4515,9 +4548,37 @@ double AcrylicMaskAbsLength[157]={
   // Luckily:
   // http://dayabay.ihep.ac.cn/websvn/filedetails.php?repname=Daya+Bay+offline+repository&path=%2Fdybgaudi%2Ftrunk%2FDetector%2FXmlDetDesc%2FDDDB%2Fmaterials%2Fpyrex.xml
   // But pay attention!!! The data seems to be inconsistency.
-  double fPP_Pyrex[6] = {1.55*eV,  2.07*eV,  4.13*eV,  6.20*eV, 10.33*eV, 15.5*eV};
+//    double fPP_Pyrex[6] = {1.55*eV,  2.07*eV,  4.13*eV,  6.20*eV, 10.33*eV, 15.5*eV};
+  double  fPP_Pyrex[10]={
+1.55 *eV,
+1.88914 *eV,
+2.11015 *eV,
+2.27048 *eV,
+2.55059 *eV,
+2.84497 *eV,
+3.0996 *eV,
+4.13001 *eV,
+6.20001 *eV,
+15.5 *eV
+};
+
+
   double fPP_PyrexABS[9] = {1.55*eV, 1.61*eV, 2.07*eV, 2.48*eV, 3.56*eV, 4.13*eV, 6.20*eV, 10.33*eV, 15.5*eV};
-  double fPyrexRINDEX[6] = {1.458, 1.458, 1.458, 1.458, 1.458, 1.458};
+//  double fPyrexRINDEX[6] = {1.458, 1.458, 1.458, 1.458, 1.458, 1.458};
+double  fPyrexRINDEX[10]={
+1.46891  ,
+1.47166  ,
+1.47377  ,
+1.47546  ,
+1.47874  ,
+1.48267  ,
+1.48646  ,
+1.5061  ,
+1.5061  ,
+1.5061  ,
+};
+
+
   double fPyrexABSORPTION[9] = {0.1e-3*mm, 0.5e3*mm, 1.0e3*mm, 2.0e3*mm, 1.0e3*mm, // 0.1e-3*mm, 0.1e-3*mm};
                                 1.0e3*mm, 1.0e3*mm, 1.0e3*mm, 1.0e3*mm};
 
