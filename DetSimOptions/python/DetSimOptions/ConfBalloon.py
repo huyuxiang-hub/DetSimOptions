@@ -5,7 +5,7 @@
 import os.path
 import Sniper
 import DetSimOptions
-from ConfAcrylic import ConfAcrylic
+from .ConfAcrylic import ConfAcrylic
 
 class ConfBalloon(ConfAcrylic):
 

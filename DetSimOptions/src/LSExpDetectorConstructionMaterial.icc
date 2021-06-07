@@ -149,13 +149,14 @@
 
 
         if (1 && (!use_param_svc)) { // from code
+         
+        G4cout << "Setup LS Material Tables from OpticalProperty.icc" << G4endl;
+       
         LSMPT->AddProperty("RINDEX",   GdLSRefIndexEnergy, GdLSRefIndex, 18);
-        //LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy, GdLSABSLength, 502);
         LSMPT->AddProperty("FASTCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
         LSMPT->AddProperty("SLOWCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
         LSMPT->AddProperty("REEMISSIONPROB", GdLSReemEnergy, GdLSReem, 28);
         LSMPT->AddProperty("RAYLEIGH", GdLSRayEnergy, GdLSRayLength, 11);
-        //LSMPT->AddProperty("SCINTILLATIONYIELD", component, GdLSLY,2);
         LSMPT->AddProperty("RESOLUTIONSCALE", component, GdLSResolutionScale,2);
 
         LSMPT->AddConstProperty("SCINTILLATIONYIELD", GdLSLY[0]);
@@ -182,6 +183,25 @@
         LSMPT->AddProperty("ReemissionFASTTIMECONSTANT", component, GdLSReemissionFastTimeConstant,2);
         LSMPT->AddProperty("ReemissionSLOWTIMECONSTANT", component, GdLSReemissionSlowTimeConstant,2);
         LSMPT->AddProperty("ReemissionYIELDRATIO", component, GdLSReemissionYieldRatio,2);
+         
+        // add different time constant for different particle type
+        
+        double OpticalYieldRatio[2] = {1.0 , 0 };
+        double OpticalTimeConstant[2] = {1.50*ns ,1.50*ns};
+        double GammaYieldRatio[3] = {0.799, 0.171, 0.03};
+        double GammaTimeConstant[3] = { 4.93*ns , 20.6*ns, 190*ns};
+        double AlphaYieldRatio[3] = {0.65, 0.2275, 0.1225};
+        double AlphaTimeConstant[3] = { 4.93*ns ,35.0*ns, 220*ns};
+        double NeutronYieldRatio[3] = { 0.65, 0.231, 0.119};
+        double NeutronTimeConstant[3] = { 4.93*ns, 34*ns ,220*ns};
+
+
+        LSMPT->AddProperty("OpticalCONSTANT",OpticalTimeConstant,OpticalYieldRatio,2);
+        LSMPT->AddProperty("GammaCONSTANT", GammaTimeConstant , GammaYieldRatio, 3);
+        LSMPT->AddProperty("AlphaCONSTANT", AlphaTimeConstant , AlphaYieldRatio, 3);
+        LSMPT->AddProperty("NeutronCONSTANT", NeutronTimeConstant , NeutronYieldRatio, 3);
+       
+
 
         // Following lines are for new Optical Model.
         // + PART I: Emission by PPO
@@ -256,25 +276,24 @@
             
             // load data
             helper_mpt(LSMPT, "RINDEX",                     mcgt.data(), "Material.LS.RINDEX");
-            helper_mpt(LSMPT, "ABSLENGTH",                  mcgt.data(), "Material.LS.ABSLENGTH", scale_abslength);
             helper_mpt(LSMPT, "FASTCOMPONENT",              mcgt.data(), "Material.LS.FASTCOMPONENT");
             helper_mpt(LSMPT, "SLOWCOMPONENT",              mcgt.data(), "Material.LS.FASTCOMPONENT");
             helper_mpt(LSMPT, "REEMISSIONPROB",             mcgt.data(), "Material.LS.REEMISSIONPROB");
             helper_mpt(LSMPT, "RAYLEIGH",                   mcgt.data(), "Material.LS.RAYLEIGH", scale_rayleigh);
-            helper_mpt(LSMPT, "SCINTILLATIONYIELD",         mcgt.data(), "Material.LS.SCINTILLATIONYIELD");
-            helper_mpt(LSMPT, "RESOLUTIONSCALE",            mcgt.data(), "Material.LS.RESOLUTIONSCALE");
-            helper_mpt(LSMPT, "GammaFASTTIMECONSTANT",      mcgt.data(), "Material.LS.GammaFASTTIMECONSTANT");
-            helper_mpt(LSMPT, "GammaSLOWTIMECONSTANT",      mcgt.data(), "Material.LS.GammaSLOWTIMECONSTANT");
-            helper_mpt(LSMPT, "GammaYIELDRATIO",            mcgt.data(), "Material.LS.GammaYIELDRATIO");
-            helper_mpt(LSMPT, "AlphaFASTTIMECONSTANT",      mcgt.data(), "Material.LS.AlphaFASTTIMECONSTANT");
-            helper_mpt(LSMPT, "AlphaSLOWTIMECONSTANT",      mcgt.data(), "Material.LS.AlphaSLOWTIMECONSTANT");
-            helper_mpt(LSMPT, "AlphaYIELDRATIO",            mcgt.data(), "Material.LS.AlphaYIELDRATIO");
-            helper_mpt(LSMPT, "NeutronFASTTIMECONSTANT",    mcgt.data(), "Material.LS.NeutronFASTTIMECONSTANT");
-            helper_mpt(LSMPT, "NeutronSLOWTIMECONSTANT",    mcgt.data(), "Material.LS.NeutronSLOWTIMECONSTANT");
-            helper_mpt(LSMPT, "NeutronYIELDRATIO",          mcgt.data(), "Material.LS.NeutronYIELDRATIO");
-            helper_mpt(LSMPT, "ReemissionFASTTIMECONSTANT", mcgt.data(), "Material.LS.ReemissionFASTTIMECONSTANT");
-            helper_mpt(LSMPT, "ReemissionSLOWTIMECONSTANT", mcgt.data(), "Material.LS.ReemissionSLOWTIMECONSTANT");
-            helper_mpt(LSMPT, "ReemissionYIELDRATIO",       mcgt.data(), "Material.LS.ReemissionYIELDRATIO");
+          //  helper_mpt(LSMPT, "SCINTILLATIONYIELD",         mcgt.data(), "Material.LS.SCINTILLATIONYIELD");
+          //  helper_mpt(LSMPT, "RESOLUTIONSCALE",            mcgt.data(), "Material.LS.RESOLUTIONSCALE");
+          //  helper_mpt(LSMPT, "GammaFASTTIMECONSTANT",      mcgt.data(), "Material.LS.GammaFASTTIMECONSTANT");
+          //  helper_mpt(LSMPT, "GammaSLOWTIMECONSTANT",      mcgt.data(), "Material.LS.GammaSLOWTIMECONSTANT");
+          //  helper_mpt(LSMPT, "GammaYIELDRATIO",            mcgt.data(), "Material.LS.GammaYIELDRATIO");
+          //  helper_mpt(LSMPT, "AlphaFASTTIMECONSTANT",      mcgt.data(), "Material.LS.AlphaFASTTIMECONSTANT");
+          //  helper_mpt(LSMPT, "AlphaSLOWTIMECONSTANT",      mcgt.data(), "Material.LS.AlphaSLOWTIMECONSTANT");
+          //  helper_mpt(LSMPT, "AlphaYIELDRATIO",            mcgt.data(), "Material.LS.AlphaYIELDRATIO");
+          //  helper_mpt(LSMPT, "NeutronFASTTIMECONSTANT",    mcgt.data(), "Material.LS.NeutronFASTTIMECONSTANT");
+          //  helper_mpt(LSMPT, "NeutronSLOWTIMECONSTANT",    mcgt.data(), "Material.LS.NeutronSLOWTIMECONSTANT");
+          //  helper_mpt(LSMPT, "NeutronYIELDRATIO",          mcgt.data(), "Material.LS.NeutronYIELDRATIO");
+          //  helper_mpt(LSMPT, "ReemissionFASTTIMECONSTANT", mcgt.data(), "Material.LS.ReemissionFASTTIMECONSTANT");
+          //  helper_mpt(LSMPT, "ReemissionSLOWTIMECONSTANT", mcgt.data(), "Material.LS.ReemissionSLOWTIMECONSTANT");
+          //  helper_mpt(LSMPT, "ReemissionYIELDRATIO",       mcgt.data(), "Material.LS.ReemissionYIELDRATIO");
             helper_mpt(LSMPT, "PPOABSLENGTH",               mcgt.data(), "Material.LS.PPOABSLENGTH");
             helper_mpt(LSMPT, "PPOREEMISSIONPROB",          mcgt.data(), "Material.LS.PPOREEMISSIONPROB");
             helper_mpt(LSMPT, "PPOCOMPONENT",               mcgt.data(), "Material.LS.PPOCOMPONENT");
@@ -284,8 +303,38 @@
             helper_mpt(LSMPT, "bisMSBCOMPONENT",            mcgt.data(), "Material.LS.bisMSBCOMPONENT");
             helper_mpt(LSMPT, "bisMSBTIMECONSTANT",         mcgt.data(), "Material.LS.bisMSBTIMECONSTANT");
 
+            helper_mpt(LSMPT, "OpticalCONSTANT",         mcgt.data(), "Material.LS.OpticalCONSTANT");
+            helper_mpt(LSMPT, "GammaCONSTANT",         mcgt.data(), "Material.LS.GammaCONSTANT");
+            helper_mpt(LSMPT, "AlphaCONSTANT",         mcgt.data(), "Material.LS.AlphaCONSTANT");         
+            helper_mpt(LSMPT, "NeutronCONSTANT",         mcgt.data(), "Material.LS.NeutronCONSTANT");
+ 
+            //load constant property
+            IMCParamsSvc::map_s2d LS_constant_map;
+            st = mcgt->Get("Material.LS.ConstantProperty", LS_constant_map);
+            if (st && LS_constant_map.count("ScintillationYield")) {
+                float Scintillation_Yield = 1.0;
+                Scintillation_Yield = LS_constant_map["ScintillationYield"];
+                G4cout << "Scintillation Yield from MCParamSvc : " << Scintillation_Yield
+                       << G4endl;
+                LSMPT->AddConstProperty("SCINTILLATIONYIELD", Scintillation_Yield);
+            }
+            else{
+                LogError<<" can't find ScintillationYield in /Material/LS/ConstantProperty "<<std::endl;
+            }   
+ 
+            if (st && LS_constant_map.count("ResolutionScale")) {
+                float Resolution_Scale = 1.0 ; 
+                Resolution_Scale = LS_constant_map["ResolutionScale"];
+                G4cout << "Resolution Scale from MCParamSvc : " << Resolution_Scale
+                       << G4endl;
+                LSMPT->AddConstProperty("RESOLUTIONSCALE", Resolution_Scale);
+            }
+            else{
+                LogError<<" can't find ResolutionScale in /Material/LS/ConstantProperty "<<std::endl;
+            }           
+               
         }
-        // LSMPT->DumpTable();
+        LSMPT->DumpTable();
         LS->SetMaterialPropertiesTable(LSMPT);
     //}
 
@@ -361,15 +410,14 @@
         Acrylic->AddElement(O, 0.31961);
 
         G4MaterialPropertiesTable* AcrylicMPT = new G4MaterialPropertiesTable();
-      //   AcrylicMPT->AddProperty("ABSLENGTH", AcrylicAbsEnergy, AcrylicAbsLength, 27);
-       AcrylicMPT->AddProperty("ABSLENGTH", AcrylicAbsEnergy, AcrylicAbsLength, 9);
-      //  AcrylicMPT->AddProperty("RAYLEIGH", AcrylicRayEnergy, AcrylicRayLength, 11);
+        AcrylicMPT->AddProperty("ABSLENGTH", AcrylicAbsEnergy, AcrylicAbsLength, 25);
+       // AcrylicMPT->AddProperty("RAYLEIGH", AcrylicRayEnergy, AcrylicRayLength, 11);
         AcrylicMPT->AddProperty("RINDEX", AcrylicRefEnergy, AcrylicRefIndex, 18);
 
         Acrylic->SetMaterialPropertiesTable(AcrylicMPT);
     //}
 
-    //The Acrylic Mask
+       //The Acrylic Mask
      G4cout << "Acrylic Mask is constructed from the code." << G4endl;
         AcrylicMask = new G4Material("AcrylicMask", 1.18*g/cm3, 3);
         //Acrylic->AddElement(C, 0.59984);
@@ -384,6 +432,9 @@
         AcrylicMaskMPT->AddProperty("RINDEX", AcrylicRefEnergy, AcrylicRefIndex, 18);
 
         AcrylicMask->SetMaterialPropertiesTable(AcrylicMaskMPT);
+      
+
+
 
 
 
@@ -831,6 +882,7 @@
         Pyrex->AddMaterial(B2O2, .13);
         Pyrex->AddMaterial(Na2O, .07);
         G4MaterialPropertiesTable* PyrexMPT = new G4MaterialPropertiesTable();
+       // PyrexMPT->AddProperty("RINDEX", fPP_Pyrex, fPyrexRINDEX, 6);
         PyrexMPT->AddProperty("RINDEX", fPP_Pyrex, fPyrexRINDEX, 10);
         PyrexMPT->AddProperty("ABSLENGTH", fPP_PyrexABS, fPyrexABSORPTION, 9);
         Pyrex->SetMaterialPropertiesTable(PyrexMPT);

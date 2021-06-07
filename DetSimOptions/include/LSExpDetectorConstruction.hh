@@ -201,7 +201,7 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
      G4Material* ESR;         // Detector material
      G4Material* Tyvek;         // Detector material
      G4Material* Acrylic;         // Detector material
-     G4Material* AcrylicMask;     // Detector material
+     G4Material* AcrylicMask;        //Detector material
      G4Material* DummyAcrylic;         // Detector material
      G4Material* Teflon;         // Detector material
      G4Material* ETFE;         // Detector material

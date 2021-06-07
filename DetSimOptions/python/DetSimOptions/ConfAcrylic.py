@@ -83,7 +83,7 @@ class ConfAcrylic(object):
         flag_should_remove = False 
         # if already exists, skip this
         if os.path.exists(self._gdml):
-            print "The %s already exists, skip generate" %self._gdml
+            print("The %s already exists, skip generate" %self._gdml)
             flag_should_remove = True
         # configure the GeoAnaMgr 
         geo = self.geom()
@@ -101,7 +101,7 @@ class ConfAcrylic(object):
         flag_should_remove = False 
         # if already exists, skip this
         if os.path.exists(self._dae):
-            print "The %s already exists, skip generate" %self._dae
+            print("The %s already exists, skip generate" %self._dae)
             return
         # configure the GeoAnaMgr 
         geo = self.geom()

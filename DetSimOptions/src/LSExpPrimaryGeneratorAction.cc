@@ -40,6 +40,7 @@
 #include "G4ProcessManager.hh"
 #include "G4RadioactiveDecay.hh"
 #include "G4DecayTable.hh"
+#include "G4GenericIon.hh"
 
 // FIXME: This is a temporary solution to get data.
 #include "SniperKernel/SniperDataPtr.h"
@@ -210,6 +211,26 @@ void LSExpPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
                     theIonTable->CreateAllIon();
                     theIonTable->CreateAllIsomer();
 
+                    // =======================================================
+                    // find the radioactive decay process
+                    // =======================================================
+                    G4RadioactiveDecay* g4radiodecay = 0;
+
+                    // get the radioactivity decay
+                    G4ProcessManager* pmanager = G4GenericIon::GenericIon()->GetProcessManager();
+                    G4int MAXofAtRestLoops  = pmanager->GetAtRestProcessVector()->entries();
+                    G4ProcessVector* fAtRestDoItVector = pmanager->GetAtRestProcessVector();
+                    for (G4int i=0; i<MAXofAtRestLoops; ++i) {
+                        G4VProcess* fCurrentProcess = (*fAtRestDoItVector)[i];
+                        G4RadioactiveDecay* grd = dynamic_cast<G4RadioactiveDecay*>(fCurrentProcess);
+                        if (grd) {
+                            G4cout << "Found G4RadioactiveDecay." << G4endl;
+                            g4radiodecay = grd;
+                            break;
+                        }
+                    }
+
+
                     G4int Z=0, A=0, L=0, lvl=0;
                     G4double E=0;
                     theIonTable->GetNucleusByEncoding(pdgcode, Z, A, E, lvl);
@@ -224,6 +245,140 @@ void LSExpPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
                     if (Z == 91 && A == 234 && lvl == 1) {
                         E = 73.92*CLHEP::keV;
                         particle_def = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('X'));
+                    } else if (Z == 36 && A == 83 && lvl == 1) { // Kr83m
+                        E = 41.5569*CLHEP::keV;
+                        particle_def = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('\0'));
+
+                        if (g4radiodecay) {
+                            G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(particle_def);
+                            particle_def->SetDecayTable(decaytbl);
+                            G4cout << __FILE__ << ":" << __LINE__ << ": "
+                                   << "Add decay table " << decaytbl << " to Kr83m " << G4endl;
+                            decaytbl->DumpInfo();
+                        }
+
+                        // debug
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Ion Life Time: " << particle_def->GetIonLifeTime()
+                               << G4endl;
+                        G4DecayTable* decaytbl = particle_def->GetDecayTable();
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Kr83m decay table: " << decaytbl
+                               << G4endl;
+
+                        E = 9.4053*CLHEP::keV;
+                        G4ParticleDefinition* Kr83_9405eV = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('\0'));
+                        if (g4radiodecay) {
+                            G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(Kr83_9405eV);
+                            Kr83_9405eV->SetDecayTable(decaytbl);
+                            G4cout << __FILE__ << ":" << __LINE__ << ": "
+                                   << "Add decay table " << decaytbl << " to Kr83[9.405keV] " << G4endl;
+                            decaytbl->DumpInfo();
+                        }
+
+                        // In G4, there is threshold_of_half_life(1000.0*ns) in G4NuclideTable. so the 154ns may be ignored?
+                        Kr83_9405eV->SetPDGLifeTime(154.4/log(2)*CLHEP::ns);
+
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Life Time of Kr83[9.405keV]: " << Kr83_9405eV->GetPDGLifeTime()
+                               << " Ion Life Time of Kr83[9.405keV]: " << Kr83_9405eV->GetIonLifeTime()
+                               << G4endl;
+                    } else if (Z == 54 && A == 129 && lvl == 1) { // Xe129m
+                        E = 236.140*CLHEP::keV;
+                        particle_def = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('\0'));
+
+                        if (g4radiodecay) {
+                            G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(particle_def);
+                            particle_def->SetDecayTable(decaytbl);
+                            G4cout << __FILE__ << ":" << __LINE__ << ": "
+                                   << "Add decay table " << decaytbl << " to Xe129m " << G4endl;
+                            decaytbl->DumpInfo();
+                        }
+
+                        // debug
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Ion Life Time: " << particle_def->GetIonLifeTime()
+                               << G4endl;
+                        G4DecayTable* decaytbl = particle_def->GetDecayTable();
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Xe129m decay table: " << decaytbl
+                               << G4endl;
+                        
+                        E = 39.578*CLHEP::keV;
+                        G4ParticleDefinition* Xe129_39578eV = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('\0'));
+                        if (g4radiodecay) {
+                            G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(Xe129_39578eV);
+                            Xe129_39578eV->SetDecayTable(decaytbl);
+                            G4cout << __FILE__ << ":" << __LINE__ << ": "
+                                   << "Add decay table " << decaytbl << " to Xe129[39.578keV] " << G4endl;
+                            decaytbl->DumpInfo();
+                        }
+
+                        // In G4, there is threshold_of_half_life(1000.0*ns) in G4NuclideTable. so the 154ns may be ignored?
+                        Xe129_39578eV->SetPDGLifeTime(0.97/log(2)*CLHEP::ns);
+
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Life Time of Xe129[39.578keV]: " << Xe129_39578eV->GetPDGLifeTime()
+                               << " Ion Life Time of Xe129[39.578keV]: " << Xe129_39578eV->GetIonLifeTime()
+                               << G4endl;
+                    } else if (Z == 54 && A == 131 && lvl == 1) { // Xe131m
+                        E = 163.930*CLHEP::keV;
+                        particle_def = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('\0'));
+                        
+                        if (g4radiodecay) {
+                            G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(particle_def);
+                            particle_def->SetDecayTable(decaytbl);
+                            G4cout << __FILE__ << ":" << __LINE__ << ": "
+                                   << "Add decay table " << decaytbl << " to Xe131m " << G4endl;
+                            decaytbl->DumpInfo();
+                        }
+
+                        // debug
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Ion Life Time: " << particle_def->GetIonLifeTime()
+                               << G4endl;
+                        G4DecayTable* decaytbl = particle_def->GetDecayTable();
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Xe131m decay table: " << decaytbl
+                               << G4endl;
+                    } else if (Z == 54 && A == 133 && lvl == 1) { // Xe133m
+                        E = 233.221*CLHEP::keV;
+                        particle_def = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('\0'));
+
+                        if (g4radiodecay) {
+                            G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(particle_def);
+                            particle_def->SetDecayTable(decaytbl);
+                            G4cout << __FILE__ << ":" << __LINE__ << ": "
+                                   << "Add decay table " << decaytbl << " to Xe133m " << G4endl;
+                            decaytbl->DumpInfo();
+                        }
+
+                        // debug
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Ion Life Time: " << particle_def->GetIonLifeTime()
+                               << G4endl;
+                        G4DecayTable* decaytbl = particle_def->GetDecayTable();
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Xe133m decay table: " << decaytbl
+                               << G4endl;
+						
+                        G4ParticleDefinition* Xe133 = theIonTable->GetIon(Z, A);
+                        if (g4radiodecay) {
+                            G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(Xe133);
+                            Xe133->SetDecayTable(decaytbl);
+                            G4cout << __FILE__ << ":" << __LINE__ << ": "
+                                   << "Add decay table " << decaytbl << " to Xe133 " << G4endl;
+                            decaytbl->DumpInfo();
+                        }
+
+                        // In G4, there is threshold_of_half_life(1000.0*ns) in G4NuclideTable. so the 154ns may be ignored?
+                        Xe133->SetPDGStable(true);
+                        Xe133->SetPDGLifeTime(-1.0);
+
+                        G4cout << __FILE__ << ":" << __LINE__ << ": "
+                               << " Life Time of Xe133: " << Xe133->GetPDGLifeTime()
+                               << " Ion Life Time of Xe133: " << Xe133->GetIonLifeTime()
+                               << G4endl;
                     } else {
                         G4cout << " WARNING: Ion pdgcode " << pdgcode << ", which is isomer or excited," 
                                << " is not supported in the current simulation. " << G4endl;

@@ -33,7 +33,7 @@ LSExpDetectorConstruction_Opticks::Setup
                         / pInnerWater                     /         /
                        / /                               /         /
                       / /                  (0)          /         /
-                     pTyvek                  \         pAcylic   /
+                     pTyvek                  \         pAcrylic  /
                     / /                       \       /         /
                    / /                         \     /         pTarget:LS
                   / /                           \   /         /
@@ -47,6 +47,36 @@ LSExpDetectorConstruction_Opticks::Setup
           / /                               /         / \
          / /                               /         /   \
         / /                               /         /     \        LS    
+
+
+
+
+The below examles of geospecific options control which boundary_pos is captured 
+into the way buffer and saved with hits "hiy". Using::
+
+      --way --pvname pAcrylic --boundary Water///Acrylic --waymask 3 --gdmlkludge    # (1): gives radius 17820
+      --way --pvname pTarget  --boundary Acrylic///LS --waymask 3  --gdmlkludge      # (2): gives radius 17700
+
+*way*
+    enables way point recording 
+
+*pvname*
+    potential input to control which way boundary position to record
+
+*boundary*
+    potential input to control which way boundary position to record
+
+*waymask* 
+    selects whether to match on pvname and/or boundary for the recorder boundary position see OGeo::initWayControl
+
+
+*gdmlkludge*
+   applies kludge to exported origin.gdml creating origin_CGDMLKludge.gdml with a few fixes:
+
+   1. define/matrix with truncated values are trimmed to even to make them parseable
+   2. define/constant are converted to define/matrix 
+
+   The "--gdmlkludge" option is needed to avoid GDML parse failures that cause around 8 opticks-t tests to fail.
 
 **/
 
@@ -65,12 +95,10 @@ G4Opticks* LSExpDetectorConstruction_Opticks::Setup(const G4VPhysicalVolume* wor
     bool outer_volume = true ; 
     bool profile = true ; 
 
-    // waymask selects whether to match on pvname and/or boundary for the recorder boundary position
-    const char* geospecific_default = "--way --pvname pAcylic  --boundary Water///Acrylic --waymask 3" ; // (1): gives radius 17820
-    //const char* geospecific_default = "--way --pvname pTarget  --boundary Acrylic///LS --waymask 3" ;      // (2): gives radius 17700
-    const char* embedded_commandline_extra = SSys::getenvvar("LSXDC_GEOSPECIFIC", geospecific_default ) ; // see OGeo::initWayControl
-
+    const char* geospecific_default =   "--way --pvname pAcrylic --boundary Water///Acrylic --waymask 3 --gdmlkludge" ;  // (1): gives radius 17820
+    const char* embedded_commandline_extra = SSys::getenvvar("LSXDC_GEOSPECIFIC", geospecific_default ) ;   
     LOG(info) << " embedded_commandline_extra " << embedded_commandline_extra ;
+
     g4ok->setPlacementOuterVolume(outer_volume); 
     g4ok->setProfile(profile); 
     g4ok->setEmbeddedCommandLineExtra(embedded_commandline_extra);

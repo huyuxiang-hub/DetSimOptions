@@ -64,7 +64,7 @@ class ConfAcrylic(object):
         self._gdml = filename
         # if already exists, skip this
         if os.path.exists(self._gdml):
-            print "The %s already exists, skip generate" %self._gdml
+            print("The %s already exists, skip generate" %self._gdml)
             return
         # configure the GeoAnaMgr 
         geo = self.tool("GeoAnaMgr")
