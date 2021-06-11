@@ -211,17 +211,7 @@ void LSExpDetectorConstruction::DefineMaterials()
 
 #include "LSExpDetectorConstructionMaterial.icc"
 #include "OpticalSurfaceProperty.icc"
-
-
-
-  if(m_GdLSAbsLengthMode == "LAB") // LAB AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLABABSEnergy, GdLABABSLength, 428);
-  else if (m_GdLSAbsLengthMode == "new") // New LS AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_new, GdLSABSLength_new, 601);
-  else if (m_GdLSAbsLengthMode == "old") // Old LS AbsLength
-        LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_old, GdLSABSLength_old, 502);
-  else
-      G4cout << "Unknown Type of GdLSAbsLengthMode ! " << G4endl; 
+//#include "convert.hh"
 
 }
 
@@ -443,7 +433,8 @@ LSExpDetectorConstruction::DefineOpticalPropertyCoefficient()
     IDetElement* glob_info = det_elem("GlobalGeomInfo");
     G4double LS_abslen_at430 = glob_info->geom_info("LS.AbsLen");
     coeff_abslen = LS_abslen_at430 / 26.0;
-    G4cout << "coeff_abslen: " << coeff_abslen << " (" << LS_abslen_at430 << "m) " << G4endl;
+    G4cout << "coeff_abslen: " << coeff_abslen << "LS_abslen_at430 =  (" << LS_abslen_at430 << "m) " << G4endl;
+    
     // Note:
     // - before use 1inch measured data, we keep QE scale as 0.35/0.24 by default.
     // - when we use 1inch, it's almost 30% QE, so we don't scale it.
@@ -451,13 +442,14 @@ LSExpDetectorConstruction::DefineOpticalPropertyCoefficient()
     coeff_ceff = 1. / m_pmt_qe_scale_for_elec;
  //   coeff_ceff_3inch =  1./m_lpmt_qe_scale_for_elec;
     coeff_ceff_3inch = 1. / m_pmt_qe_scale_for_elec;
+    G4cout<<" m_pmt_qe_scale_for_elec: "<< m_pmt_qe_scale_for_elec << G4endl;
     G4cout << "coeff_ceff: " << coeff_ceff << G4endl;
     G4cout << "coeff_ceff_3inch: " << coeff_ceff_3inch << G4endl;
     coeff_lsly = 1.0;
 
     G4double LS_raylen_at430 = glob_info->geom_info("LS.RayleighLen");
     coeff_rayleigh = LS_raylen_at430 / 42.0;
-    G4cout << "coeff_rayleigh: " << coeff_rayleigh << " (" << LS_raylen_at430 << "m) " << G4endl;
+    G4cout << "coeff_rayleigh: " << coeff_rayleigh << " LS_raylen_at430 = (" << LS_raylen_at430 << "m) " << G4endl;
 }
 
 void
@@ -468,9 +460,8 @@ LSExpDetectorConstruction::ModifyOpticalProperty()
     G4int len_of_GdLSABSLength_old = 502;
     for (int i=0; i < len_of_GdLSABSLength_old; ++i) {
         GdLSABSLength_old[i] *= coeff_abslen;
-         // GdLSABSLength[i] = 99999999999999*m;
     }
-
+  
     G4int len_of_fPhCEFFICIENCY = sizeof(fPhCEFFICIENCY)/sizeof(double);
     for (int i=0; i < len_of_fPhCEFFICIENCY; ++i) {
         fPhCEFFICIENCY[i] *= coeff_ceff;
@@ -481,6 +472,7 @@ LSExpDetectorConstruction::ModifyOpticalProperty()
     for (int i=0; i < len_of_fPhCEFFICIENCY_1inch_20140620; ++i) {
         fPhCEFFICIENCY_1inch_20140620[i] *= ( coeff_ceff * 0.8 / scale420nm_1inch_20140620 ); // scale 420nm QE as 0.8, will scale back in dywSD_PMT_v2.cc
     }
+    G4cout<<"scale420nm_1inch_20140620 = "<<scale420nm_1inch_20140620<<G4endl;
 
     G4int len_of_fPhCEFFICIENCY_Dynode20inch = sizeof(fPhCEFFICIENCY_Dynode20inch)/sizeof(double);
     double Dynode20inch_scale420nm = fPhCEFFICIENCY_Dynode20inch[29];
@@ -489,7 +481,7 @@ LSExpDetectorConstruction::ModifyOpticalProperty()
         fPhCEFFICIENCY_Dynode20inch[i] *=  (coeff_ceff * 0.8 / Dynode20inch_scale420nm)  ;  // scale 420nm QE as 0.8, will scale back in dywSD_PMT_v2.cc
         //std::cout  << fPhCEFFICIENCY_Dynode20inch[i] << std::endl;
     }
-
+    G4cout<<"Dynode20inch_scale420nm = "<<Dynode20inch_scale420nm<<G4endl;
     G4int len_of_fPhCEFFICIENCY_AverageMCP20inch = sizeof(fPhCEFFICIENCY_AverageMCP20inch)/sizeof(double);
     double AverageMCP20inch_scale420nm = fPhCEFFICIENCY_AverageMCP20inch[29];
     std::cout << "AverageMCP20inch: " << std::endl;
@@ -497,12 +489,15 @@ LSExpDetectorConstruction::ModifyOpticalProperty()
         fPhCEFFICIENCY_AverageMCP20inch[i] *= ( coeff_ceff *0.8 / AverageMCP20inch_scale420nm); // scale 420nm QE as 0.8, will scale back in dywSD_PMT_v2.cc  
         //std::cout << fPhCEFFICIENCY_AverageMCP20inch[i] << std::endl;
     }
-    
+    G4cout<<"AverageMCP20inch_scale420nm = "<<AverageMCP20inch_scale420nm<<G4endl;    
+
     G4int len_of_fPhCEFFICIENCY_3inch = sizeof(fPhCEFFICIENCY_3inch)/sizeof(double);
     double pmt3inch_scale420nm = fPhCEFFICIENCY_3inch[30];
     for (int i=0; i < len_of_fPhCEFFICIENCY_3inch; ++i) {
         fPhCEFFICIENCY_3inch[i] *= (coeff_ceff_3inch*0.8 / pmt3inch_scale420nm);  // scale 420nm QE as 0.8, will scale back in junoSD_PMT_v2.cc
     }
+
+    G4cout<<"pmt3inch_scale420nm = "<< pmt3inch_scale420nm <<G4endl;
 
     G4int len_of_GdLSRayLength = 11;
     for (int i=0; i < len_of_GdLSRayLength; ++i) {
@@ -528,6 +523,12 @@ LSExpDetectorConstruction::ModifyOpticalProperty()
         }
         cout << "Current LY: " << GdLSLY[i] << endl;
     }
+    //scale the water and vetowater absorption length
+    double water_abslen_scale_factor = 40.*m/(2651.815*cm);
+        for (int j = 0; j < 316; ++j) {
+            fWaterABSORPTION[j] *= water_abslen_scale_factor;
+        }
+   G4cout<<"water_abslen_scale_factor = 40.*m/(2651.815*cm) ."<<G4endl;
 
     // Modify the Reem Wave Length
     // #Wave Length + 150
@@ -1771,7 +1772,7 @@ LSExpDetectorConstruction::setupOuterWaterPool()
 }
 
 bool
-LSExpDetectorConstruction::helper_mpt(G4MaterialPropertiesTable* MPT, const std::string& mname, IMCParamsSvc* params, const std::string& name, float scale) {
+LSExpDetectorConstruction::helper_mpt(G4MaterialPropertiesTable* MPT, const std::string& mname, IMCParamsSvc* params, const std::string& name, double scale) {
     IMCParamsSvc::vec_d2d props;
     bool st = params->Get(name, props);
     if (!st) {
@@ -1787,7 +1788,9 @@ LSExpDetectorConstruction::helper_mpt(G4MaterialPropertiesTable* MPT, const std:
     }
     for (int i = 0; i < N; ++i) {
         // multiply scale factor, so user could scale easily, without modify original arrays.
+       // std::cout<<"debugkkkkkkkk= "<<std::endl;
         vec->InsertValues(props[i].get<0>(), props[i].get<1>()*scale);
+      //  std::cout<<props[i].get<1>()<<std::endl;
     }
     MPT->AddProperty(mname.c_str(), vec);
     return true;

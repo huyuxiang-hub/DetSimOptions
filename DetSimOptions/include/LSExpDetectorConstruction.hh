@@ -183,7 +183,7 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
   private:
      G4VSensitiveDetector* getPMTSD();
   private:
-     bool helper_mpt(G4MaterialPropertiesTable*, const std::string&, IMCParamsSvc*, const std::string&, float scale=1.0); 
+     bool helper_mpt(G4MaterialPropertiesTable*, const std::string&, IMCParamsSvc*, const std::string&, double scale=1.0); 
      // insert properties into material properties table
   private: 
 
