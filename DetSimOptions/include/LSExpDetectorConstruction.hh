@@ -391,9 +391,12 @@ class LSExpDetectorConstruction : public G4VUserDetectorConstruction
  
   private:
     std::string m_GdLSAbsLengthMode;
+    std::string m_pmt_optical_model;
+    std::string m_LS_optical_model;
   public:
      void setGdLSAbsLengthMode(std::string GdLSAbsLengthMode) {m_GdLSAbsLengthMode = GdLSAbsLengthMode ;}
-  
+     void setPMTOpticalModel(std::string mode ){ m_pmt_optical_model = mode;}
+     void setLSOpticalModel(std::string mode ){m_LS_optical_model = mode ;}
 
 
 

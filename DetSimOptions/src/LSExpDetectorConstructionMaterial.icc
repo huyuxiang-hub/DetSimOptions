@@ -267,21 +267,34 @@
                        << " factor: " << scale_rayleigh
                        << G4endl;
             }
-          
+            double scale_lsly = 1.0 ;
+            if( st && LS_scales_map.count("LSLY_NewLSModelScale")&& LS_scales_map.count("LSLY_NewPMTModelScale")){
+                if(m_pmt_optical_model == "new"){
+                      scale_lsly *= LS_scales_map["LSLY_NewPMTModelScale"];
+                }
+                
+                if(m_LS_optical_model == "new"){
+                      scale_lsly *= LS_scales_map["LSLY_NewLSModelScale"];
+                }         
+           }
+            
 
 
   
-          if(m_GdLSAbsLengthMode == "LAB") // LAB AbsLength
+          if(m_GdLSAbsLengthMode == "LAB") // LAB AbsLength used for new LS optical model
                {
-                 LSMPT->AddProperty("ABSLENGTH", GdLABABSEnergy, GdLABABSLength, 428);
+                 //LSMPT->AddProperty("ABSLENGTH", GdLABABSEnergy, GdLABABSLength, 428);
+                 helper_mpt(LSMPT, "ABSLENGTH", mcgt.data(), "Material.LS.ABSLENGTH_v2");
                }
             else if (m_GdLSAbsLengthMode == "new") // New LS AbsLength
                { 
                  LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_new, GdLSABSLength_new, 601);
                }
-            else if (m_GdLSAbsLengthMode == "old") // Old LS AbsLength
+            else if (m_GdLSAbsLengthMode == "old") // Old LS AbsLength used for old LS optical model
                {
-                 LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_old, GdLSABSLength_old, 502);
+             //    LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_old, GdLSABSLength_old, 502);
+                 helper_mpt(LSMPT, "ABSLENGTH", mcgt.data(), "Material.LS.ABSLENGTH_v1",scale_abslength);    
+
                }
             else {
                     G4cout << "Unknown Type of GdLSAbsLengthMode ! " << G4endl;
@@ -292,10 +305,10 @@
         LSMPT->AddProperty("REEMISSIONPROB", GdLSReemEnergy, GdLSReem, 28);
         LSMPT->AddProperty("RAYLEIGH", GdLSRayEnergy, GdLSRayLength, 11);
        */
-          LSMPT->AddProperty("RESOLUTIONSCALE", component, GdLSResolutionScale,2);
+       //   LSMPT->AddProperty("RESOLUTIONSCALE", component, GdLSResolutionScale,2);
 
        //    LSMPT->AddConstProperty("SCINTILLATIONYIELD", GdLSLY[0]);
-           LSMPT->AddConstProperty("RESOLUTIONSCALE",GdLSResolutionScale[0]);
+      //     LSMPT->AddConstProperty("RESOLUTIONSCALE",GdLSResolutionScale[0]);
       //  LSMPT->AddConstProperty("FASTTIMECONSTANT",GdLSFastTimeConstant[0]);
       //  LSMPT->AddConstProperty("SLOWTIMECONSTANT",GdLSSlowTimeConstant[0]);
       // LSMPT->AddConstProperty("YIELDRATIO",GdLSYieldRatio[0]);
@@ -356,9 +369,9 @@
                 Scintillation_Yield = LS_constant_map["ScintillationYield"];
                 G4cout << "Scintillation Yield from MCParamSvc : " << Scintillation_Yield
                        << G4endl;
-              //  LSMPT->AddConstProperty("SCINTILLATIONYIELD", Scintillation_Yield);
-                 LSMPT->AddConstProperty("SCINTILLATIONYIELD", GdLSLY[0]);
-                 G4cout <<"GdLSLY[0] == "<<GdLSLY[0]<<G4endl;
+                LSMPT->AddConstProperty("SCINTILLATIONYIELD", Scintillation_Yield*scale_lsly);
+               // LSMPT->AddConstProperty("SCINTILLATIONYIELD", GdLSLY[0]);
+               //  G4cout <<"GdLSLY[0] == "<<GdLSLY[0]<<G4endl;
             }
             else{
                 LogError<<" can't find ScintillationYield in /Material/LS/ConstantProperty "<<std::endl;
@@ -369,7 +382,7 @@
                 Resolution_Scale = LS_constant_map["ResolutionScale"];
                 G4cout << "Resolution Scale from MCParamSvc : " << Resolution_Scale
                        << G4endl;
-              //  LSMPT->AddConstProperty("RESOLUTIONSCALE", Resolution_Scale);
+                LSMPT->AddConstProperty("RESOLUTIONSCALE", Resolution_Scale);
             }
             else{
                 LogError<<" can't find ResolutionScale in /Material/LS/ConstantProperty "<<std::endl;

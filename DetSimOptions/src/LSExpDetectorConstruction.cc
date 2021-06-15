@@ -167,6 +167,8 @@ LSExpDetectorConstruction::LSExpDetectorConstruction()
 
 
   m_GdLSAbsLengthMode = "old";
+  m_pmt_optical_model = "old";
+  m_LS_optical_model = "old";
 
  // m_veto_pmt_pos_mode = "CalMode";//CalMode: auto input pmt; FileMode: need read pmt pos file
 //  m_pmt_pos_mode = "FileMode";

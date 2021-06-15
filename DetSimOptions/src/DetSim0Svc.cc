@@ -77,6 +77,8 @@ DetSim0Svc::DetSim0Svc(const std::string& name)
     declProp("OpticksMode", m_opticksMode=0);
     
     declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode="old");
+    declProp("UsePMTOpticalModel", m_pmt_optical_model = "old");
+    declProp("UseLSOpticalModel", m_LS_optical_model = "old");
        
 }
 
@@ -201,6 +203,8 @@ DetSim0Svc::createDetectorConstruction()
     dc->setOpticksMode(m_opticksMode);
 
     dc->setGdLSAbsLengthMode(m_GdLSAbsLengthMode);
+    dc->setPMTOpticalModel(m_pmt_optical_model);
+    dc->setLSOpticalModel(m_LS_optical_model);
 
     return dc;
 }

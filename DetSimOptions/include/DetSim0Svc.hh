@@ -115,6 +115,8 @@ private:
 
 private:
     std::string m_GdLSAbsLengthMode;
+    std::string m_pmt_optical_model;
+    std::string m_LS_optical_model;
 
 };
 
