@@ -459,7 +459,7 @@ LSExpDetectorConstruction::ModifyOpticalProperty()
 {
     // Before setup properties for materials, we could scale them.
 
-    G4int len_of_GdLSABSLength_old = 502;
+    G4int len_of_GdLSABSLength_old = 497;
     for (int i=0; i < len_of_GdLSABSLength_old; ++i) {
         GdLSABSLength_old[i] *= coeff_abslen;
     }
