@@ -213,7 +213,6 @@ void LSExpDetectorConstruction::DefineMaterials()
 
 #include "LSExpDetectorConstructionMaterial.icc"
 #include "OpticalSurfaceProperty.icc"
-//#include "convert.hh"
 
 }
 
@@ -1789,10 +1788,7 @@ LSExpDetectorConstruction::helper_mpt(G4MaterialPropertiesTable* MPT, const std:
         return false;
     }
     for (int i = 0; i < N; ++i) {
-        // multiply scale factor, so user could scale easily, without modify original arrays.
-       // std::cout<<"debugkkkkkkkk= "<<std::endl;
         vec->InsertValues(props[i].get<0>(), props[i].get<1>()*scale);
-      //  std::cout<<props[i].get<1>()<<std::endl;
     }
     MPT->AddProperty(mname.c_str(), vec);
     return true;

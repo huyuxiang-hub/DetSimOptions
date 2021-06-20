@@ -262,6 +262,17 @@ double GdLSResolutionScale[2] = {1.0, 1.0};
   double GdLSReemissionSlowTimeConstant[2] = {1.50*ns, 1.50*ns};
   double GdLSReemissionYieldRatio[2] = {1.000, 1.000};
 
+  //add time constant
+  double OpticalYieldRatio[1] = {1.0 };
+  double OpticalTimeConstant[1] = {1.50*ns };
+  double GammaYieldRatio[3] = {0.799, 0.171, 0.03};
+  double GammaTimeConstant[3] = { 4.93*ns , 20.6*ns, 190*ns};
+  double AlphaYieldRatio[3] = {0.65, 0.2275, 0.1225};
+  double AlphaTimeConstant[3] = { 4.93*ns ,35.0*ns, 220*ns};
+  double NeutronYieldRatio[3] = { 0.65, 0.231, 0.119};
+  double NeutronTimeConstant[3] = { 4.93*ns, 34*ns ,220*ns};
+
+
 // New Model for LAB ABSLength
 double GdLABABSEnergy[428] = {
 1.5500 *eV,

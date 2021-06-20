@@ -41,6 +41,7 @@
 #include "G4RadioactiveDecay.hh"
 #include "G4DecayTable.hh"
 #include "G4GenericIon.hh"
+#include "G4NuclideTable.hh"
 
 // FIXME: This is a temporary solution to get data.
 #include "SniperKernel/SniperDataPtr.h"
@@ -120,6 +121,12 @@ void LSExpPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
             int istatus = (*iPart)->status();
             if (istatus == 0x1000) {
                 // NEW: the normal particle, need to use G4 to do radioactivity decay simulation
+
+                // Update the threshold of half life in G4NuclideTable
+                G4NuclideTable* nuclide_table = G4NuclideTable::GetInstance();
+                nuclide_table->SetThresholdOfHalfLife(0.0);
+                
+
             } else if (istatus != 1) {
                 continue;
             }
@@ -245,7 +252,7 @@ void LSExpPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
                     if (Z == 91 && A == 234 && lvl == 1) {
                         E = 73.92*CLHEP::keV;
                         particle_def = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('X'));
-                    } else if (Z == 36 && A == 83 && lvl == 1) { // Kr83m
+                    } else if (Z == 36 && A == 83 && (lvl == 1 || lvl == 2)) { // Kr83m
                         E = 41.5569*CLHEP::keV;
                         particle_def = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('\0'));
 
@@ -283,7 +290,7 @@ void LSExpPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
                                << " Life Time of Kr83[9.405keV]: " << Kr83_9405eV->GetPDGLifeTime()
                                << " Ion Life Time of Kr83[9.405keV]: " << Kr83_9405eV->GetIonLifeTime()
                                << G4endl;
-                    } else if (Z == 54 && A == 129 && lvl == 1) { // Xe129m
+                    } else if (Z == 54 && A == 129 && (lvl == 1 || lvl == 2)) { // Xe129m
                         E = 236.140*CLHEP::keV;
                         particle_def = theIonTable->GetIon(Z, A, E, G4Ions::FloatLevelBase('\0'));
 
@@ -400,6 +407,9 @@ void LSExpPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
                     if (istatus == 0x1000) {
                         // Using G4 to do decay.
+
+                        // Force the decay time to zero for the parent nuclide
+                        particle_def->SetPDGLifeTime(0.0);
                     } else {
 
                         // force stable (we don't want to G4 decay the paticle from GenDecay)
