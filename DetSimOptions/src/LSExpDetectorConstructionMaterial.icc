@@ -288,7 +288,7 @@
        
          helper_mpt(LSMPT, "RINDEX",                     mcgt.data(), "Material.LS.RINDEX");
          helper_mpt(LSMPT, "FASTCOMPONENT",              mcgt.data(), "Material.LS.FASTCOMPONENT");
-         helper_mpt(LSMPT, "SLOWCOMPONENT",              mcgt.data(), "Material.LS.FASTCOMPONENT");
+         helper_mpt(LSMPT, "SLOWCOMPONENT",              mcgt.data(), "Material.LS.SLOWCOMPONENT");
          helper_mpt(LSMPT, "REEMISSIONPROB",             mcgt.data(), "Material.LS.REEMISSIONPROB");
          helper_mpt(LSMPT, "RAYLEIGH",                   mcgt.data(), "Material.LS.RAYLEIGH", scale_rayleigh);
         
@@ -375,8 +375,9 @@
         else{
         LABMPT->AddProperty("RINDEX",   GdLSRefIndexEnergy, GdLSRefIndex, 18);
         LABMPT->AddProperty("RAYLEIGH", GdLSRayEnergy, GdLSRayLength, 11);
-        LAB->SetMaterialPropertiesTable(LABMPT);
         }
+        LAB->SetMaterialPropertiesTable(LABMPT);
+        
     // LABMPT->DumpTable();
 
     // LS = new G4Material("LS", 0.859*g/cm3, 5);

@@ -69,6 +69,7 @@
 //#include "G4HadronPhysicsQGSP_BERT_HP.hh"
 #include "G4StoppingPhysics.hh"
 #include "G4IonPhysics.hh"
+#include "G4IonPhysicsPHP.hh"
 
 #include "G4UnitsTable.hh"
 #include "G4LossTableManager.hh"
@@ -109,7 +110,7 @@ LSExpPhysicsList::LSExpPhysicsList() : G4VModularPhysicsList()
   //hadronList = new G4HadronPhysicsQGSP_BERT_HP();
   hadronList = new DsG4HadronPhysicsQGSP_BERT_HP();
   stoppingList = new G4StoppingPhysics();
-  ionList = new G4IonPhysics();
+  ionList = new G4IonPhysicsPHP();
 
 
   opticalList = 0;

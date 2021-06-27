@@ -630,8 +630,30 @@ LSExpDetectorConstruction::setupReflectorInCD()
                                            0.918,  0.92,   0.92,   0.925,  0.925,   0.92,    0.92,    0.91,
                                            0.89,   0.88,   0.87,   0.86,   0.84,    0.82,    0.8,     0.76,  0.73,   0.53,0.53,0.53  };
 
-
-        tyvek_mt->AddProperty("REFLECTIVITY", TyvekEnergy, TyvekReflectivity, 36);
+       /* for(int i = 0 ; i < 36 ; i++){
+            
+          std::cout << TyvekEnergy[i]/eV <<"     *eV     "<<TyvekReflectivity[i]<<std::endl;
+            
+        }*/
+      
+      
+        SniperPtr<IMCParamsSvc> mcgt(*m_scope, "MCParamsSvc");
+        if (mcgt.invalid()) {
+          G4cout << "Can't find MCParamsSvc." << G4endl;
+          assert(0);
+        }
+        
+        IDetElement* glob_info = det_elem("GlobalGeomInfo");
+        bool use_param_svc = glob_info->geom_info("UseParamSvc");
+        if(use_param_svc){
+           helper_mpt(tyvek_mt, "REFLECTIVITY",mcgt.data(), "Material.Tyvek.REFLECTIVITY");
+        }
+        else
+        {       
+           tyvek_mt->AddProperty("REFLECTIVITY", TyvekEnergy, TyvekReflectivity, 36);
+        }
+       // tyvek_mt->DumpTable(); 
+     
         tyvek_surface->SetMaterialPropertiesTable(tyvek_mt);
         //tyvek_mt->AddProperty("REFLECTIVITY", TyvekEnergy, TyvekReflectivity, 4);
         //tyvek_surface->SetMaterialPropertiesTable(tyvek_mt);

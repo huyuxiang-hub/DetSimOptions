@@ -1,1 +1,1 @@
-LSExpTrackingAction_cc_dependencies =  ../src/LSExpTrackingAction.cc   /junofs/users/huyuxiang/juno_centos7/offline/InstallArea/include/DetSimAlg/MgrOfAnaElem.h  $(bin)DetSimOptions_deps/LSExpTrackingAction_cc.stamp
+LSExpTrackingAction_cc_dependencies =  ../src/LSExpTrackingAction.cc   /home/ihep/2020-3-17/trunk/offline/InstallArea/include/DetSimAlg/MgrOfAnaElem.h  $(bin)DetSimOptions_deps/LSExpTrackingAction_cc.stamp
