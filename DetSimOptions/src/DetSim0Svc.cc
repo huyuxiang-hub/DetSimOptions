@@ -23,6 +23,7 @@
 #include "G4Opticks.hh"
 #endif
 
+#include "DsWrapPhysConsOptical.h"
 
 DECLARE_SERVICE(DetSim0Svc);
 
@@ -76,7 +77,7 @@ DetSim0Svc::DetSim0Svc(const std::string& name)
 
     declProp("OpticksMode", m_opticksMode=0);
     
-    declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode="old");
+ //   declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode="old");
     declProp("UsePMTOpticalModel", m_pmt_optical_model = "old");
     declProp("UseLSOpticalModel", m_LS_optical_model = "old");
        
@@ -133,6 +134,17 @@ DetSim0Svc::initialize()
         return false;
     }
 
+    //To provide option to the Geant4 referrence physics list, the following code will 
+    //get the customized optical process of JUNO  at first.
+    
+    std::string toolname;
+    toolname = "DsPhysConsOptical";
+    optical_phy = detsimalg->findTool(toolname);
+    if (not optical_phy) {
+        optical_phy = detsimalg->createTool(toolname);
+    }
+    assert(optical_phy);
+ 
     return true;
 }
 
@@ -145,6 +157,7 @@ DetSim0Svc::finalize()
     {
         finalizeOpticks();
     }
+
     return true;
 }
 
@@ -202,7 +215,7 @@ DetSim0Svc::createDetectorConstruction()
     }
     dc->setOpticksMode(m_opticksMode);
 
-    dc->setGdLSAbsLengthMode(m_GdLSAbsLengthMode);
+    //dc->setGdLSAbsLengthMode(m_GdLSAbsLengthMode);
     dc->setPMTOpticalModel(m_pmt_optical_model);
     dc->setLSOpticalModel(m_LS_optical_model);
 
@@ -217,11 +230,21 @@ DetSim0Svc::createPhysicsList()
         phylist->setScope(getParent());
         return phylist;
     }
+    G4VUserPhysicsList * physicslist = NULL;
     G4PhysListFactory *physListFactory = new G4PhysListFactory();
-    G4VUserPhysicsList *physicsList =
+    modularPhysicsList = 
         physListFactory->GetReferencePhysList(m_physics_lists_name);
-    assert(physicsList);
-    return physicsList;
+    assert(modularPhysicsList);
+    // Register the optical process to the modularPhysicsList;
+    // Since the DsPhysConsOptical is a sniper tool , we have to define a new wrapper class DsWrapPhysConsOptical
+    // to complete the registration task. 
+    DsWrapPhysConsOptical * wrap_op = new DsWrapPhysConsOptical;
+    assert(wrap_op);
+    wrap_op->SetOpticalProcess(dynamic_cast<G4VPhysicsConstructor*>(optical_phy));
+    modularPhysicsList->RegisterPhysics(dynamic_cast<G4VPhysicsConstructor*>(wrap_op));
+    LogInfo << " the replace physics list is : " << m_physics_lists_name << std::endl;
+    physicslist = modularPhysicsList;
+    return physicslist;
 }
 
 G4VUserPrimaryGeneratorAction* 

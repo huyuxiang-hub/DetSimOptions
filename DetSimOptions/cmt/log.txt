@@ -3,14 +3,14 @@
 #CMT---> (constituents.make) Starting DetSimOptionsclean
 #CMT---> (constituents.make) Starting makeclean
 #CMT---> (constituents.make) makeclean done
+Uninstalling files from /home/ihep/2020-3-17/trunk/offline/InstallArea
 #CMT---> removing objects DetSimOptions
-Uninstalling files from /junofs/users/huyuxiang/juno_centos7/offline/InstallArea
 #CMT---> removing library DetSimOptions
 #CMT---> (constituents.make) DetSimOptionsclean done
-Remove '/junofs/users/huyuxiang/juno_centos7/offline/InstallArea/python/DetSimOptions/ConfAcrylic.py'
-Remove '/junofs/users/huyuxiang/juno_centos7/offline/InstallArea/python/DetSimOptions/ConfTT.py'
-Remove '/junofs/users/huyuxiang/juno_centos7/offline/InstallArea/python/DetSimOptions/__init__.py'
-Remove '/junofs/users/huyuxiang/juno_centos7/offline/InstallArea/python/DetSimOptions/ConfBalloon.py'
+Remove '/home/ihep/2020-3-17/trunk/offline/InstallArea/python/DetSimOptions/__init__.py'
+Remove '/home/ihep/2020-3-17/trunk/offline/InstallArea/python/DetSimOptions/ConfAcrylic.py'
+Remove '/home/ihep/2020-3-17/trunk/offline/InstallArea/python/DetSimOptions/ConfBalloon.py'
+Remove '/home/ihep/2020-3-17/trunk/offline/InstallArea/python/DetSimOptions/ConfTT.py'
 #CMT---> (constituents.make) DetSimOptions_pythonclean done
 #CMT---> DetSimOptions_pythonclean DetSimOptionsclean
 #CMT---> allclean ok.
@@ -28,51 +28,48 @@ Creating cleanup scripts.
 #CMT---> (constituents.make) Starting DetSimOptions_python
 #CMT---> (constituents.make) Starting DetSimOptionsprototype
 gmake[2]: `DetSimOptionsprototype' is up to date.
-Installing files from ../python to /junofs/users/huyuxiang/juno_centos7/offline/InstallArea
+Installing files from ../python to /home/ihep/2020-3-17/trunk/offline/InstallArea
 #CMT---> (constituents.make) DetSimOptionsprototype done
 #CMT---> (constituents.make) Starting DetSimOptionscompile
 #CMT---> (DetSimOptions.make) Rebuilding ../amd64_linux26/DetSimOptions_dependencies.make
-#CMT---> Info: calculating dependencies for ../src/LSExpActionInitialization.cc
 #CMT---> Info: calculating dependencies for ../src/LSExpPrimaryGeneratorAction.cc
-Copy '../../../Simulation/DetSimV2/DetSimOptions/python/DetSimOptions/ConfAcrylic.py' -> '/junofs/users/huyuxiang/juno_centos7/offline/InstallArea/python/DetSimOptions/ConfAcrylic.py'
-Copy '../../../Simulation/DetSimV2/DetSimOptions/python/DetSimOptions/ConfTT.py' -> '/junofs/users/huyuxiang/juno_centos7/offline/InstallArea/python/DetSimOptions/ConfTT.py'
-Copy '../../../Simulation/DetSimV2/DetSimOptions/python/DetSimOptions/__init__.py' -> '/junofs/users/huyuxiang/juno_centos7/offline/InstallArea/python/DetSimOptions/__init__.py'
-Copy '../../../Simulation/DetSimV2/DetSimOptions/python/DetSimOptions/ConfBalloon.py' -> '/junofs/users/huyuxiang/juno_centos7/offline/InstallArea/python/DetSimOptions/ConfBalloon.py'
+Copy '../../../Simulation/DetSimV2/DetSimOptions/python/DetSimOptions/__init__.py' -> '/home/ihep/2020-3-17/trunk/offline/InstallArea/python/DetSimOptions/__init__.py'
+Copy '../../../Simulation/DetSimV2/DetSimOptions/python/DetSimOptions/ConfAcrylic.py' -> '/home/ihep/2020-3-17/trunk/offline/InstallArea/python/DetSimOptions/ConfAcrylic.py'
+Copy '../../../Simulation/DetSimV2/DetSimOptions/python/DetSimOptions/ConfBalloon.py' -> '/home/ihep/2020-3-17/trunk/offline/InstallArea/python/DetSimOptions/ConfBalloon.py'
+Copy '../../../Simulation/DetSimV2/DetSimOptions/python/DetSimOptions/ConfTT.py' -> '/home/ihep/2020-3-17/trunk/offline/InstallArea/python/DetSimOptions/ConfTT.py'
 installation done
 #CMT---> (constituents.make) DetSimOptions_python done
-#CMT---> Info: calculating dependencies for ../src/DetSim0Svc.cc
-#CMT---> Info: calculating dependencies for ../src/WaterPoolConstruction.cc
-#CMT---> Info: calculating dependencies for ../src/LSExpTrackingAction.cc
-#CMT---> Info: calculating dependencies for ../src/LSExpEventAction.cc
-#CMT---> Info: calculating dependencies for ../src/LSExpRunAction.cc
-#CMT---> Info: calculating dependencies for ../src/LSExpDetectorConstruction_Opticks.cc
 #CMT---> Info: calculating dependencies for ../src/ExpHallConstruction.cc
 #CMT---> Info: calculating dependencies for ../src/RockConstruction.cc
-#CMT---> Info: calculating dependencies for ../src/LSExpSteppingAction.cc
-#CMT---> Info: calculating dependencies for ../src/LSExpDetectorConstruction.cc
-#CMT---> Info: calculating dependencies for ../src/LSExpParticleGun.cc
-#CMT---> Info: calculating dependencies for ../src/LSExpPhysicsList.cc
+#CMT---> Info: calculating dependencies for ../src/LSExpTrackingAction.cc
+#CMT---> Info: calculating dependencies for ../src/LSExpRunAction.cc
 #CMT---> Info: calculating dependencies for ../src/DetPrototypeSvc.cc
 #CMT---> Info: calculating dependencies for ../src/GlobalGeomInfo.cc
-#CMT---> compiling ../src/LSExpActionInitialization.cc
+#CMT---> Info: calculating dependencies for ../src/WaterPoolConstruction.cc
+#CMT---> Info: calculating dependencies for ../src/LSExpParticleGun.cc
+#CMT---> Info: calculating dependencies for ../src/LSExpPhysicsList.cc
+#CMT---> Info: calculating dependencies for ../src/LSExpEventAction.cc
+#CMT---> Info: calculating dependencies for ../src/LSExpDetectorConstruction_Opticks.cc
+#CMT---> Info: calculating dependencies for ../src/LSExpActionInitialization.cc
+#CMT---> Info: calculating dependencies for ../src/LSExpSteppingAction.cc
+#CMT---> Info: calculating dependencies for ../src/LSExpDetectorConstruction.cc
+#CMT---> Info: calculating dependencies for ../src/DetSim0Svc.cc
 #CMT---> compiling ../src/LSExpPrimaryGeneratorAction.cc
-#CMT---> compiling ../src/DetSim0Svc.cc
-#CMT---> compiling ../src/WaterPoolConstruction.cc
-#CMT---> compiling ../src/LSExpTrackingAction.cc
-#CMT---> compiling ../src/LSExpEventAction.cc
-#CMT---> compiling ../src/LSExpRunAction.cc
-#CMT---> compiling ../src/LSExpDetectorConstruction_Opticks.cc
 #CMT---> compiling ../src/ExpHallConstruction.cc
 #CMT---> compiling ../src/RockConstruction.cc
-#CMT---> compiling ../src/LSExpSteppingAction.cc
-#CMT---> compiling ../src/LSExpDetectorConstruction.cc
-#CMT---> compiling ../src/LSExpParticleGun.cc
-#CMT---> compiling ../src/LSExpPhysicsList.cc
+#CMT---> compiling ../src/LSExpTrackingAction.cc
+#CMT---> compiling ../src/LSExpRunAction.cc
 #CMT---> compiling ../src/DetPrototypeSvc.cc
 #CMT---> compiling ../src/GlobalGeomInfo.cc
-../src/LSExpDetectorConstruction.cc:354:2: error: stray ‘`’ in program
-  `         G4cout << " * " << m_calibunit_name << G4endl;
-  ^
+#CMT---> compiling ../src/WaterPoolConstruction.cc
+#CMT---> compiling ../src/LSExpParticleGun.cc
+#CMT---> compiling ../src/LSExpEventAction.cc
+#CMT---> compiling ../src/LSExpPhysicsList.cc
+#CMT---> compiling ../src/LSExpDetectorConstruction_Opticks.cc
+#CMT---> compiling ../src/LSExpActionInitialization.cc
+#CMT---> compiling ../src/LSExpSteppingAction.cc
+#CMT---> compiling ../src/LSExpDetectorConstruction.cc
+#CMT---> compiling ../src/DetSim0Svc.cc
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
@@ -149,8 +146,8 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
-                 from ../src/RockConstruction.cc:1:
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
+                 from ../src/ExpHallConstruction.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
  BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
                                         ^~~~~~~~
@@ -175,8 +172,55 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
-                 from ../src/RockConstruction.cc:1:
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
+                 from ../src/ExpHallConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/value_arg.hpp:7,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/forward.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/pointer_holder.hpp:16,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
+                 from ../src/DetSim0Svc.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+ BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
+                                        ^~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/detail/is_xxx.hpp:20:4: note: in definition of macro ‘BOOST_DETAIL_IS_XXX_DEF’
+    qualified_name< BOOST_PP_ENUM_PARAMS_Z(1, nargs, T) >        \
+    ^~~~~~~~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:1: note: in expansion of macro ‘BOOST_PYTHON_IS_XXX_DEF’
+ BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
+ ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/memory:80,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_base.hpp:16,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/prologue.hpp:17,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_template.hpp:13,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/maybe_include.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function0.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/errors.hpp:13,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/handle.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args_fwd.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
+                 from ../src/DetSim0Svc.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
    template<typename> class auto_ptr;
                             ^~~~~~~~
@@ -193,8 +237,36 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
-                 from ../src/RockConstruction.cc:1:
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
+                 from ../src/ExpHallConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
+     const bool is_shared_ptr;
+                ^~~~~~~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
+     const python::type_info target_type;
+                             ^~~~~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
+                 from ../src/DetSim0Svc.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
  inline registration::registration(type_info target_type, bool is_shared_ptr)
@@ -245,314 +317,6 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
    template<typename> class auto_ptr;
                             ^~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from ../src/LSExpPrimaryGeneratorAction.cc:29:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
-     const bool is_shared_ptr;
-                ^~~~~~~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
-     const python::type_info target_type;
-                             ^~~~~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/value_arg.hpp:7,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/forward.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/pointer_holder.hpp:16,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
-                 from ../src/ExpHallConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
- BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
-                                        ^~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/detail/is_xxx.hpp:20:4: note: in definition of macro ‘BOOST_DETAIL_IS_XXX_DEF’
-    qualified_name< BOOST_PP_ENUM_PARAMS_Z(1, nargs, T) >        \
-    ^~~~~~~~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:1: note: in expansion of macro ‘BOOST_PYTHON_IS_XXX_DEF’
- BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
- ^~~~~~~~~~~~~~~~~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/memory:80,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_base.hpp:16,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/prologue.hpp:17,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_template.hpp:13,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/maybe_include.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function0.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/errors.hpp:13,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/handle.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args_fwd.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
-                 from ../src/ExpHallConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
-   template<typename> class auto_ptr;
-                            ^~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
-                 from ../src/ExpHallConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
-     const bool is_shared_ptr;
-                ^~~~~~~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
-     const python::type_info target_type;
-                             ^~~~~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/value_arg.hpp:7,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/forward.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/pointer_holder.hpp:16,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from ../src/LSExpPhysicsList.cc:27:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
- BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
-                                        ^~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/detail/is_xxx.hpp:20:4: note: in definition of macro ‘BOOST_DETAIL_IS_XXX_DEF’
-    qualified_name< BOOST_PP_ENUM_PARAMS_Z(1, nargs, T) >        \
-    ^~~~~~~~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:1: note: in expansion of macro ‘BOOST_PYTHON_IS_XXX_DEF’
- BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
- ^~~~~~~~~~~~~~~~~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/memory:80,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_base.hpp:16,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/prologue.hpp:17,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_template.hpp:13,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/maybe_include.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function0.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/errors.hpp:13,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/handle.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args_fwd.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from ../src/LSExpPhysicsList.cc:27:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
-   template<typename> class auto_ptr;
-                            ^~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/value_arg.hpp:7,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/forward.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/pointer_holder.hpp:16,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
-                 from ../src/DetPrototypeSvc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
- BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
-                                        ^~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/detail/is_xxx.hpp:20:4: note: in definition of macro ‘BOOST_DETAIL_IS_XXX_DEF’
-    qualified_name< BOOST_PP_ENUM_PARAMS_Z(1, nargs, T) >        \
-    ^~~~~~~~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:1: note: in expansion of macro ‘BOOST_PYTHON_IS_XXX_DEF’
- BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
- ^~~~~~~~~~~~~~~~~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/memory:80,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_base.hpp:16,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/prologue.hpp:17,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_template.hpp:13,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/maybe_include.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function0.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/errors.hpp:13,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/handle.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args_fwd.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
-                 from ../src/DetPrototypeSvc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
-   template<typename> class auto_ptr;
-                            ^~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/value_arg.hpp:7,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/forward.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/pointer_holder.hpp:16,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
-                 from ../src/DetSim0Svc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
- BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
-                                        ^~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/detail/is_xxx.hpp:20:4: note: in definition of macro ‘BOOST_DETAIL_IS_XXX_DEF’
-    qualified_name< BOOST_PP_ENUM_PARAMS_Z(1, nargs, T) >        \
-    ^~~~~~~~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:1: note: in expansion of macro ‘BOOST_PYTHON_IS_XXX_DEF’
- BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
- ^~~~~~~~~~~~~~~~~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/memory:80,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_base.hpp:16,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/prologue.hpp:17,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_template.hpp:13,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/maybe_include.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function0.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/errors.hpp:13,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/handle.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args_fwd.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
-                 from ../src/DetSim0Svc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
-   template<typename> class auto_ptr;
-                            ^~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from ../src/LSExpPhysicsList.cc:27:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
-     const bool is_shared_ptr;
-                ^~~~~~~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
-     const python::type_info target_type;
-                             ^~~~~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
-                 from ../src/DetPrototypeSvc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
-     const bool is_shared_ptr;
-                ^~~~~~~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
-     const python::type_info target_type;
-                             ^~~~~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
-                 from ../src/DetSim0Svc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
-     const bool is_shared_ptr;
-                ^~~~~~~~~~~~~
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
- inline registration::registration(type_info target_type, bool is_shared_ptr)
-                                                                            ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
-     const python::type_info target_type;
-                             ^~~~~~~~~~~
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
                  from ../src/GlobalGeomInfo.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
@@ -562,20 +326,29 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
        type_info** p;
                    ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
-                 from ../src/RockConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
-       write_type_id(type_info**p) : p(p) {}
-                                   ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
-       type_info** p;
-                   ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from ../src/LSExpPrimaryGeneratorAction.cc:29:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
+     const bool is_shared_ptr;
+                ^~~~~~~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
+     const python::type_info target_type;
+                             ^~~~~~~~~~~
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
@@ -592,7 +365,54 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
+                 from ../src/RockConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+ BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
+                                        ^~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/detail/is_xxx.hpp:20:4: note: in definition of macro ‘BOOST_DETAIL_IS_XXX_DEF’
+    qualified_name< BOOST_PP_ENUM_PARAMS_Z(1, nargs, T) >        \
+    ^~~~~~~~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:1: note: in expansion of macro ‘BOOST_PYTHON_IS_XXX_DEF’
+ BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
+ ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/memory:80,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_base.hpp:16,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/prologue.hpp:17,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_template.hpp:13,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/maybe_include.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function0.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/errors.hpp:13,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/handle.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args_fwd.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
+                 from ../src/RockConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/value_arg.hpp:7,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/forward.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/pointer_holder.hpp:16,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
                  from ../src/WaterPoolConstruction.cc:2:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
  BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
@@ -618,11 +438,114 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
                  from ../src/WaterPoolConstruction.cc:2:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
    template<typename> class auto_ptr;
                             ^~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/value_arg.hpp:7,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/forward.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/pointer_holder.hpp:16,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
+                 from ../src/DetPrototypeSvc.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+ BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
+                                        ^~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/detail/is_xxx.hpp:20:4: note: in definition of macro ‘BOOST_DETAIL_IS_XXX_DEF’
+    qualified_name< BOOST_PP_ENUM_PARAMS_Z(1, nargs, T) >        \
+    ^~~~~~~~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:1: note: in expansion of macro ‘BOOST_PYTHON_IS_XXX_DEF’
+ BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
+ ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/memory:80,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_base.hpp:16,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/prologue.hpp:17,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_template.hpp:13,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/maybe_include.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function0.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/errors.hpp:13,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/handle.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args_fwd.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
+                 from ../src/DetPrototypeSvc.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
+                 from ../src/RockConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
+     const bool is_shared_ptr;
+                ^~~~~~~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
+     const python::type_info target_type;
+                             ^~~~~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
+                 from ../src/WaterPoolConstruction.cc:2:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
+     const bool is_shared_ptr;
+                ^~~~~~~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
+     const python::type_info target_type;
+                             ^~~~~~~~~~~
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
                  from ../src/GlobalGeomInfo.cc:1:
@@ -642,9 +565,9 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
-                 from ../src/WaterPoolConstruction.cc:2:
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
+                 from ../src/DetPrototypeSvc.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
  inline registration::registration(type_info target_type, bool is_shared_ptr)
@@ -667,34 +590,13 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
      typedef detail::long_base base;
                                ^~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
-                 from ../src/RockConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
- )
- ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
-                 from ../src/RockConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
-         : detail::long_base(object(rhs), object(base))
-         ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
-     typedef detail::long_base base;
-                               ^~~~
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
-                 from ../src/LSExpPrimaryGeneratorAction.cc:29:
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
+                 from ../src/ExpHallConstruction.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
        write_type_id(type_info**p) : p(p) {}
@@ -702,6 +604,80 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
        type_info** p;
                    ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/value_arg.hpp:7,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/forward.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/pointer_holder.hpp:16,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from ../src/LSExpPhysicsList.cc:27:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:40: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+ BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
+                                        ^~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/detail/is_xxx.hpp:20:4: note: in definition of macro ‘BOOST_DETAIL_IS_XXX_DEF’
+    qualified_name< BOOST_PP_ENUM_PARAMS_Z(1, nargs, T) >        \
+    ^~~~~~~~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:17:1: note: in expansion of macro ‘BOOST_PYTHON_IS_XXX_DEF’
+ BOOST_PYTHON_IS_XXX_DEF(auto_ptr, std::auto_ptr, 1)
+ ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/memory:80,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_base.hpp:16,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/prologue.hpp:17,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function_template.hpp:13,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/detail/maybe_include.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/function/function0.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/errors.hpp:13,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/handle.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args_fwd.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from ../src/LSExpPhysicsList.cc:27:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
+                 from ../src/DetSim0Svc.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
+       write_type_id(type_info**p) : p(p) {}
+                                   ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
+       type_info** p;
+                   ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/to_python_indirect.hpp:11,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/arg_to_python.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/call.hpp:15,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object_core.hpp:14,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/args.hpp:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:11,
+                 from ../src/LSExpPhysicsList.cc:27:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp: In constructor ‘boost::python::converter::registration::registration(boost::python::type_info, bool)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘is_shared_ptr’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:71:16: note: shadowed declaration is here
+     const bool is_shared_ptr;
+                ^~~~~~~~~~~~~
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:82:76: warning: declaration of ‘target_type’ shadows a member of ‘boost::python::converter::registration’ [-Wshadow]
+ inline registration::registration(type_info target_type, bool is_shared_ptr)
+                                                                            ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
+     const python::type_info target_type;
+                             ^~~~~~~~~~~
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_xxx.hpp:8,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/is_auto_ptr.hpp:9,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/detail/copy_ctor_mutates_rhs.hpp:8,
@@ -739,34 +715,30 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/contrib/gcc/8.3.0/include/c++/8.3.0/bits/unique_ptr.h:53:28: note: declared here
    template<typename> class auto_ptr;
                             ^~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
-                 from ../src/DetPrototypeSvc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
-       write_type_id(type_info**p) : p(p) {}
-                                   ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
                  from ../src/ExpHallConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
-       write_type_id(type_info**p) : p(p) {}
-                                   ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
-       type_info** p;
-                   ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
-       type_info** p;
-                   ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+ )
+ ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
+                 from ../src/DetSim0Svc.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+ )
+ ^
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registered.hpp:12,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_instance.hpp:10,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/make_ptr_instance.hpp:8,
@@ -790,46 +762,13 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/converter/registrations.hpp:53:29: note: shadowed declaration is here
      const python::type_info target_type;
                              ^~~~~~~~~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
-                 from ../src/LSExpPhysicsList.cc:27:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
-       write_type_id(type_info**p) : p(p) {}
-                                   ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
-       type_info** p;
-                   ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
-                 from ../src/DetPrototypeSvc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
- )
- ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
-                 from ../src/ExpHallConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
- )
- ^
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
-                 from ../src/DetPrototypeSvc.cc:1:
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
+                 from ../src/ExpHallConstruction.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
          : detail::long_base(object(rhs), object(base))
@@ -837,20 +776,22 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
      typedef detail::long_base base;
                                ^~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
-                 from ../src/LSExpPrimaryGeneratorAction.cc:29:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
- )
- ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
                  from ../src/DetSim0Svc.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
+         : detail::long_base(object(rhs), object(base))
+         ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
+     typedef detail::long_base base;
+                               ^~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
+                 from ../src/LSExpPrimaryGeneratorAction.cc:29:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
        write_type_id(type_info**p) : p(p) {}
@@ -858,45 +799,34 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
        type_info** p;
                    ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
-                 from ../src/ExpHallConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
-         : detail::long_base(object(rhs), object(base))
-         ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
-     typedef detail::long_base base;
-                               ^~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
-                 from ../src/LSExpPhysicsList.cc:27:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
- )
- ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
-                 from ../src/LSExpPrimaryGeneratorAction.cc:29:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
-         : detail::long_base(object(rhs), object(base))
-         ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
-     typedef detail::long_base base;
-                               ^~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
-                 from ../src/LSExpPhysicsList.cc:27:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
-         : detail::long_base(object(rhs), object(base))
-         ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
-     typedef detail::long_base base;
-                               ^~~~
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
+                 from ../src/WaterPoolConstruction.cc:2:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
+       write_type_id(type_info**p) : p(p) {}
+                                   ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
+       type_info** p;
+                   ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
+                 from ../src/RockConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
+       write_type_id(type_info**p) : p(p) {}
+                                   ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
+       type_info** p;
+                   ^
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
                  from ../src/GlobalGeomInfo.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
@@ -910,9 +840,9 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
-                 from ../src/WaterPoolConstruction.cc:2:
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
+                 from ../src/DetPrototypeSvc.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
        write_type_id(type_info**p) : p(p) {}
@@ -922,37 +852,13 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
                    ^
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
-                 from ../src/DetSim0Svc.cc:1:
+                 from ../src/LSExpPrimaryGeneratorAction.cc:29:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
  )
  ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
-                 from ../src/RockConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
-       raw_dispatcher(F f) : f(f) {}
-                           ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
-       F f;
-         ^
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
-                 from ../src/DetSim0Svc.cc:1:
+                 from ../src/LSExpPrimaryGeneratorAction.cc:29:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
          : detail::long_base(object(rhs), object(base))
@@ -966,8 +872,46 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
                  from ../src/WaterPoolConstruction.cc:2:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+ )
+ ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
+                 from ../src/RockConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+ )
+ ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
+                 from ../src/ExpHallConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
+       raw_dispatcher(F f) : f(f) {}
+                           ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
+       F f;
+         ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
+                 from ../src/DetPrototypeSvc.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
  )
@@ -977,8 +921,8 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
-                 from ../src/DetPrototypeSvc.cc:1:
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
+                 from ../src/DetSim0Svc.cc:1:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
        raw_dispatcher(F f) : f(f) {}
@@ -986,13 +930,91 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
        F f;
          ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
+                 from ../src/LSExpPhysicsList.cc:27:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
+       write_type_id(type_info**p) : p(p) {}
+                                   ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
+       type_info** p;
+                   ^
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
                  from ../src/WaterPoolConstruction.cc:2:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
+         : detail::long_base(object(rhs), object(base))
+         ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
+     typedef detail::long_base base;
+                               ^~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
+                 from ../src/RockConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
+         : detail::long_base(object(rhs), object(base))
+         ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
+     typedef detail::long_base base;
+                               ^~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
+                 from ../src/DetPrototypeSvc.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
+         : detail::long_base(object(rhs), object(base))
+         ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
+     typedef detail::long_base base;
+                               ^~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
+                 from ../src/LSExpPhysicsList.cc:27:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+ )
+ ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
+                 from ../src/LSExpDetectorConstruction.cc:26:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
+       write_type_id(type_info**p) : p(p) {}
+                                   ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
+       type_info** p;
+                   ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
+                 from ../src/LSExpPhysicsList.cc:27:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
+         : detail::long_base(object(rhs), object(base))
+         ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
+     typedef detail::long_base base;
+                               ^~~~
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
+                 from ../src/LSExpDetectorConstruction.cc:26:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+ )
+ ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
+                 from ../src/LSExpDetectorConstruction.cc:26:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
          : detail::long_base(object(rhs), object(base))
@@ -1010,6 +1032,48 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
        F f;
          ^
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
+                 from ../src/WaterPoolConstruction.cc:2:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
+       raw_dispatcher(F f) : f(f) {}
+                           ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
+       F f;
+         ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/RockConstruction.hh:16,
+                 from ../src/RockConstruction.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
+       raw_dispatcher(F f) : f(f) {}
+                           ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
+       F f;
+         ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
+                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/DetPrototypeSvc.hh:4,
+                 from ../src/DetPrototypeSvc.cc:1:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
+       raw_dispatcher(F f) : f(f) {}
+                           ^
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
+       F f;
+         ^
+In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
                  from ../src/LSExpPhysicsList.cc:27:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
@@ -1018,66 +1082,8 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
        F f;
          ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
-                 from ../src/LSExpDetectorConstruction.cc:26:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp: In constructor ‘boost::python::detail::write_type_id::write_type_id(boost::python::type_info**)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:68:35: warning: declaration of ‘p’ shadows a member of ‘boost::python::detail::write_type_id’ [-Wshadow]
-       write_type_id(type_info**p) : p(p) {}
-                                   ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:77:19: note: shadowed declaration is here
-       type_info** p;
-                   ^
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/ExpHallConstruction.hh:4,
-                 from ../src/ExpHallConstruction.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
-       raw_dispatcher(F f) : f(f) {}
-                           ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
-       F f;
-         ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/exception_translator.hpp:10,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:28,
                  from ../src/LSExpDetectorConstruction.cc:26:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp: At global scope:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/bind.hpp:41:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
- )
- ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:39,
-                 from ../src/LSExpDetectorConstruction.cc:26:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp: In constructor ‘boost::python::long_::long_(const T&, const U&)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:46:9: warning: declaration of ‘base’ shadows a previous local [-Wshadow]
-         : detail::long_base(object(rhs), object(base))
-         ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/long.hpp:34:31: note: shadowed declaration is here
-     typedef detail::long_base base;
-                               ^~~~
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
-                 from ../src/DetSim0Svc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
-       raw_dispatcher(F f) : f(f) {}
-                           ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
-       F f;
-         ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
-                 from ../src/WaterPoolConstruction.cc:2:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
        raw_dispatcher(F f) : f(f) {}
@@ -1100,73 +1106,44 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/extract.hpp:185:11: warning: ‘*((void*)& _var +24)’ may be used uninitialized in this function [-Wmaybe-uninitialized]
            );
            ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:55,
-                 from ../src/LSExpDetectorConstruction.cc:26:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp: In constructor ‘boost::python::detail::raw_dispatcher<F>::raw_dispatcher(F)’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:25:27: warning: declaration of ‘f’ shadows a member of ‘boost::python::detail::raw_dispatcher<F>’ [-Wshadow]
-       raw_dispatcher(F f) : f(f) {}
-                           ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/raw_function.hpp:40:9: note: shadowed declaration is here
-       F f;
-         ^
+../src/DetSim0Svc.cc: In member function ‘virtual G4VUserPhysicsList* DetSim0Svc::createPhysicsList()’:
+../src/DetSim0Svc.cc:240:27: error: conversion from ‘DsPhysConsOptical*’ to non-scalar type ‘DsPhysConsOptical’ requested
+     DsPhysConsOptical a = new DsPhysConsOptical;
+                           ^~~~~~~~~~~~~~~~~~~~~
 ../src/LSExpPrimaryGeneratorAction.cc: In member function ‘virtual void LSExpPrimaryGeneratorAction::GeneratePrimaries(G4Event*)’:
-../src/LSExpPrimaryGeneratorAction.cc:272:43: warning: declaration of ‘decaytbl’ shadows a previous local [-Wshadow]
+../src/LSExpPrimaryGeneratorAction.cc:279:43: warning: declaration of ‘decaytbl’ shadows a previous local [-Wshadow]
                              G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(Kr83_9405eV);
                                            ^~~~~~~~
-../src/LSExpPrimaryGeneratorAction.cc:264:39: note: shadowed declaration is here
+../src/LSExpPrimaryGeneratorAction.cc:271:39: note: shadowed declaration is here
                          G4DecayTable* decaytbl = particle_def->GetDecayTable();
                                        ^~~~~~~~
-../src/LSExpPrimaryGeneratorAction.cc:310:43: warning: declaration of ‘decaytbl’ shadows a previous local [-Wshadow]
+../src/LSExpPrimaryGeneratorAction.cc:317:43: warning: declaration of ‘decaytbl’ shadows a previous local [-Wshadow]
                              G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(Xe129_39578eV);
                                            ^~~~~~~~
-../src/LSExpPrimaryGeneratorAction.cc:302:39: note: shadowed declaration is here
+../src/LSExpPrimaryGeneratorAction.cc:309:39: note: shadowed declaration is here
                          G4DecayTable* decaytbl = particle_def->GetDecayTable();
                                        ^~~~~~~~
-../src/LSExpPrimaryGeneratorAction.cc:367:43: warning: declaration of ‘decaytbl’ shadows a previous local [-Wshadow]
+../src/LSExpPrimaryGeneratorAction.cc:374:43: warning: declaration of ‘decaytbl’ shadows a previous local [-Wshadow]
                              G4DecayTable* decaytbl = g4radiodecay->GetDecayTable(Xe133);
                                            ^~~~~~~~
-../src/LSExpPrimaryGeneratorAction.cc:360:39: note: shadowed declaration is here
+../src/LSExpPrimaryGeneratorAction.cc:367:39: note: shadowed declaration is here
                          G4DecayTable* decaytbl = particle_def->GetDecayTable();
                                        ^~~~~~~~
-../src/LSExpPrimaryGeneratorAction.cc:234:37: warning: unused variable ‘L’ [-Wunused-variable]
+../src/LSExpPrimaryGeneratorAction.cc:241:37: warning: unused variable ‘L’ [-Wunused-variable]
                      G4int Z=0, A=0, L=0, lvl=0;
                                      ^
-In file included from ../src/LSExpDetectorConstruction.cc:214:
-../src/convert.hh: In member function ‘void LSExpDetectorConstruction::DefineMaterials()’:
-../src/convert.hh:72:35: warning: comparison of integer expressions of different signedness: ‘G4int’ {aka ‘int’} and ‘std::vector<const char*>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
-               for(G4int j = 0 ; j < key.size() ; j++){
-                                 ~~^~~~~~~~~~~~
-../src/convert.hh:91:47: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
-                             for(int k = 0 ; k < theVector->GetVectorLength() ; k++){
-                                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/LSExpDetectorConstruction.cc:214:
-../src/convert.hh:97:47: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
-                             for(int k = 0 ; k < theVector->GetVectorLength() ; k++){
-                                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../src/convert.hh:102:47: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
-                             for(int k = 0 ; k < theVector->GetVectorLength() ; k++){
-                                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../src/convert.hh:107:47: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
-                             for(int k = 0 ; k < theVector->GetVectorLength() ; k++){
-                                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../src/LSExpDetectorConstruction.cc: In member function ‘void LSExpDetectorConstruction::setupReflectorInCD()’:
-../src/LSExpDetectorConstruction.cc:617:30: warning: declaration of ‘TyvekEnergy’ shadows a global declaration [-Wshadow]
-         double TyvekEnergy[36] = {   1.55*eV, 2.034*eV, 2.068*eV, 2.103*eV, 2.139*eV, 2.177*eV, 2.216*eV, 2.256*eV, 2.298*eV,
-                              ^
-In file included from ../src/LSExpDetectorConstruction.cc:58:
-../src/OpticalProperty.icc:4545:10: note: shadowed declaration is here
-   double TyvekEnergy[4] = {1.55*eV, 6.20*eV, 10.33*eV, 15.5*eV};
-          ^~~~~~~~~~~
+gmake[2]: *** [../amd64_linux26/DetSim0Svc.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
 ../src/LSExpDetectorConstruction.cc: In member function ‘void LSExpDetectorConstruction::setupPrototypeDetectorOnePMT()’:
-../src/LSExpDetectorConstruction.cc:906:16: warning: declaration of ‘pmt_det’ shadows a member of ‘LSExpDetectorConstruction’ [-Wshadow]
+../src/LSExpDetectorConstruction.cc:794:16: warning: declaration of ‘pmt_det’ shadows a member of ‘LSExpDetectorConstruction’ [-Wshadow]
    IPMTElement* pmt_det = 0;
                 ^~~~~~~
 In file included from ../src/LSExpDetectorConstruction.cc:28:
-/afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/LSExpDetectorConstruction.hh:379:19: note: shadowed declaration is here
+/home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/LSExpDetectorConstruction.hh:379:19: note: shadowed declaration is here
       IPMTElement* pmt_det; // for 20inch PMT
                    ^~~~~~~
 ../src/LSExpDetectorConstruction.cc: In member function ‘void LSExpDetectorConstruction::setupPMT(G4VSensitiveDetector*)’:
-../src/LSExpDetectorConstruction.cc:1145:64: warning: unused parameter ‘not_a_leak’ [-Wunused-parameter]
+../src/LSExpDetectorConstruction.cc:1033:64: warning: unused parameter ‘not_a_leak’ [-Wunused-parameter]
  void LSExpDetectorConstruction::setupPMT(G4VSensitiveDetector* not_a_leak) {
                                           ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
 In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/override.hpp:13,
@@ -1179,38 +1156,12 @@ In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J2
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
                  from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/ToolBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
+                 from /home/ihep/2020-3-17/trunk/offline/Simulation/DetSimV2/DetSimOptions/include/WaterPoolConstruction.hh:4,
                  from ../src/WaterPoolConstruction.cc:2:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/extract.hpp: In member function ‘bool SniperProperty<T>::set(boost::python::api::object&) [with T = bool]’:
 /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/extract.hpp:185:11: warning: ‘*((void*)& _var +24)’ may be used uninitialized in this function [-Wmaybe-uninitialized]
            );
            ^
-In file included from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/override.hpp:13,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/wrapper.hpp:8,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/value_holder.hpp:15,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/object/class_metadata.hpp:14,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/class.hpp:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python.hpp:18,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/Property.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/PropertyMgr.h:22,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/DLElement.h:23,
-                 from /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/sniper/InstallArea/include/SniperKernel/SvcBase.h:22,
-                 from /afs/ihep.ac.cn/users/h/huyuxiang/junofs/juno_centos7/offline/Simulation/DetSimV2/DetSimOptions/include/DetSim0Svc.hh:4,
-                 from ../src/DetSim0Svc.cc:1:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/extract.hpp: In member function ‘bool SniperProperty<T>::set(boost::python::api::object&) [with T = int]’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/extract.hpp:185:11: warning: ‘*((void*)& _var +24)’ may be used uninitialized in this function [-Wmaybe-uninitialized]
-           );
-           ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/extract.hpp: In member function ‘bool SniperProperty<T>::set(boost::python::api::object&) [with T = bool]’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/extract.hpp:185:11: warning: ‘*((void*)& _var +24)’ may be used uninitialized in this function [-Wmaybe-uninitialized]
-           );
-           ^
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/extract.hpp: In member function ‘bool SniperProperty<T>::set(boost::python::api::object&) [with T = double]’:
-/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J21v1r0-Pre0/ExternalLibs/Boost/1.75.0/include/boost/python/extract.hpp:185:11: warning: ‘*((void*)& _var +24)’ may be used uninitialized in this function [-Wmaybe-uninitialized]
-           );
-           ^
-gmake[2]: *** [../amd64_linux26/LSExpDetectorConstruction.o] Error 1
-gmake[2]: *** Waiting for unfinished jobs....
 gmake[1]: *** [DetSimOptionscompile] Error 2
 gmake: *** [all] Error 2
 #CMT---> Error: execution failed : make

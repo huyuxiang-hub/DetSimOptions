@@ -2,9 +2,12 @@
 #define DetSim0Svc_hh
 
 #include <SniperKernel/SvcBase.h>
+#include <SniperKernel/ToolBase.h>
 #include <DetSimAlg/IDetSimFactory.h>
 #include <vector>
 #include <string>
+
+#include "G4VModularPhysicsList.hh"
 
 class DetSim0Svc: public SvcBase, public IDetSimFactory {
 public:
@@ -114,10 +117,12 @@ private:
 
 
 private:
-    std::string m_GdLSAbsLengthMode;
+   // std::string m_GdLSAbsLengthMode;
     std::string m_pmt_optical_model;
     std::string m_LS_optical_model;
-
+private:
+    ToolBase * optical_phy;
+    G4VModularPhysicsList* modularPhysicsList;
 };
 
 #endif

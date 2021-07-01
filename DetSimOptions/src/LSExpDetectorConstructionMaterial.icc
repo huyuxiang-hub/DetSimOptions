@@ -135,11 +135,12 @@
        }
 
 
-    //LS = G4Material::GetMaterial("LS", any_warnings); 
-    //if (LS) {
-    //    G4cout << "LS may be constructed from GDML file." << G4endl;
-    //} else {
-        G4cout << "construct material LS in the code." << G4endl;
+    LS = G4Material::GetMaterial("LS", any_warnings);
+    if (LS) {
+        G4cout << "ESR is constructed from GDML file." << G4endl;
+    } 
+    else{
+        G4cout << "LS is constructed from the code" << G4endl;
         LS  = new G4Material("LS", 0.859*g/cm3, 5);
         LS->AddElement(TS_C_of_Graphite,  0.87924);
         //LS->AddElement(H,  0.1201);
@@ -151,93 +152,8 @@
 
         G4MaterialPropertiesTable* LSMPT = new G4MaterialPropertiesTable();
 
-        IDetElement* glob_info = det_elem("GlobalGeomInfo");
-        bool use_param_svc = glob_info->geom_info("UseParamSvc");
-
-
-        if (1 && (!use_param_svc)) { // from code
-         
-        G4cout << "Setup LS Material Tables from OpticalProperty.icc" << G4endl;
-       
-
-            if(m_GdLSAbsLengthMode == "LAB") // LAB AbsLength
-               {
-                 LSMPT->AddProperty("ABSLENGTH", GdLABABSEnergy, GdLABABSLength, 428);
-               }
-            else if (m_GdLSAbsLengthMode == "new") // New LS AbsLength
-               { 
-                 LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_new, GdLSABSLength_new, 601);
-               }
-            else if (m_GdLSAbsLengthMode == "old") // Old LS AbsLength
-               {
-                 LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_old, GdLSABSLength_old, 497);
-               }
-            else {
-                    G4cout << "Unknown Type of GdLSAbsLengthMode ! " << G4endl;
-                 }
-        LSMPT->AddProperty("RINDEX",   GdLSRefIndexEnergy, GdLSRefIndex, 18);
-        LSMPT->AddProperty("FASTCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
-        LSMPT->AddProperty("SLOWCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
-        LSMPT->AddProperty("REEMISSIONPROB", GdLSReemEnergy, GdLSReem, 28);
-        LSMPT->AddProperty("RAYLEIGH", GdLSRayEnergy, GdLSRayLength, 11);
-        LSMPT->AddProperty("RESOLUTIONSCALE", component, GdLSResolutionScale,2);
-
-        LSMPT->AddConstProperty("SCINTILLATIONYIELD", GdLSLY[0]);
-        LSMPT->AddConstProperty("RESOLUTIONSCALE",GdLSResolutionScale[0]);
-        LSMPT->AddConstProperty("FASTTIMECONSTANT",GdLSFastTimeConstant[0]);
-        LSMPT->AddConstProperty("SLOWTIMECONSTANT",GdLSSlowTimeConstant[0]);
-        LSMPT->AddConstProperty("YIELDRATIO",GdLSYieldRatio[0]);
-
-        LSMPT->AddProperty("GammaFASTTIMECONSTANT", component, GdLSFastTimeConstant,2);
-        LSMPT->AddProperty("GammaSLOWTIMECONSTANT", component, GdLSSlowTimeConstant,2);
-        LSMPT->AddProperty("GammaYIELDRATIO", component, GdLSYieldRatio,2);
-
-        // add fast/slow time constant for alpha
-        LSMPT->AddProperty("AlphaFASTTIMECONSTANT", component, GdLSAlphaFastTimeConstant,2);
-        LSMPT->AddProperty("AlphaSLOWTIMECONSTANT", component, GdLSAlphaSlowTimeConstant,2);
-        LSMPT->AddProperty("AlphaYIELDRATIO", component, GdLSAlphaYieldRatio,2);
-
-        // add fast/slow time constant for neutron
-        LSMPT->AddProperty("NeutronFASTTIMECONSTANT", component, GdLSNeutronFastTimeConstant,2);
-        LSMPT->AddProperty("NeutronSLOWTIMECONSTANT", component, GdLSNeutronSlowTimeConstant,2);
-        LSMPT->AddProperty("NeutronYIELDRATIO", component, GdLSNeutronYieldRatio,2);
-
-        // add fast/slow time constant for reemission
-        LSMPT->AddProperty("ReemissionFASTTIMECONSTANT", component, GdLSReemissionFastTimeConstant,2);
-        LSMPT->AddProperty("ReemissionSLOWTIMECONSTANT", component, GdLSReemissionSlowTimeConstant,2);
-        LSMPT->AddProperty("ReemissionYIELDRATIO", component, GdLSReemissionYieldRatio,2);
-         
-        LSMPT->AddProperty("OpticalCONSTANT",OpticalTimeConstant,OpticalYieldRatio,1);
-        LSMPT->AddProperty("GammaCONSTANT", GammaTimeConstant , GammaYieldRatio, 3);
-        LSMPT->AddProperty("AlphaCONSTANT", AlphaTimeConstant , AlphaYieldRatio, 3);
-        LSMPT->AddProperty("NeutronCONSTANT", NeutronTimeConstant , NeutronYieldRatio, 3);
-       
-
-
-        // Following lines are for new Optical Model.
-        // + PART I: Emission by PPO
-        // + PART II: Absorption and Re-emission by PPO, bis-MSB and LAB
-        //   Need:
-        //     + XXXABSLENGTH
-        //     + XXXREEMISSIONPROB
-        //     + XXXCOMPONENT, maybe FAST/SLOW
-        //     + XXXTIMECONSTANT, maybe FAST/SLOW
-        //   XXX in [PPO, bisMSB, LAB]
-
-        LSMPT->AddProperty("PPOABSLENGTH", PPOABSEnergy, PPOABSLENGTH, 770);
-        LSMPT->AddProperty("PPOREEMISSIONPROB", PPO_ReemMomentum, PPO_Reemission, 15);
-        LSMPT->AddProperty("PPOCOMPONENT", PPOCOMEnergy, PPOCOMPONENT, 200);
-        LSMPT->AddProperty("PPOTIMECONSTANT", component, PPOTimeConstant,2);
-
-        LSMPT->AddProperty("bisMSBABSLENGTH", bisMSBABSEnergy, bisMSBABSLENGTH, 375);
-        LSMPT->AddProperty("bisMSBREEMISSIONPROB", bisMSB_ReemMomentum, bisMSB_Reemission, 23);
-        LSMPT->AddProperty("bisMSBCOMPONENT", GdLSComEnergy, GdLSFastComponent, 275);
-        LSMPT->AddProperty("bisMSBTIMECONSTANT", component, bisMSBTimeConstant,2);
-
-        // LAB?
-        } else if (1 && use_param_svc) { // from properties service
-         
-           IMCParamsSvc::map_s2d LS_scales_map;
+            G4cout << "Setup LS Material Tables from MCParamsSvc" << G4endl;
+            IMCParamsSvc::map_s2d LS_scales_map;
             bool st = mcgt->Get("Material.LS.scale", LS_scales_map);
             double scale_abslength = 1.0;
             if (st && LS_scales_map.count("AbsorptionLenBefore") && LS_scales_map.count("AbsorptionLenAfter")) {
@@ -256,34 +172,25 @@
                        << G4endl;
             }
             double scale_lsly = 1.0 ;
-            if( st && LS_scales_map.count("LSLY_NewLSModelScale")&& LS_scales_map.count("LSLY_NewPMTModelScale")){
-                if(m_pmt_optical_model == "new"){
-                      scale_lsly *= LS_scales_map["LSLY_NewPMTModelScale"];
-                }
-                
-                if(m_LS_optical_model == "new"){
-                      scale_lsly *= LS_scales_map["LSLY_NewLSModelScale"];
-                }         
-           }
+            if(st && LS_scales_map.count("LSLY_NewPMTModelScale") && m_pmt_optical_model == "new"){
+                scale_lsly *= LS_scales_map["LSLY_NewPMTModelScale"];
+            }
+     
+            if( st && LS_scales_map.count("LSLY_NewLSModelScale") && m_LS_optical_model == "new"){
+                scale_lsly *= LS_scales_map["LSLY_NewLSModelScale"];
+            }
             
-
-
-  
-          if(m_GdLSAbsLengthMode == "LAB") // LAB AbsLength used for new LS optical model
+        
+           if(m_LS_optical_model == "new") // LAB AbsLength used for new LS optical model
                {
                  helper_mpt(LSMPT, "ABSLENGTH", mcgt.data(), "Material.LS.ABSLENGTH_v2");
                }
-            else if (m_GdLSAbsLengthMode == "new") // New LS AbsLength
-               { 
-                 LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_new, GdLSABSLength_new, 601);
-               }
-            else if (m_GdLSAbsLengthMode == "old") // Old LS AbsLength used for old LS optical model
+            else if (m_LS_optical_model == "old") // Old LS AbsLength used for old LS optical model
                {
                  helper_mpt(LSMPT, "ABSLENGTH", mcgt.data(), "Material.LS.ABSLENGTH_v1",scale_abslength);    
-
                }
             else {
-                    G4cout << "Unknown Type of GdLSAbsLengthMode ! " << G4endl;
+                    G4cout << "Warning: Can't find  LS abslength to register " << G4endl;
                  }
        
          helper_mpt(LSMPT, "RINDEX",                     mcgt.data(), "Material.LS.RINDEX");
@@ -332,16 +239,16 @@
             else{
                 LogError<<" can't find ResolutionScale in /Material/LS/ConstantProperty "<<std::endl;
             }
-         
-
-               
-        }
-     
+        
         //LSMPT->DumpTable();
-        LS->SetMaterialPropertiesTable(LSMPT);
-
+         LS->SetMaterialPropertiesTable(LSMPT);
+       }
  
-        G4cout << "LAB is constructed from the code." << G4endl;
+    LAB = G4Material::GetMaterial("LAB", any_warnings);
+    if (LAB) {
+        G4cout << "LAB is constructed from GDML file." << G4endl;
+    }else{
+        G4cout << "LAB is constructed from the code" << G4endl;
         LAB = new G4Material("LAB", 0.859*g/cm3, 5);
         //LAB->AddElement(C,  0.87924);
         LAB->AddElement(TS_C_of_Graphite,  0.87924);
@@ -354,8 +261,7 @@
 
     
         G4MaterialPropertiesTable* LABMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-
+       
            IMCParamsSvc::map_s2d s_map;
            bool st = mcgt->Get("Material.LAB.scale", s_map);
            double scale_rayleigh = 1.0;
@@ -371,21 +277,13 @@
            G4cout << "Setup LAB Material Tables from MCParamsSvc" << G4endl;
            helper_mpt(LABMPT, "RINDEX", mcgt.data(), "Material.LAB.RINDEX");
            helper_mpt(LABMPT, "RAYLEIGH", mcgt.data(), "Material.LAB.RAYLEIGH",scale_rayleigh);
-        }
-        else{
-        LABMPT->AddProperty("RINDEX",   GdLSRefIndexEnergy, GdLSRefIndex, 18);
-        LABMPT->AddProperty("RAYLEIGH", GdLSRayEnergy, GdLSRayLength, 11);
-        }
-        LAB->SetMaterialPropertiesTable(LABMPT);
         
-    // LABMPT->DumpTable();
+          LAB->SetMaterialPropertiesTable(LABMPT);
+        
+       // LABMPT->DumpTable();
+     }
 
-    // LS = new G4Material("LS", 0.859*g/cm3, 5);
-    // LS->AddElement(C, 0.87924);
-    // LS->AddElement(H, 0.1201);
-    // LS->AddElement(O, 0.00034);
-    // LS->AddElement(N, 0.00027);
-    // LS->AddElement(S, 0.00005);
+
 
     ESR = G4Material::GetMaterial("ESR", any_warnings); 
     if (ESR) {
@@ -397,15 +295,12 @@
         ESR->AddElement(C, 12.0107/(12.0107+2.*1.00794));
 
         G4MaterialPropertiesTable* ESRMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup LS Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(ESRMPT, "ABSLENGTH", mcgt.data(), "Material.ESR.ABSLENGTH");   
-        }
-        else
-          {
-            ESRMPT->AddProperty("ABSLENGTH", ESREnergy, ESRAbsorptionLength, 31);
-          }
-        ESR->SetMaterialPropertiesTable(ESRMPT);
+      
+        G4cout << "Setup ESR Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(ESRMPT, "ABSLENGTH", mcgt.data(), "Material.ESR.ABSLENGTH");   
+        
+        
+       ESR->SetMaterialPropertiesTable(ESRMPT);
        // ESRMPT->DumpTable();
     }
 
@@ -420,22 +315,20 @@
         Tyvek->AddElement(H, 4);
 
         G4MaterialPropertiesTable* TyvekMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup Tyvek Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(TyvekMPT, "ABSLENGTH", mcgt.data(), "Material.Tyvek.ABSLENGTH");
-        }
-        else {
-            TyvekMPT->AddProperty("ABSLENGTH", TyvekEnergy, TyvekABSLength, 4);
-        }    
+        
+        G4cout << "Setup Tyvek Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(TyvekMPT, "ABSLENGTH", mcgt.data(), "Material.Tyvek.ABSLENGTH");
+        
         Tyvek->SetMaterialPropertiesTable(TyvekMPT);
      //   TyvekMPT->DumpTable();
     }
 
-    //Acrylic = G4Material::GetMaterial("Acrylic", any_warnings);
-    //if (Acrylic) {
-    //    G4cout << "Acrylic is constructed from GDML file." << G4endl;
-    //} else {
-        G4cout << "Acrylic is constructed from the code." << G4endl;
+    Acrylic = G4Material::GetMaterial("Acrylic", any_warnings);
+    if (Acrylic) {
+        G4cout << "Acrylic is constructed from GDML file." << G4endl;
+    }
+    else {
+        G4cout << "Acrylic is constructed from the code" << G4endl; 
         Acrylic = new G4Material("Acrylic", 1.18*g/cm3, 3);
         //Acrylic->AddElement(C, 0.59984);
         Acrylic->AddElement(TS_C_of_Graphite, 0.59984);
@@ -445,40 +338,36 @@
 
         G4MaterialPropertiesTable* AcrylicMPT = new G4MaterialPropertiesTable();
 
-        if (use_param_svc){
+      
            G4cout << "Setup Acrylic Material Tables from MCParamsSvc" << G4endl;
            helper_mpt(AcrylicMPT, "ABSLENGTH", mcgt.data(), "Material.Acrylic.ABSLENGTH");
            helper_mpt(AcrylicMPT, "RINDEX", mcgt.data(), "Material.Acrylic.RINDEX");
-        }
-        else {
-           AcrylicMPT->AddProperty("ABSLENGTH", AcrylicAbsEnergy, AcrylicAbsLength, 25);
-           AcrylicMPT->AddProperty("RINDEX", AcrylicRefEnergy, AcrylicRefIndex, 18);
-        }
+       
         Acrylic->SetMaterialPropertiesTable(AcrylicMPT);
        // AcrylicMPT->DumpTable();
-    //}
-
-       //The Acrylic Mask
-        G4cout << "Acrylic Mask is constructed from the code." << G4endl;
+     }
+  
+    AcrylicMask = G4Material::GetMaterial("AcrylicMask", any_warnings);
+    if (AcrylicMask) {
+        G4cout << "AcrylicMask is constructed from GDML file." << G4endl;
+    }
+    else {
+        //The Acrylic Mask
+        G4cout << "AcrylicMask is constructed from the code" << G4endl;
         AcrylicMask = new G4Material("AcrylicMask", 1.18*g/cm3, 3);
         AcrylicMask->AddElement(TS_C_of_Graphite, 0.59984);
         AcrylicMask->AddElement(TS_H_of_Polyethylene, 0.08055);
         AcrylicMask->AddElement(O, 0.31961);
 
         G4MaterialPropertiesTable* AcrylicMaskMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup AcrylicMask Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(AcrylicMaskMPT, "ABSLENGTH", mcgt.data(), "Material.AcrylicMask.ABSLENGTH");
-           helper_mpt(AcrylicMaskMPT, "RINDEX", mcgt.data(), "Material.AcrylicMask.RINDEX");
-        }
-        else {
-           AcrylicMaskMPT->AddProperty("ABSLENGTH", AcrylicMaskAbsEnergy, AcrylicMaskAbsLength, 157);
-           AcrylicMaskMPT->AddProperty("RINDEX", AcrylicRefEnergy, AcrylicRefIndex, 18);
-        }
- 
+       
+        G4cout << "Setup AcrylicMask Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(AcrylicMaskMPT, "ABSLENGTH", mcgt.data(), "Material.AcrylicMask.ABSLENGTH");
+        helper_mpt(AcrylicMaskMPT, "RINDEX", mcgt.data(), "Material.AcrylicMask.RINDEX");
+        
         AcrylicMask->SetMaterialPropertiesTable(AcrylicMaskMPT);
        // AcrylicMaskMPT->DumpTable();
-
+     }
 
    // The Opacity Acrylic
     DummyAcrylic = G4Material::GetMaterial("DummyAcrylic", any_warnings);
@@ -521,15 +410,10 @@
         Steel->AddElement(Cr, 0.18);
         Steel->AddElement(Ni, 0.08);
         G4MaterialPropertiesTable* SteelMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup Steel Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(SteelMPT, "ABSLENGTH", mcgt.data(), "Material.Steel.ABSLENGTH");
-        }
-        else 
-          {   
-            SteelMPT->AddProperty("ABSLENGTH", fPP_SteelTank, fSteelTankABSORPTION, 4);
-          }
-       
+      
+        G4cout << "Setup Steel Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(SteelMPT, "ABSLENGTH", mcgt.data(), "Material.Steel.ABSLENGTH");
+         
         Steel->SetMaterialPropertiesTable(SteelMPT);
       //  SteelMPT->DumpTable();
     }
@@ -552,14 +436,10 @@
         LatticedShellSteel->AddElement(Cr, 0.18);
         LatticedShellSteel->AddElement(Ni, 0.08);
         G4MaterialPropertiesTable* LatticedShellSteelMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup LatticedShellSteel Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(LatticedShellSteelMPT, "ABSLENGTH", mcgt.data(), "Material.LatticedShellSteel.ABSLENGTH");
-        }
-        else
-          {
-            LatticedShellSteelMPT->AddProperty("ABSLENGTH", fPP_SteelTank, fSteelTankABSORPTION, 4);
-          }
+        
+        G4cout << "Setup LatticedShellSteel Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(LatticedShellSteelMPT, "ABSLENGTH", mcgt.data(), "Material.LatticedShellSteel.ABSLENGTH");
+       
         LatticedShellSteel->SetMaterialPropertiesTable(LatticedShellSteelMPT);
      //   LatticedShellSteelMPT->DumpTable();
     }
@@ -578,14 +458,10 @@
         StainlessSteel->AddElement(Cr,0.08);                                          
         StainlessSteel->AddElement(Ni,0.18);                                          
         G4MaterialPropertiesTable* StainlessSteelMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup StainlessSteel Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(StainlessSteelMPT, "ABSLENGTH", mcgt.data(), "Material.StainlessSteel.ABSLENGTH");
-        }
-        else
-          {
-              StainlessSteelMPT->AddProperty("ABSLENGTH", fPP_SteelTank, fSteelTankABSORPTION, 4); 
-          }  
+       
+        G4cout << "Setup StainlessSteel Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(StainlessSteelMPT, "ABSLENGTH", mcgt.data(), "Material.StainlessSteel.ABSLENGTH");
+        
         StainlessSteel->SetMaterialPropertiesTable(StainlessSteelMPT); 
      //   StainlessSteelMPT->DumpTable();               
     }
@@ -601,27 +477,12 @@
         Mylar->AddElement(C,0.625016);                                                
         Mylar->AddElement(O,0.333025);                                                
         G4MaterialPropertiesTable* MylarMPT = new G4MaterialPropertiesTable();        
-        G4double AbsorptionLengthMylar[9] = {100.*cm,100.*cm,100.*cm,100.*cm,100.*cm,
-            100.*cm,100.*cm,100.*cm,100.*cm};
-        G4double refractiveIndexMylar[18] = {1.640,1.640,1.640,1.640,1.640,
-            1.640,1.640,1.640,1.640,1.640,
-            1.640,1.640,1.640,1.640,1.640,
-            1.640,1.640,1.640};
-        G4double RayleighLengthMylar[11] = {100.*cm,100.*cm,100.*cm,100.*cm,100.*cm,
-            100.*cm,100.*cm,100.*cm,100.*cm,100.*cm,
-            100.*cm};
-        if (use_param_svc){
-           G4cout << "Setup Mylar Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(MylarMPT, "ABSLENGTH", mcgt.data(), "Material.Mylar.ABSLENGTH");
-           helper_mpt(MylarMPT, "RAYLEIGH", mcgt.data(), "Material.Mylar.RAYLEIGH");
-           helper_mpt(MylarMPT, "RINDEX", mcgt.data(), "Material.Mylar.RINDEX");
-        }
-        else
-          {
-              MylarMPT->AddProperty("ABSLENGTH",AcrylicAbsEnergy,AbsorptionLengthMylar,9);
-              MylarMPT->AddProperty("RAYLEIGH",AcrylicRayEnergy,RayleighLengthMylar,11);
-              MylarMPT->AddProperty("RINDEX",AcrylicRefEnergy,refractiveIndexMylar,18);  
-          }                  
+        
+        G4cout << "Setup Mylar Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(MylarMPT, "ABSLENGTH", mcgt.data(), "Material.Mylar.ABSLENGTH");
+        helper_mpt(MylarMPT, "RAYLEIGH", mcgt.data(), "Material.Mylar.RAYLEIGH");
+        helper_mpt(MylarMPT, "RINDEX", mcgt.data(), "Material.Mylar.RINDEX");
+        
         Mylar->SetMaterialPropertiesTable(MylarMPT);
      //   MylarMPT->DumpTable();                                  
     }
@@ -631,16 +492,18 @@
     // Copper
     Copper = G4Material::GetMaterial("Copper", any_warnings);
     if (Copper) {
-        
+       G4cout << "Copper is constructed from the GDML file" << G4endl;   
     } else {
+        G4cout << "Copper is constructed from the code" << G4endl;
         Copper = new G4Material("Copper", 29., 63.55*g/mole, 8.96*g/cm3);
     }
 
     // ETFE
     ETFE = G4Material::GetMaterial("ETFE", any_warnings);
     if (ETFE) {
-
+        G4cout << "ETFE is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "ETFE is constructed from the code" << G4endl;
         density = 1.75*g/cm3; //Ref. to http://www.9e.com.tw/tw/product/TEFLON_ETFE.pdf
         ETFE = new G4Material("ETFE", density, 3);
         ETFE->AddElement(C,4);
@@ -648,15 +511,10 @@
         ETFE->AddElement(F,4);
         G4MaterialPropertiesTable* ETFEMPT = new G4MaterialPropertiesTable();
         // Need to check!
-         if (use_param_svc){
-           G4cout << "Setup ETFE Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(ETFEMPT, "ABSLENGTH", mcgt.data(), "Material.ETFE.ABSLENGTH");
-           helper_mpt(ETFEMPT, "RINDEX", mcgt.data(), "Material.ETFE.RINDEX");
-        }
-        else{
-           ETFEMPT->AddProperty("RINDEX", fPP_ETFE_RIN, fETFERINDEX,85);
-           ETFEMPT->AddProperty("ABSLENGTH", fPP_ETFE_ABS_LAB,fETFEABSORPTION_LAB, 231); 
-        }
+        
+        G4cout << "Setup ETFE Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(ETFEMPT, "ABSLENGTH", mcgt.data(), "Material.ETFE.ABSLENGTH");
+        helper_mpt(ETFEMPT, "RINDEX", mcgt.data(), "Material.ETFE.RINDEX");
        
         ETFE->SetMaterialPropertiesTable(ETFEMPT);
        // ETFEMPT->DumpTable();
@@ -665,41 +523,31 @@
     // FEP
     FEP = G4Material::GetMaterial("FEP", any_warnings);
     if (FEP) {
-
+        G4cout << "FEP is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "FEP is constructed from the code" << G4endl;
         density = 2.150*g/cm3; //Ref. to http://www.9e.com.tw/tw/product/TEFLON_FEP.pdf
         FEP = new G4Material("FEP", density, 3); //no know, use it instead----
         FEP->AddElement(C,4);
         FEP->AddElement(H,4);
         FEP->AddElement(F,4);
         G4MaterialPropertiesTable* FEPMPT = new G4MaterialPropertiesTable();
-        // Need to check!
-        G4double fPP_FEP_RIN[2] =
-        {
-            2.0*eV, 4.0*eV
-        };
-        G4double fFEPRINDEX[2]=
-        {
-            1.344, 1.344
-        }; //take the average 1.341 and 1.347
-        if (use_param_svc){
-           G4cout << "Setup FEP Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(FEPMPT, "ABSLENGTH", mcgt.data(), "Material.FEP.ABSLENGTH");
-           helper_mpt(FEPMPT, "RINDEX", mcgt.data(), "Material.FEP.RINDEX");
-        }
-        else{
-           FEPMPT->AddProperty("RINDEX", fPP_FEP_RIN, fFEPRINDEX,2);
-           FEPMPT->AddProperty("ABSLENGTH", fPP_FEP_ABS_LAB,fFEPABSORPTION_LAB, 231); 
-        }
+        
+      
+        G4cout << "Setup FEP Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(FEPMPT, "ABSLENGTH", mcgt.data(), "Material.FEP.ABSLENGTH");
+        helper_mpt(FEPMPT, "RINDEX", mcgt.data(), "Material.FEP.RINDEX");
+       
         //  FEPMPT->DumpTable();
-           FEP->SetMaterialPropertiesTable(FEPMPT);
+        FEP->SetMaterialPropertiesTable(FEPMPT);
     }
 
     //PE_PA
     PE_PA = G4Material::GetMaterial("PE_PA", any_warnings);
     if (PE_PA) {
-
+        G4cout << "PE_PA is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "PE_PA is constructed from the code" << G4endl;
         density = 0.96*g/cm3; //DybII-doc-35-v1,page8. 
         PE_PA = new G4Material("PE_PA", density, 4); //Using for PE_PA same as Nylon since not eactly known
         PE_PA->AddElement(C,6);
@@ -708,24 +556,11 @@
         PE_PA->AddElement(O,1);
 
         G4MaterialPropertiesTable* PE_PAMPT = new G4MaterialPropertiesTable();
-        // Need to check!
-        G4double fPP_PE_PA_RIN[2] =
-        {
-            1.0*eV, 14.0*eV
-        };
-        G4double fPE_PARINDEX[2]=
-        {
-            1.51, 1.51
-        }; // from wang Rui-guang
-        if (use_param_svc){
-           G4cout << "Setup PE_PA  Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(PE_PAMPT, "ABSLENGTH", mcgt.data(), "Material.PE_PA.ABSLENGTH");
-           helper_mpt(PE_PAMPT, "RINDEX", mcgt.data(), "Material.PE_PA.RINDEX");
-        }
-        else{   
-           PE_PAMPT->AddProperty("RINDEX", fPP_PE_PA_RIN, fPE_PARINDEX,2);
-           PE_PAMPT->AddProperty("ABSLENGTH", fPP_PEPA_ABS_LAB,fPEPAABSORPTION_LAB, 266); 
-        }
+        
+        G4cout << "Setup PE_PA  Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(PE_PAMPT, "ABSLENGTH", mcgt.data(), "Material.PE_PA.ABSLENGTH");
+        helper_mpt(PE_PAMPT, "RINDEX", mcgt.data(), "Material.PE_PA.RINDEX");
+       
          //  PE_PAMPT->DumpTable();
         PE_PA->SetMaterialPropertiesTable(PE_PAMPT);
     }
@@ -733,8 +568,9 @@
     //PA
     PA = G4Material::GetMaterial("PA", any_warnings);
     if (PA) {
-
+        G4cout << "PA is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "PA is constructed from the code" << G4endl;   
         density = 0.96*g/cm3; //DybII-doc-35-v1,page8. Using for PA same as Nylon since not eactly known
         PA = new G4Material("PA", density, 4); //Using for PA same as Nylon since not eactly known
         PA->AddElement(C,6);
@@ -743,60 +579,32 @@
         PA->AddElement(O,1);
 
         G4MaterialPropertiesTable* PAMPT = new G4MaterialPropertiesTable();
-        // Need to check!
-        G4double fPP_PA_RIN[2] =
-        {
-            1.0*eV, 14.0*eV
-        };
-        G4double fPARINDEX[2]=
-        {
-            1.51, 1.51
-        }; // from wang Rui-guang
-        if (use_param_svc){
-           G4cout << "Setup PA Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(PAMPT, "ABSLENGTH", mcgt.data(), "Material.PA.ABSLENGTH");
-           helper_mpt(PAMPT, "RINDEX", mcgt.data(), "Material.PA.RINDEX");
-        }
-        else
-        {
-           PAMPT->AddProperty("RINDEX", fPP_PA_RIN, fPARINDEX,2);
-           PAMPT->AddProperty("ABSLENGTH", fPP_PA_ABS_LAB,fPAABSORPTION_LAB, 266);
-        }
+  
+        G4cout << "Setup PA Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(PAMPT, "ABSLENGTH", mcgt.data(), "Material.PA.ABSLENGTH");
+        helper_mpt(PAMPT, "RINDEX", mcgt.data(), "Material.PA.RINDEX");
+        
      //   PAMPT->DumpTable(); 
         PA->SetMaterialPropertiesTable(PAMPT);
     }
 
     Air = G4Material::GetMaterial("Air", any_warnings);
     if (Air) {
-
+        G4cout << "Air is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "Air is constructed from the code" << G4endl;
         density = 1.205e-3*g/cm3;
         Air = new G4Material("Air", density, 4);
         Air->AddElement(N, 0.7550);
         Air->AddElement(O, 0.2321);
         Air->AddElement(Ar, 0.0128);
         Air->AddElement(C, 0.0001);
-        G4double airPP[2] =
-        {
-            1.55*eV, 6.20*eV
-        };
-        G4double airRINDEX[2] =
-        {
-            1.000273, 1.000273
-        };
-        G4double airABSLENGTH[2] =
-        {
-            10000*m, 10000*m
-        };
+        
         G4MaterialPropertiesTable* airMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup Air  Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(airMPT, "ABSLENGTH", mcgt.data(), "Material.Air.ABSLENGTH");
-           helper_mpt(airMPT, "RINDEX", mcgt.data(), "Material.Air.RINDEX");
-        }else{
-           airMPT->AddProperty("RINDEX",    airPP, airRINDEX,     2);
-           airMPT->AddProperty("ABSLENGTH", airPP, airABSLENGTH,  2);
-        }
+       
+        G4cout << "Setup Air  Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(airMPT, "ABSLENGTH", mcgt.data(), "Material.Air.ABSLENGTH");
+        helper_mpt(airMPT, "RINDEX", mcgt.data(), "Material.Air.RINDEX");
        // airMPT->DumpTable();
         Air->SetMaterialPropertiesTable(airMPT);
     }
@@ -805,8 +613,9 @@
     // --- PMT vacuum is very dilute air -------
     Vacuum = G4Material::GetMaterial("Vacuum", any_warnings);
     if (Vacuum) {
-
+        G4cout << "Vacuum is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "Vacuum is constructed from the code" << G4endl;   
         density     =  1e-3 * kGasThreshold;         //from PhysicalConstants.h
         G4double temperature = STP_Temperature;         //from PhysicalConstants.h
         G4double pressure    = STP_Pressure * density / (1.29e-3*g/cm3);
@@ -816,38 +625,23 @@
 
     VacuumT = G4Material::GetMaterial("VacuumT", any_warnings);
     if (VacuumT) {
-
+        G4cout << "VacummT is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "VacuumT is constructed from the code" << G4endl;
         density     =  0.0;         //from PhysicalConstants.h
         G4double temperature = STP_Temperature;         //from PhysicalConstants.h
         G4double pressure    = STP_Pressure * density / (1.29e-3*g/cm3);
         VacuumT = new G4Material("VacuumT", density, 1, kStateGas,temperature,pressure);
         VacuumT->AddMaterial(Air, 1.);
 
-        G4double VacPP[4] =
-        {
-            1.55*eV, 6.20*eV, 10.33*eV, 15.5*eV
-        };
-        G4double VacRINDEX[4] =
-        {
-            1.000001, 1.000001, 1.000001, 1.000001
-        };
-        G4double VacABSLENGTH[4] =
-        {
-            1.0e6*m, 1.0e6*m, 1.0e6*m, 1.0e6*m
-        };
         G4MaterialPropertiesTable* VacMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup Vacumm and  VacuumT Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(VacMPT, "ABSLENGTH", mcgt.data(), "Material.Vacuum.ABSLENGTH");
-           helper_mpt(VacMPT, "RINDEX", mcgt.data(), "Material.Vacuum.RINDEX");
-        }else{
-           VacMPT->AddProperty("RINDEX",    VacPP, VacRINDEX,     4);
-           VacMPT->AddProperty("ABSLENGTH", VacPP, VacABSLENGTH,  4);
-        }
+       
+        G4cout << "Setup Vacumm and  VacuumT Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(VacMPT, "ABSLENGTH", mcgt.data(), "Material.Vacuum.ABSLENGTH");
+        helper_mpt(VacMPT, "RINDEX", mcgt.data(), "Material.Vacuum.RINDEX");
      //    VacMPT->DumpTable();
-          Vacuum->SetMaterialPropertiesTable(VacMPT);
-          VacuumT->SetMaterialPropertiesTable(VacMPT);
+        Vacuum->SetMaterialPropertiesTable(VacMPT);
+        VacuumT->SetMaterialPropertiesTable(VacMPT);
     }
 
 
@@ -855,13 +649,14 @@
     
     Photocathode_mat = G4Material::GetMaterial("photocathode", any_warnings);
     if (Photocathode_mat) {
-
+        G4cout << "photocathode is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "photocathode is constructed from the code" << G4endl;   
         density = 5. *g/cm3; // true??
         Photocathode_mat = new G4Material("photocathode",density,1);
         Photocathode_mat->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){ 
+     
            G4cout << "Setup photocathode Material Tables from MCParamsSvc" << G4endl;
            helper_mpt(PhotocathodeMPT, "RINDEX", mcgt.data(), "Material.photocathode.RINDEX");
            helper_mpt(PhotocathodeMPT, "KINDEX", mcgt.data(), "Material.photocathode.KINDEX");
@@ -882,150 +677,120 @@
                        << G4endl;
            }
            helper_mpt(PhotocathodeMPT, "EFFICIENCY", mcgt.data(), "Material.photocathode.EFFICIENCY",scale_qe);
-        }
-         else
-        {
-          PhotocathodeMPT->AddProperty("RINDEX", fPP_PhC_NEW, fPhCRINDEX_NEW, 4);
-          PhotocathodeMPT->AddProperty("KINDEX", fPP_PhC_NEW, fPhCKINDEX_NEW, 4);
-          PhotocathodeMPT->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
-          PhotocathodeMPT->AddProperty("EFFICIENCY", fPP_PhCQE_1inch_20140620, fPhCEFFICIENCY_1inch_20140620, 43);
-          PhotocathodeMPT->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
-        }
+        
      //   PhotocathodeMPT->DumpTable();
         Photocathode_mat->SetMaterialPropertiesTable(PhotocathodeMPT);
     }
 
     G4Material* Photocathode_mat_3inch = G4Material::GetMaterial("photocathode_3inch", any_warnings); 
     if (Photocathode_mat_3inch) {
-
+        G4cout << "photocathode_3inch is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "photocathode_3inch is constructed from the code" << G4endl;   
         density = 5. *g/cm3; // true??
         Photocathode_mat_3inch = new G4Material("photocathode_3inch",density,1);
         Photocathode_mat_3inch->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT_3inch = new G4MaterialPropertiesTable();
         
-        if (use_param_svc){
-           G4cout << "Setup photocathode_3inch Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(PhotocathodeMPT_3inch, "RINDEX", mcgt.data(), "Material.photocathode_3inch.RINDEX");
-           helper_mpt(PhotocathodeMPT_3inch, "KINDEX", mcgt.data(), "Material.photocathode_3inch.KINDEX");
-           helper_mpt(PhotocathodeMPT_3inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_3inch.REFLECTIVITY");
-           helper_mpt(PhotocathodeMPT_3inch, "THICKNESS", mcgt.data(), "Material.photocathode_3inch.THICKNESS");
+        G4cout << "Setup photocathode_3inch Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(PhotocathodeMPT_3inch, "RINDEX", mcgt.data(), "Material.photocathode_3inch.RINDEX");
+        helper_mpt(PhotocathodeMPT_3inch, "KINDEX", mcgt.data(), "Material.photocathode_3inch.KINDEX");
+        helper_mpt(PhotocathodeMPT_3inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_3inch.REFLECTIVITY");
+        helper_mpt(PhotocathodeMPT_3inch, "THICKNESS", mcgt.data(), "Material.photocathode_3inch.THICKNESS");
 
-
-           IMCParamsSvc::map_s2d s_map;
-           bool st = mcgt->Get("Material.photocathode_3inch.scale", s_map);
-           double scale_qe = 1.0;
-           if (st && s_map.count("qe_before") && s_map.count("qe_after")&& s_map.count("pmt_qe_scale_for_elec"))
+        IMCParamsSvc::map_s2d s_map;
+        bool st = mcgt->Get("Material.photocathode_3inch.scale", s_map);
+        double scale_qe = 1.0;
+        if (st && s_map.count("qe_before") && s_map.count("qe_after")&& s_map.count("pmt_qe_scale_for_elec"))
            {
-                scale_qe = s_map["qe_after"] / s_map["qe_before"] * 1.0/s_map["pmt_qe_scale_for_elec"];
-                G4cout << "Scale qe from " << s_map["qe_before"]
+              scale_qe = s_map["qe_after"] / s_map["qe_before"] * 1.0/s_map["pmt_qe_scale_for_elec"];
+              G4cout << "Scale qe from " << s_map["qe_before"]
                      << " to " << s_map["qe_after"]
                        << " factor: " << scale_qe
                        <<" pmt_qe_scale_for_elec :"<< s_map["pmt_qe_scale_for_elec"]
                        << G4endl;
            }
-           helper_mpt(PhotocathodeMPT_3inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_3inch.EFFICIENCY",scale_qe);
-        }
-         else{
-          PhotocathodeMPT_3inch->AddProperty("RINDEX", fPP_PhC, fPhCRINDEX, 4);
-          PhotocathodeMPT_3inch->AddProperty("KINDEX", fPP_PhC, fPhCKINDEX, 4);
-          PhotocathodeMPT_3inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
-          PhotocathodeMPT_3inch->AddProperty("EFFICIENCY", fPP_PhCQE_3inch, fPhCEFFICIENCY_3inch, sizeof(fPhCEFFICIENCY_3inch)/sizeof(double));
-          PhotocathodeMPT_3inch->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
+       helper_mpt(PhotocathodeMPT_3inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_3inch.EFFICIENCY",scale_qe);
         
-        }
      //   PhotocathodeMPT_3inch->DumpTable();
         Photocathode_mat_3inch->SetMaterialPropertiesTable(PhotocathodeMPT_3inch);
     }
 
     G4Material* Photocathode_mat_MCP20inch = G4Material::GetMaterial("photocathode_MCP20inch", any_warnings);
-    //if (Photocathode_mat_MCP20inch) {
-
-    //} else {
+    if (Photocathode_mat_MCP20inch) {
+        G4cout << "photocathode_MCP20inch is constructed from the GDML file" << G4endl;
+    } else {
+        G4cout << "photocathode_MCP20inch is constructed from the code" << G4endl;
         density = 5. *g/cm3; // true??
         Photocathode_mat_MCP20inch = new G4Material("photocathode_MCP20inch",density,1);
         Photocathode_mat_MCP20inch->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT_MCP20inch = new G4MaterialPropertiesTable();
 
-        if (use_param_svc){
-           G4cout << "Setup photocathode_MCP20inch Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(PhotocathodeMPT_MCP20inch, "RINDEX", mcgt.data(), "Material.photocathode_MCP20inch.RINDEX");
-           helper_mpt(PhotocathodeMPT_MCP20inch, "KINDEX", mcgt.data(), "Material.photocathode_MCP20inch.KINDEX");
-           helper_mpt(PhotocathodeMPT_MCP20inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_MCP20inch.REFLECTIVITY");
-           helper_mpt(PhotocathodeMPT_MCP20inch, "THICKNESS", mcgt.data(), "Material.photocathode_MCP20inch.THICKNESS");
+        G4cout << "Setup photocathode_MCP20inch Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(PhotocathodeMPT_MCP20inch, "RINDEX", mcgt.data(), "Material.photocathode_MCP20inch.RINDEX");
+        helper_mpt(PhotocathodeMPT_MCP20inch, "KINDEX", mcgt.data(), "Material.photocathode_MCP20inch.KINDEX");
+        helper_mpt(PhotocathodeMPT_MCP20inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_MCP20inch.REFLECTIVITY");
+        helper_mpt(PhotocathodeMPT_MCP20inch, "THICKNESS", mcgt.data(), "Material.photocathode_MCP20inch.THICKNESS");
 
-
-           IMCParamsSvc::map_s2d s_map;
-           bool st = mcgt->Get("Material.photocathode_MCP20inch.scale", s_map);
-           double scale_qe = 1.0;
-           if (st && s_map.count("qe_before") && s_map.count("qe_after")&& s_map.count("pmt_qe_scale_for_elec"))
+        IMCParamsSvc::map_s2d s_map;
+        bool st = mcgt->Get("Material.photocathode_MCP20inch.scale", s_map);
+        double scale_qe = 1.0;
+        if (st && s_map.count("qe_before") && s_map.count("qe_after")&& s_map.count("pmt_qe_scale_for_elec"))
            {
-                scale_qe = s_map["qe_after"] / s_map["qe_before"] * 1.0/s_map["pmt_qe_scale_for_elec"];
-                G4cout << "Scale qe from " << s_map["qe_before"]
+              scale_qe = s_map["qe_after"] / s_map["qe_before"] * 1.0/s_map["pmt_qe_scale_for_elec"];
+              G4cout << "Scale qe from " << s_map["qe_before"]
                      << " to " << s_map["qe_after"]
                        << " factor: " << scale_qe
                        <<" pmt_qe_scale_for_elec :"<< s_map["pmt_qe_scale_for_elec"]
                        << G4endl;
            }
-           helper_mpt(PhotocathodeMPT_MCP20inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_MCP20inch.EFFICIENCY",scale_qe);
-        }
-        else{
-          PhotocathodeMPT_MCP20inch->AddProperty("RINDEX", fPP_PhC_NEW, fPhCRINDEX_NEW, 4);
-          PhotocathodeMPT_MCP20inch->AddProperty("KINDEX", fPP_PhC_NEW, fPhCKINDEX_NEW, 4);
-          PhotocathodeMPT_MCP20inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
-          PhotocathodeMPT_MCP20inch->AddProperty("EFFICIENCY", fPP_PhCQE_AverageMCP20inch, fPhCEFFICIENCY_AverageMCP20inch, 43);
-          PhotocathodeMPT_MCP20inch->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
-        }
+        helper_mpt(PhotocathodeMPT_MCP20inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_MCP20inch.EFFICIENCY",scale_qe);
+        
      //   PhotocathodeMPT_MCP20inch->DumpTable();
         Photocathode_mat_MCP20inch->SetMaterialPropertiesTable(PhotocathodeMPT_MCP20inch);
-    //}
+    }
 
     G4Material* Photocathode_mat_MCP8inch = G4Material::GetMaterial("photocathode_MCP8inch", any_warnings);
     if (Photocathode_mat_MCP8inch) {
-
+        G4cout << "photocathode_MCP8inch is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "photocathode_MCP8inch is constructed from the code" << G4endl;
         density = 5. *g/cm3; // true??
         Photocathode_mat_MCP8inch = new G4Material("photocathode_MCP8inch",density,1);
         Photocathode_mat_MCP8inch->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT_MCP8inch = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup photocathode_MCP8inch Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(PhotocathodeMPT_MCP8inch, "RINDEX", mcgt.data(), "Material.photocathode_MCP8inch.RINDEX");
-           helper_mpt(PhotocathodeMPT_MCP8inch, "KINDEX", mcgt.data(), "Material.photocathode_MCP8inch.KINDEX");
-           helper_mpt(PhotocathodeMPT_MCP8inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_MCP8inch.REFLECTIVITY");
-           helper_mpt(PhotocathodeMPT_MCP8inch, "THICKNESS", mcgt.data(), "Material.photocathode_MCP8inch.THICKNESS");
-           helper_mpt(PhotocathodeMPT_MCP8inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_MCP8inch.EFFICIENCY");
-        }
-        else{
-        PhotocathodeMPT_MCP8inch->AddProperty("RINDEX", fPP_PhC, fPhCRINDEX, 4);
-        PhotocathodeMPT_MCP8inch->AddProperty("KINDEX", fPP_PhC, fPhCKINDEX, 4);
-        PhotocathodeMPT_MCP8inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
-        PhotocathodeMPT_MCP8inch->AddProperty("EFFICIENCY", fPP_PhCQE_MCP8inch, fPhCEFFICIENCY_MCP8inch, 43);
-        PhotocathodeMPT_MCP8inch->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
-        }
-       // PhotocathodeMPT_MCP8inch->DumpTable();
+       
+        G4cout << "Setup photocathode_MCP8inch Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(PhotocathodeMPT_MCP8inch, "RINDEX", mcgt.data(), "Material.photocathode_MCP8inch.RINDEX");
+        helper_mpt(PhotocathodeMPT_MCP8inch, "KINDEX", mcgt.data(), "Material.photocathode_MCP8inch.KINDEX");
+        helper_mpt(PhotocathodeMPT_MCP8inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_MCP8inch.REFLECTIVITY");
+        helper_mpt(PhotocathodeMPT_MCP8inch, "THICKNESS", mcgt.data(), "Material.photocathode_MCP8inch.THICKNESS");
+        helper_mpt(PhotocathodeMPT_MCP8inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_MCP8inch.EFFICIENCY");
+        
+      // PhotocathodeMPT_MCP8inch->DumpTable();
         Photocathode_mat_MCP8inch->SetMaterialPropertiesTable(PhotocathodeMPT_MCP8inch);
     }
 
     G4Material* Photocathode_mat_Ham20inch = G4Material::GetMaterial("photocathode_Ham20inch", any_warnings);
-    //if (Photocathode_mat_Ham20inch) {
-
-    //} else {
+    if (Photocathode_mat_Ham20inch) {
+        G4cout << "photocathode_Ham20inch is constructed from the GDML file" << G4endl;
+    } else {
+        G4cout << "photocathode_Ham20inch is constructed from the code" << G4endl;
         density = 5. *g/cm3; // true??
         Photocathode_mat_Ham20inch = new G4Material("photocathode_Ham20inch",density,1);
         Photocathode_mat_Ham20inch->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT_Ham20inch = new G4MaterialPropertiesTable();
         
-        if (use_param_svc){
-           G4cout << "Setup photocathode_Ham20inch Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(PhotocathodeMPT_Ham20inch, "RINDEX", mcgt.data(), "Material.photocathode_Ham20inch.RINDEX");
-           helper_mpt(PhotocathodeMPT_Ham20inch, "KINDEX", mcgt.data(), "Material.photocathode_Ham20inch.KINDEX");
-           helper_mpt(PhotocathodeMPT_Ham20inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_Ham20inch.REFLECTIVITY");
-           helper_mpt(PhotocathodeMPT_Ham20inch, "THICKNESS", mcgt.data(), "Material.photocathode_Ham20inch.THICKNESS");
-           IMCParamsSvc::map_s2d s_map;
-           bool st = mcgt->Get("Material.photocathode_Ham20inch.scale", s_map);
-           double scale_qe = 1.0;
-           if (st && s_map.count("qe_before") && s_map.count("qe_after")&& s_map.count("pmt_qe_scale_for_elec"))
+        G4cout << "Setup photocathode_Ham20inch Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(PhotocathodeMPT_Ham20inch, "RINDEX", mcgt.data(), "Material.photocathode_Ham20inch.RINDEX");
+        helper_mpt(PhotocathodeMPT_Ham20inch, "KINDEX", mcgt.data(), "Material.photocathode_Ham20inch.KINDEX");
+        helper_mpt(PhotocathodeMPT_Ham20inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_Ham20inch.REFLECTIVITY");
+        helper_mpt(PhotocathodeMPT_Ham20inch, "THICKNESS", mcgt.data(), "Material.photocathode_Ham20inch.THICKNESS");
+       
+        IMCParamsSvc::map_s2d s_map;
+        bool st = mcgt->Get("Material.photocathode_Ham20inch.scale", s_map);
+        double scale_qe = 1.0;
+        if (st && s_map.count("qe_before") && s_map.count("qe_after")&& s_map.count("pmt_qe_scale_for_elec"))
            {
                 scale_qe = s_map["qe_after"] / s_map["qe_before"] * 1.0/s_map["pmt_qe_scale_for_elec"];
                 G4cout << "Scale qe from " << s_map["qe_before"]
@@ -1034,71 +799,50 @@
                        <<" pmt_qe_scale_for_elec :"<< s_map["pmt_qe_scale_for_elec"]
                        << G4endl;
            }
-           helper_mpt(PhotocathodeMPT_Ham20inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_Ham20inch.EFFICIENCY",scale_qe);
-        }
-        else{   
-        PhotocathodeMPT_Ham20inch->AddProperty("RINDEX", fPP_PhC_NEW, fPhCRINDEX_NEW, 4);
-        PhotocathodeMPT_Ham20inch->AddProperty("KINDEX", fPP_PhC_NEW, fPhCKINDEX_NEW, 4);
-        PhotocathodeMPT_Ham20inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
-        PhotocathodeMPT_Ham20inch->AddProperty("EFFICIENCY", fPP_PhCQE_Dynode20inch, fPhCEFFICIENCY_Dynode20inch, 43);
-        PhotocathodeMPT_Ham20inch->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
-        }
+        helper_mpt(PhotocathodeMPT_Ham20inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_Ham20inch.EFFICIENCY",scale_qe);
+        
      //   PhotocathodeMPT_Ham20inch->DumpTable();
         Photocathode_mat_Ham20inch->SetMaterialPropertiesTable(PhotocathodeMPT_Ham20inch);
-    //} 
+    } 
 
     G4Material* Photocathode_mat_Ham8inch = G4Material::GetMaterial("photocathode_Ham8inch", any_warnings);
     if (Photocathode_mat_Ham8inch) {
-
+        G4cout << "photocathode_Ham8inch is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "photocathode_Ham8inch is constructed from the code" << G4endl;
         density = 5. *g/cm3; // true??
         Photocathode_mat_Ham8inch = new G4Material("photocathode_Ham8inch",density,1);
         Photocathode_mat_Ham8inch->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT_Ham8inch = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup photocathode_Ham8inch Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(PhotocathodeMPT_Ham8inch, "RINDEX", mcgt.data(), "Material.photocathode_Ham8inch.RINDEX");
-           helper_mpt(PhotocathodeMPT_Ham8inch, "KINDEX", mcgt.data(), "Material.photocathode_Ham8inch.KINDEX");
-           helper_mpt(PhotocathodeMPT_Ham8inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_Ham8inch.REFLECTIVITY");
-           helper_mpt(PhotocathodeMPT_Ham8inch, "THICKNESS", mcgt.data(), "Material.photocathode_Ham8inch.THICKNESS");
-           helper_mpt(PhotocathodeMPT_Ham8inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_Ham8inch.EFFICIENCY");
-        }
-        else
-        {
-          PhotocathodeMPT_Ham8inch->AddProperty("RINDEX", fPP_PhC, fPhCRINDEX, 4);
-          PhotocathodeMPT_Ham8inch->AddProperty("KINDEX", fPP_PhC, fPhCKINDEX, 4);
-          PhotocathodeMPT_Ham8inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
-          PhotocathodeMPT_Ham8inch->AddProperty("EFFICIENCY", fPP_PhCQE_Ham8inch, fPhCEFFICIENCY_Ham8inch, 43);
-          PhotocathodeMPT_Ham8inch->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
-        }
+       
+        G4cout << "Setup photocathode_Ham8inch Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(PhotocathodeMPT_Ham8inch, "RINDEX", mcgt.data(), "Material.photocathode_Ham8inch.RINDEX");
+        helper_mpt(PhotocathodeMPT_Ham8inch, "KINDEX", mcgt.data(), "Material.photocathode_Ham8inch.KINDEX");
+        helper_mpt(PhotocathodeMPT_Ham8inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_Ham8inch.REFLECTIVITY");
+        helper_mpt(PhotocathodeMPT_Ham8inch, "THICKNESS", mcgt.data(), "Material.photocathode_Ham8inch.THICKNESS");
+        helper_mpt(PhotocathodeMPT_Ham8inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_Ham8inch.EFFICIENCY");
+       
      //   PhotocathodeMPT_Ham8inch->DumpTable();
         Photocathode_mat_Ham8inch->SetMaterialPropertiesTable(PhotocathodeMPT_Ham8inch);
     }
 
     G4Material* Photocathode_mat_HZC9inch = G4Material::GetMaterial("photocathode_HZC9inch", any_warnings);
     if (Photocathode_mat_HZC9inch) {
-
+        G4cout << "photocathode_HZC9inch is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "photocathode_HZC9inch is constructed from the code" << G4endl;
         density = 5. *g/cm3; // true??
         Photocathode_mat_HZC9inch = new G4Material("photocathode_HZC9inch",density,1);
         Photocathode_mat_HZC9inch->AddElement(K, 1);
         G4MaterialPropertiesTable* PhotocathodeMPT_HZC9inch = new G4MaterialPropertiesTable();
 
-        if (use_param_svc){
-           G4cout << "Setup photocathode_HZC9inch Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(PhotocathodeMPT_HZC9inch, "RINDEX", mcgt.data(), "Material.photocathode_HZC9inch.RINDEX");
-           helper_mpt(PhotocathodeMPT_HZC9inch, "KINDEX", mcgt.data(), "Material.photocathode_HZC9inch.KINDEX");
-           helper_mpt(PhotocathodeMPT_HZC9inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_HZC9inch.REFLECTIVITY");
-           helper_mpt(PhotocathodeMPT_HZC9inch, "THICKNESS", mcgt.data(), "Material.photocathode_HZC9inch.THICKNESS");
-           helper_mpt(PhotocathodeMPT_HZC9inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_HZC9inch.EFFICIENCY");
-        }
-        else{
-        PhotocathodeMPT_HZC9inch->AddProperty("RINDEX", fPP_PhC, fPhCRINDEX, 4);
-        PhotocathodeMPT_HZC9inch->AddProperty("KINDEX", fPP_PhC, fPhCKINDEX, 4);
-        PhotocathodeMPT_HZC9inch->AddProperty("REFLECTIVITY", fPP_PhC, fPhCREFLECTIVITY, 4);
-        PhotocathodeMPT_HZC9inch->AddProperty("EFFICIENCY", fPP_PhCQE_HZC9inch, fPhCEFFICIENCY_HZC9inch, 43);
-        PhotocathodeMPT_HZC9inch->AddProperty("THICKNESS", fPosZ, fTHICKNESS, 2);
-        }
+        G4cout << "Setup photocathode_HZC9inch Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(PhotocathodeMPT_HZC9inch, "RINDEX", mcgt.data(), "Material.photocathode_HZC9inch.RINDEX");
+        helper_mpt(PhotocathodeMPT_HZC9inch, "KINDEX", mcgt.data(), "Material.photocathode_HZC9inch.KINDEX");
+        helper_mpt(PhotocathodeMPT_HZC9inch, "REFLECTIVITY", mcgt.data(), "Material.photocathode_HZC9inch.REFLECTIVITY");
+        helper_mpt(PhotocathodeMPT_HZC9inch, "THICKNESS", mcgt.data(), "Material.photocathode_HZC9inch.THICKNESS");
+        helper_mpt(PhotocathodeMPT_HZC9inch, "EFFICIENCY", mcgt.data(), "Material.photocathode_HZC9inch.EFFICIENCY");
+        
      //   PhotocathodeMPT_HZC9inch->DumpTable();
         Photocathode_mat_HZC9inch->SetMaterialPropertiesTable(PhotocathodeMPT_HZC9inch);
     }
@@ -1134,42 +878,37 @@
     
     Pyrex = G4Material::GetMaterial("Pyrex", any_warnings);
     if (Pyrex) {
-        G4cout << "construct Pyrex from GDML." << G4endl;
+        G4cout << "Pyrex is constructed from the GDML file" << G4endl;
     } else {
+        G4cout << "Pyrex is constructed from the code" << G4endl;
         density = 2.23*g/cm3;
         Pyrex = new G4Material("Pyrex", density, 3);
         Pyrex->AddMaterial(SiO2, .80);
         Pyrex->AddMaterial(B2O2, .13);
         Pyrex->AddMaterial(Na2O, .07);
         G4MaterialPropertiesTable* PyrexMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){ 
-           G4cout << "Setup Pyrex Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(PyrexMPT, "ABSLENGTH", mcgt.data(), "Material.Pyrex.ABSLENGTH");
-           helper_mpt(PyrexMPT, "RINDEX", mcgt.data(), "Material.Pyrex.RINDEX");
-        }else{
-          PyrexMPT->AddProperty("RINDEX", fPP_Pyrex, fPyrexRINDEX, 10);
-          PyrexMPT->AddProperty("ABSLENGTH", fPP_PyrexABS, fPyrexABSORPTION, 9);
-        }
+      
+        G4cout << "Setup Pyrex Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(PyrexMPT, "ABSLENGTH", mcgt.data(), "Material.Pyrex.ABSLENGTH");
+        helper_mpt(PyrexMPT, "RINDEX", mcgt.data(), "Material.Pyrex.RINDEX");
      //   PyrexMPT->DumpTable();
         Pyrex->SetMaterialPropertiesTable(PyrexMPT);
     }
 
     Oil = G4Material::GetMaterial("MineralOil", any_warnings);
-    if (not Oil) {
+    if (Oil) {
+        G4cout << "MineralOil is constructed from the GDML file" << G4endl;
+    } else {
+        G4cout << "MineralOil is constructed from the code" << G4endl;
         density = 0.838*g/cm3;
         Oil = new G4Material("MineralOil", density, 2);
         Oil->AddElement(C, 0.8514);
         Oil->AddElement(H, 0.1486);
         G4MaterialPropertiesTable* OilMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup MineralOil Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(OilMPT, "ABSLENGTH", mcgt.data(), "Material.MineralOil.ABSLENGTH");
-           helper_mpt(OilMPT, "RINDEX", mcgt.data(), "Material.MineralOil.RINDEX");
-        }else{
-           OilMPT->AddProperty("RINDEX", fPP_Oil_RIN, fOilRINDEX, 18);
-           OilMPT->AddProperty("ABSLENGTH",fPP_Oil_ABS, fOilABSORPTION, 543);
 
-        }
+        G4cout << "Setup MineralOil Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(OilMPT, "ABSLENGTH", mcgt.data(), "Material.MineralOil.ABSLENGTH");
+        helper_mpt(OilMPT, "RINDEX", mcgt.data(), "Material.MineralOil.RINDEX");
      //   OilMPT->DumpTable();
         Oil->SetMaterialPropertiesTable(OilMPT); 
     }
@@ -1177,7 +916,10 @@
     //Rock
     //Granite Rock  
     Rock = G4Material::GetMaterial("Rock", any_warnings);
-    if (not Rock) {
+    if (Rock) {
+        G4cout << "Rock is constructed from the GDML file" << G4endl;
+    } else {
+        G4cout << "Rock is constructed from the code" << G4endl;
         density = 2.7*g/cm3;
         Rock = new G4Material("Rock", density, 8);
         Rock->AddElement(O, 0.4850);
@@ -1189,12 +931,10 @@
         Rock->AddElement(Na, 0.0240);
         Rock->AddElement(K, 0.0450);
         G4MaterialPropertiesTable* RockMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup Rock Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(RockMPT, "ABSLENGTH", mcgt.data(), "Material.Rock.ABSLENGTH");
-        }
-        else   
-        {  RockMPT->AddProperty("ABSLENGTH",fPP_Rock, fRockABSORPTION,4);}
+        
+        G4cout << "Setup Rock Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(RockMPT, "ABSLENGTH", mcgt.data(), "Material.Rock.ABSLENGTH");
+        
      //   RockMPT->DumpTable();
         Rock->SetMaterialPropertiesTable(RockMPT);
     }
@@ -1211,13 +951,13 @@
         vetoWater->AddElement(H,2);
         vetoWater->AddElement(O,1);
         G4MaterialPropertiesTable* vetoWaterMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup vetoWater Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(vetoWaterMPT, "RINDEX", mcgt.data(), "Material.vetoWater.RINDEX");
-           IMCParamsSvc::map_s2d s_map;
-           bool st = mcgt->Get("Material.vetoWater.scale", s_map);
-           double scale_abs = 1.0;
-           if (st && s_map.count("abs_before") && s_map.count("abs_after"))
+       
+        G4cout << "Setup vetoWater Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(vetoWaterMPT, "RINDEX", mcgt.data(), "Material.vetoWater.RINDEX");
+        IMCParamsSvc::map_s2d s_map;
+        bool st = mcgt->Get("Material.vetoWater.scale", s_map);
+        double scale_abs = 1.0;
+        if (st && s_map.count("abs_before") && s_map.count("abs_after"))
            {
                 scale_abs = s_map["abs_after"] / s_map["abs_before"];
                 G4cout << "Scale veto water abs from " << s_map["abs_before"]
@@ -1225,14 +965,7 @@
                        << " factor: " << scale_abs
                        << G4endl;
            }
-           helper_mpt(vetoWaterMPT, "ABSLENGTH", mcgt.data(), "Material.vetoWater.ABSLENGTH",scale_abs);      
-     
-        }
-        else
-        {     
-        vetoWaterMPT->AddProperty("RINDEX", fPP_Water_RIN, fWaterRINDEX,36);
-        vetoWaterMPT->AddProperty("ABSLENGTH", fPP_Water_ABS,fWaterABSORPTION, 316);
-        }
+        helper_mpt(vetoWaterMPT, "ABSLENGTH", mcgt.data(), "Material.vetoWater.ABSLENGTH",scale_abs);      
         vetoWater->SetMaterialPropertiesTable(vetoWaterMPT);
        //  vetoWaterMPT->DumpTable();
     }
@@ -1248,13 +981,13 @@
         Water->AddElement(H,2);
         Water->AddElement(O,1);
         G4MaterialPropertiesTable* WaterMPT = new G4MaterialPropertiesTable();
-        if (use_param_svc){
-           G4cout << "Setup Water Material Tables from MCParamsSvc" << G4endl;
-           helper_mpt(WaterMPT, "RINDEX", mcgt.data(), "Material.Water.RINDEX");
-           IMCParamsSvc::map_s2d s_map;
-           bool st = mcgt->Get("Material.Water.scale", s_map);
-           double scale_abs = 1.0;
-           if (st && s_map.count("abs_before") && s_map.count("abs_after"))
+       
+        G4cout << "Setup Water Material Tables from MCParamsSvc" << G4endl;
+        helper_mpt(WaterMPT, "RINDEX", mcgt.data(), "Material.Water.RINDEX");
+        IMCParamsSvc::map_s2d s_map;
+        bool st = mcgt->Get("Material.Water.scale", s_map);
+        double scale_abs = 1.0;
+        if (st && s_map.count("abs_before") && s_map.count("abs_after"))
            {
                 scale_abs = s_map["abs_after"] / s_map["abs_before"];
                 G4cout << "Scale water abs from " << s_map["abs_before"]
@@ -1262,12 +995,7 @@
                        << " factor: " << scale_abs
                        << G4endl;
            }
-           helper_mpt(WaterMPT, "ABSLENGTH", mcgt.data(), "Material.Water.ABSLENGTH",scale_abs);
-        }
-        else {
-          WaterMPT->AddProperty("RINDEX", fPP_Water_RIN, fWaterRINDEX,36);
-          WaterMPT->AddProperty("ABSLENGTH", fPP_Water_ABS,fWaterABSORPTION, 316);
-        }
+        helper_mpt(WaterMPT, "ABSLENGTH", mcgt.data(), "Material.Water.ABSLENGTH",scale_abs);
      //   WaterMPT->DumpTable();
         Water->SetMaterialPropertiesTable(WaterMPT);
     }

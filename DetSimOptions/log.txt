@@ -1,82 +1,113 @@
+Index: include/DetSim0Svc.hh
+===================================================================
+--- include/DetSim0Svc.hh	(revision 4726)
++++ include/DetSim0Svc.hh	(working copy)
+@@ -114,7 +114,7 @@
+ 
+ 
+ private:
+-    std::string m_GdLSAbsLengthMode;
++   // std::string m_GdLSAbsLengthMode;
+     std::string m_pmt_optical_model;
+     std::string m_LS_optical_model;
+ 
+Index: include/LSExpDetectorConstruction.hh
+===================================================================
+--- include/LSExpDetectorConstruction.hh	(revision 4726)
++++ include/LSExpDetectorConstruction.hh	(working copy)
+@@ -390,11 +390,11 @@
+     bool m_isMTmode;
+  
+   private:
+-    std::string m_GdLSAbsLengthMode;
++  //  std::string m_GdLSAbsLengthMode;
+     std::string m_pmt_optical_model;
+     std::string m_LS_optical_model;
+   public:
+-     void setGdLSAbsLengthMode(std::string GdLSAbsLengthMode) {m_GdLSAbsLengthMode = GdLSAbsLengthMode ;}
++    // void setGdLSAbsLengthMode(std::string GdLSAbsLengthMode) {m_GdLSAbsLengthMode = GdLSAbsLengthMode ;}
+      void setPMTOpticalModel(std::string mode ){ m_pmt_optical_model = mode;}
+      void setLSOpticalModel(std::string mode ){m_LS_optical_model = mode ;}
+ 
+Index: src/DetSim0Svc.cc
+===================================================================
+--- src/DetSim0Svc.cc	(revision 4726)
++++ src/DetSim0Svc.cc	(working copy)
+@@ -76,7 +76,7 @@
+ 
+     declProp("OpticksMode", m_opticksMode=0);
+     
+-    declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode="old");
++ //   declProp("GdLSAbsLengthMode", m_GdLSAbsLengthMode="old");
+     declProp("UsePMTOpticalModel", m_pmt_optical_model = "old");
+     declProp("UseLSOpticalModel", m_LS_optical_model = "old");
+        
+@@ -202,7 +202,7 @@
+     }
+     dc->setOpticksMode(m_opticksMode);
+ 
+-    dc->setGdLSAbsLengthMode(m_GdLSAbsLengthMode);
++    //dc->setGdLSAbsLengthMode(m_GdLSAbsLengthMode);
+     dc->setPMTOpticalModel(m_pmt_optical_model);
+     dc->setLSOpticalModel(m_LS_optical_model);
+ 
 Index: src/LSExpDetectorConstruction.cc
 ===================================================================
---- src/LSExpDetectorConstruction.cc	(revision 4706)
+--- src/LSExpDetectorConstruction.cc	(revision 4726)
 +++ src/LSExpDetectorConstruction.cc	(working copy)
-@@ -630,8 +630,30 @@
-                                            0.918,  0.92,   0.92,   0.925,  0.925,   0.92,    0.92,    0.91,
-                                            0.89,   0.88,   0.87,   0.86,   0.84,    0.82,    0.8,     0.76,  0.73,   0.53,0.53,0.53  };
+@@ -166,7 +166,7 @@
+   m_sjreceiver_fastener_mother = "lTarget";
  
--
--        tyvek_mt->AddProperty("REFLECTIVITY", TyvekEnergy, TyvekReflectivity, 36);
-+       /* for(int i = 0 ; i < 36 ; i++){
-+            
-+          std::cout << TyvekEnergy[i]/eV <<"     *eV     "<<TyvekReflectivity[i]<<std::endl;
-+            
-+        }*/
-+      
-+      
-+        SniperPtr<IMCParamsSvc> mcgt(*m_scope, "MCParamsSvc");
-+        if (mcgt.invalid()) {
-+          G4cout << "Can't find MCParamsSvc." << G4endl;
-+          assert(0);
-+        }
-+        
-+        IDetElement* glob_info = det_elem("GlobalGeomInfo");
-+        bool use_param_svc = glob_info->geom_info("UseParamSvc");
-+        if(use_param_svc){
-+           helper_mpt(tyvek_mt, "REFLECTIVITY",mcgt.data(), "Material.Tyvek.REFLECTIVITY");
-+        }
-+        else
-+        {       
-+           tyvek_mt->AddProperty("REFLECTIVITY", TyvekEnergy, TyvekReflectivity, 36);
-+        }
-+       // tyvek_mt->DumpTable(); 
-+     
-         tyvek_surface->SetMaterialPropertiesTable(tyvek_mt);
-         //tyvek_mt->AddProperty("REFLECTIVITY", TyvekEnergy, TyvekReflectivity, 4);
-         //tyvek_surface->SetMaterialPropertiesTable(tyvek_mt);
-Index: src/OpticalSurfaceProperty.icc
+ 
+-  m_GdLSAbsLengthMode = "old";
++//  m_GdLSAbsLengthMode = "old";
+   m_pmt_optical_model = "old";
+   m_LS_optical_model = "old";
+ 
+Index: src/LSExpDetectorConstructionMaterial.icc
 ===================================================================
---- src/OpticalSurfaceProperty.icc	(revision 4706)
-+++ src/OpticalSurfaceProperty.icc	(working copy)
-@@ -1,5 +1,6 @@
- //------------------define OpticalTeflonMirror reflectivity by Zhang Feiyang------------------------
- //the OpticalTeflonMirror used in Calibration assembly
-+
- G4OpticalSurface *OpticalTeflonMirror = new G4OpticalSurface("OpticalTeflonMirror");
- OpticalTeflonMirror->SetModel(unified);
- OpticalTeflonMirror->SetType(dielectric_metal);
-@@ -7,10 +8,16 @@
- 
- const G4int NUM = 2;
- G4double vessel_PP[NUM]   = { 1.5*eV, 7.50*eV };
+--- src/LSExpDetectorConstructionMaterial.icc	(revision 4726)
++++ src/LSExpDetectorConstructionMaterial.icc	(working copy)
+@@ -172,31 +172,25 @@
+                        << G4endl;
+             }
+             double scale_lsly = 1.0 ;
+-            if( st && LS_scales_map.count("LSLY_NewLSModelScale")&& LS_scales_map.count("LSLY_NewPMTModelScale")){
+-                if(m_pmt_optical_model == "new"){
+-                      scale_lsly *= LS_scales_map["LSLY_NewPMTModelScale"];
+-                }
+-                
+-                if(m_LS_optical_model == "new"){
+-                      scale_lsly *= LS_scales_map["LSLY_NewLSModelScale"];
+-                }         
+-           }
++            if(st && LS_scales_map.count("LSLY_NewPMTModelScale") && m_pmt_optical_model == "new"){
++                scale_lsly *= LS_scales_map["LSLY_NewPMTModelScale"];
++            }
++     
++            if( st && LS_scales_map.count("LSLY_NewLSModelScale") && m_LS_optical_model == "new"){
++                scale_lsly *= LS_scales_map["LSLY_NewLSModelScale"];
++            }
++            
+         
+-           if(m_GdLSAbsLengthMode == "LAB") // LAB AbsLength used for new LS optical model
++           if(m_LS_optical_model == "new") // LAB AbsLength used for new LS optical model
+                {
+                  helper_mpt(LSMPT, "ABSLENGTH", mcgt.data(), "Material.LS.ABSLENGTH_v2");
+                }
+-            else if (m_GdLSAbsLengthMode == "new") // New LS AbsLength
+-               { 
+-                 LSMPT->AddProperty("ABSLENGTH", GdLSABSEnergy_new, GdLSABSLength_new, 601);
+-               }
+-            else if (m_GdLSAbsLengthMode == "old") // Old LS AbsLength used for old LS optical model
++            else if (m_LS_optical_model == "old") // Old LS AbsLength used for old LS optical model
+                {
+                  helper_mpt(LSMPT, "ABSLENGTH", mcgt.data(), "Material.LS.ABSLENGTH_v1",scale_abslength);    
 -
- G4double ICEREFLECTIVITY[NUM] = {0.95,0.95};
- G4MaterialPropertiesTable *SteelMirrorMPT = new G4MaterialPropertiesTable();
--SteelMirrorMPT->AddProperty("REFLECTIVITY", vessel_PP, ICEREFLECTIVITY,NUM);
-+if(use_param_svc){
-+    helper_mpt(SteelMirrorMPT, "REFLECTIVITY", mcgt.data(), "Material.TeflonMirror.REFLECTIVITY");
-+ }
-+ else
-+ {
-+   SteelMirrorMPT->AddProperty("REFLECTIVITY", vessel_PP, ICEREFLECTIVITY,NUM);
-+ }
-+SteelMirrorMPT->DumpTable();
- OpticalTeflonMirror->SetMaterialPropertiesTable(SteelMirrorMPT);
- 
- 
-@@ -22,7 +29,13 @@
- 
- G4double SSREFLECTIVITY[NUM] = {0.4,0.4};
- G4MaterialPropertiesTable *SteelMirror = new G4MaterialPropertiesTable();
--SteelMirror->AddProperty("REFLECTIVITY", vessel_PP, SSREFLECTIVITY,NUM);
-+if(use_param_svc){
-+   helper_mpt(SteelMirror, "REFLECTIVITY", mcgt.data(), "Material.SSMirror.REFLECTIVITY");
-+}
-+else{
-+   SteelMirror->AddProperty("REFLECTIVITY", vessel_PP, SSREFLECTIVITY,NUM);
-+}
-+SteelMirror->DumpTable();
- SSMirror->SetMaterialPropertiesTable(SteelMirror);
- 
- 
+                }
+             else {
+-                    G4cout << "Unknown Type of GdLSAbsLengthMode ! " << G4endl;
++                    G4cout << "Warning: Can't find  LS abslength to register " << G4endl;
+                  }
+        
+          helper_mpt(LSMPT, "RINDEX",                     mcgt.data(), "Material.LS.RINDEX");

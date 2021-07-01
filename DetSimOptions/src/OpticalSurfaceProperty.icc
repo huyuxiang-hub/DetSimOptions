@@ -6,17 +6,9 @@ OpticalTeflonMirror->SetModel(unified);
 OpticalTeflonMirror->SetType(dielectric_metal);
 OpticalTeflonMirror->SetFinish(polished);
 
-const G4int NUM = 2;
-G4double vessel_PP[NUM]   = { 1.5*eV, 7.50*eV };
-G4double ICEREFLECTIVITY[NUM] = {0.95,0.95};
+
 G4MaterialPropertiesTable *SteelMirrorMPT = new G4MaterialPropertiesTable();
-if(use_param_svc){
-    helper_mpt(SteelMirrorMPT, "REFLECTIVITY", mcgt.data(), "Material.TeflonMirror.REFLECTIVITY");
- }
- else
- {
-   SteelMirrorMPT->AddProperty("REFLECTIVITY", vessel_PP, ICEREFLECTIVITY,NUM);
- }
+helper_mpt(SteelMirrorMPT, "REFLECTIVITY", mcgt.data(), "Material.TeflonMirror.REFLECTIVITY");
 SteelMirrorMPT->DumpTable();
 OpticalTeflonMirror->SetMaterialPropertiesTable(SteelMirrorMPT);
 
@@ -27,14 +19,9 @@ SSMirror->SetType(dielectric_metal);
 SSMirror->SetFinish(polished);
 
 
-G4double SSREFLECTIVITY[NUM] = {0.4,0.4};
 G4MaterialPropertiesTable *SteelMirror = new G4MaterialPropertiesTable();
-if(use_param_svc){
-   helper_mpt(SteelMirror, "REFLECTIVITY", mcgt.data(), "Material.SSMirror.REFLECTIVITY");
-}
-else{
-   SteelMirror->AddProperty("REFLECTIVITY", vessel_PP, SSREFLECTIVITY,NUM);
-}
+helper_mpt(SteelMirror, "REFLECTIVITY", mcgt.data(), "Material.SSMirror.REFLECTIVITY");
+
 SteelMirror->DumpTable();
 SSMirror->SetMaterialPropertiesTable(SteelMirror);
 

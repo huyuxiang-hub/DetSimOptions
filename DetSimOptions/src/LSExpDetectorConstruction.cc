@@ -166,7 +166,7 @@ LSExpDetectorConstruction::LSExpDetectorConstruction()
   m_sjreceiver_fastener_mother = "lTarget";
 
 
-  m_GdLSAbsLengthMode = "old";
+//  m_GdLSAbsLengthMode = "old";
   m_pmt_optical_model = "old";
   m_LS_optical_model = "old";
 
@@ -203,14 +203,11 @@ LSExpDetectorConstruction::~LSExpDetectorConstruction()
  
 void LSExpDetectorConstruction::DefineMaterials()
 {
-  DefineOpticalPropertyCoefficient();
-  ModifyOpticalProperty();
 
   IDetElement* material_builder =  det_elem("GDMLMaterialBuilder");
   if (material_builder) {
       material_builder->getLV();
   }
-
 #include "LSExpDetectorConstructionMaterial.icc"
 #include "OpticalSurfaceProperty.icc"
 
@@ -431,119 +428,11 @@ LSExpDetectorConstruction::ConstructSDandField() {
 void
 LSExpDetectorConstruction::DefineOpticalPropertyCoefficient()
 {
-    IDetElement* glob_info = det_elem("GlobalGeomInfo");
-    G4double LS_abslen_at430 = glob_info->geom_info("LS.AbsLen");
-    coeff_abslen = LS_abslen_at430 / 26.0;
-    G4cout << "coeff_abslen: " << coeff_abslen << "LS_abslen_at430 =  (" << LS_abslen_at430 << "m) " << G4endl;
-    
-    // Note:
-    // - before use 1inch measured data, we keep QE scale as 0.35/0.24 by default.
-    // - when we use 1inch, it's almost 30% QE, so we don't scale it.
-    // coeff_ceff = 0.35 / 0.24 / m_lpmt_qe_scale_for_elec ;
-    coeff_ceff = 1. / m_pmt_qe_scale_for_elec;
- //   coeff_ceff_3inch =  1./m_lpmt_qe_scale_for_elec;
-    coeff_ceff_3inch = 1. / m_pmt_qe_scale_for_elec;
-    G4cout<<" m_pmt_qe_scale_for_elec: "<< m_pmt_qe_scale_for_elec << G4endl;
-    G4cout << "coeff_ceff: " << coeff_ceff << G4endl;
-    G4cout << "coeff_ceff_3inch: " << coeff_ceff_3inch << G4endl;
-    coeff_lsly = 1.0;
-
-    G4double LS_raylen_at430 = glob_info->geom_info("LS.RayleighLen");
-    coeff_rayleigh = LS_raylen_at430 / 42.0;
-    G4cout << "coeff_rayleigh: " << coeff_rayleigh << " LS_raylen_at430 = (" << LS_raylen_at430 << "m) " << G4endl;
-}
+} 
 
 void
 LSExpDetectorConstruction::ModifyOpticalProperty()
 {
-    // Before setup properties for materials, we could scale them.
-
-    G4int len_of_GdLSABSLength_old = 497;
-    for (int i=0; i < len_of_GdLSABSLength_old; ++i) {
-        GdLSABSLength_old[i] *= coeff_abslen;
-    }
-  
-    G4int len_of_fPhCEFFICIENCY = sizeof(fPhCEFFICIENCY)/sizeof(double);
-    for (int i=0; i < len_of_fPhCEFFICIENCY; ++i) {
-        fPhCEFFICIENCY[i] *= coeff_ceff;
-    }
-
-    G4int len_of_fPhCEFFICIENCY_1inch_20140620 = sizeof(fPhCEFFICIENCY_1inch_20140620)/sizeof(double);
-    double scale420nm_1inch_20140620 = fPhCEFFICIENCY_1inch_20140620[29];
-    for (int i=0; i < len_of_fPhCEFFICIENCY_1inch_20140620; ++i) {
-        fPhCEFFICIENCY_1inch_20140620[i] *= ( coeff_ceff * 0.8 / scale420nm_1inch_20140620 ); // scale 420nm QE as 0.8, will scale back in dywSD_PMT_v2.cc
-    }
-    G4cout<<"scale420nm_1inch_20140620 = "<<scale420nm_1inch_20140620<<G4endl;
-
-    G4int len_of_fPhCEFFICIENCY_Dynode20inch = sizeof(fPhCEFFICIENCY_Dynode20inch)/sizeof(double);
-    double Dynode20inch_scale420nm = fPhCEFFICIENCY_Dynode20inch[29];
-    std::cout << "Dynode20inch: " << std::endl;
-    for (int i=0; i < len_of_fPhCEFFICIENCY_Dynode20inch; ++i) {
-        fPhCEFFICIENCY_Dynode20inch[i] *=  (coeff_ceff * 0.8 / Dynode20inch_scale420nm)  ;  // scale 420nm QE as 0.8, will scale back in dywSD_PMT_v2.cc
-        //std::cout  << fPhCEFFICIENCY_Dynode20inch[i] << std::endl;
-    }
-    G4cout<<"Dynode20inch_scale420nm = "<<Dynode20inch_scale420nm<<G4endl;
-    G4int len_of_fPhCEFFICIENCY_AverageMCP20inch = sizeof(fPhCEFFICIENCY_AverageMCP20inch)/sizeof(double);
-    double AverageMCP20inch_scale420nm = fPhCEFFICIENCY_AverageMCP20inch[29];
-    std::cout << "AverageMCP20inch: " << std::endl;
-    for (int i=0; i < len_of_fPhCEFFICIENCY_AverageMCP20inch; ++i) {
-        fPhCEFFICIENCY_AverageMCP20inch[i] *= ( coeff_ceff *0.8 / AverageMCP20inch_scale420nm); // scale 420nm QE as 0.8, will scale back in dywSD_PMT_v2.cc  
-        //std::cout << fPhCEFFICIENCY_AverageMCP20inch[i] << std::endl;
-    }
-    G4cout<<"AverageMCP20inch_scale420nm = "<<AverageMCP20inch_scale420nm<<G4endl;    
-
-    G4int len_of_fPhCEFFICIENCY_3inch = sizeof(fPhCEFFICIENCY_3inch)/sizeof(double);
-    double pmt3inch_scale420nm = fPhCEFFICIENCY_3inch[30];
-    for (int i=0; i < len_of_fPhCEFFICIENCY_3inch; ++i) {
-        fPhCEFFICIENCY_3inch[i] *= (coeff_ceff_3inch*0.8 / pmt3inch_scale420nm);  // scale 420nm QE as 0.8, will scale back in junoSD_PMT_v2.cc
-    }
-
-    G4cout<<"pmt3inch_scale420nm = "<< pmt3inch_scale420nm <<G4endl;
-
-    G4int len_of_GdLSRayLength = 11;
-    for (int i=0; i < len_of_GdLSRayLength; ++i) {
-
-        GdLSRayLength[i] *= coeff_rayleigh;
-        // GdLSRayLength[i] = 99999999999999*m;
-    }
-
-    G4int len_of_GdLSLY = 2;
-    // for tuning Light Yield
-    IDetElement* glob_info = det_elem("GlobalGeomInfo");
-    G4double light_yield = glob_info->geom_info("LS.LightYield");
-    for (int i=0; i < len_of_GdLSLY; ++i) {
-        GdLSLY[i] *= coeff_lsly;
-        if (light_yield>0) {
-            G4cout << "Change Light Yield from " 
-                   << GdLSLY[i]
-                   << " to "
-                   << light_yield
-                   << " according to LS.LightYield in GlobalGeomInfo."
-                   << std::endl;
-            GdLSLY[i] = light_yield;
-        }
-        cout << "Current LY: " << GdLSLY[i] << endl;
-    }
-    //scale the water and vetowater absorption length
-    double water_abslen_scale_factor = 40.*m/(2651.815*cm);
-        for (int j = 0; j < 316; ++j) {
-            fWaterABSORPTION[j] *= water_abslen_scale_factor;
-        }
-   G4cout<<"water_abslen_scale_factor = 40.*m/(2651.815*cm) ."<<G4endl;
-
-    // Modify the Reem Wave Length
-    // #Wave Length + 150
-    // Wave Length + 40
-    // Don't modify the last one!!!
-    //G4int len_of_Reem_LS = 28 - 1;
-    ////G4double wave_length_plus = 150;
-    //G4double wave_length_plus = 40;
-    //G4double originlength, newlength;
-    //for (int i=0; i < len_of_Reem_LS; ++i) {
-    //    originlength = 1240 / (GdLSReemEnergy[i] / eV) ;
-    //    newlength = originlength + wave_length_plus;
-    //    GdLSReemEnergy[i] = (1240 / newlength) * eV;
-    //}
 }
 
 
@@ -618,23 +507,6 @@ LSExpDetectorConstruction::setupReflectorInCD()
         tyvek_surface->SetType(dielectric_metal);
         tyvek_surface->SetFinish(ground);
         tyvek_surface->SetSigmaAlpha(0.2);
-        //double TyvekEnergy[4] = {1.55*eV, 6.20*eV, 10.33*eV, 15.5*eV};
-        //double TyvekReflectivity[4] = {0.98, 0.98, 0.98, 0.98};
-        double TyvekEnergy[36] = {   1.55*eV, 2.034*eV, 2.068*eV, 2.103*eV, 2.139*eV, 2.177*eV, 2.216*eV, 2.256*eV, 2.298*eV,
-                                     2.341*eV, 2.386*eV, 2.433*eV, 2.481*eV, 2.532*eV, 2.585*eV, 2.640*eV, 2.697*eV,
-                                     2.757*eV, 2.820*eV, 2.885*eV, 2.954*eV, 3.026*eV, 3.102*eV, 3.181*eV, 3.265*eV,
-                                     3.353*eV, 3.446*eV, 3.545*eV, 3.649*eV, 3.760*eV, 3.877*eV, 4.002*eV, 4.136*eV, 
-                                     6.20*eV,  10.33*eV, 15.50* eV};
-        double TyvekReflectivity[36] ={    0.91,   0.91,   0.91,   0.91,   0.91 ,   0.91,    0.91,    0.91,
-                                           0.91,   0.91,   0.91,   0.91,   0.91,    0.912,   0.913,   0.915,
-                                           0.918,  0.92,   0.92,   0.925,  0.925,   0.92,    0.92,    0.91,
-                                           0.89,   0.88,   0.87,   0.86,   0.84,    0.82,    0.8,     0.76,  0.73,   0.53,0.53,0.53  };
-
-       /* for(int i = 0 ; i < 36 ; i++){
-            
-          std::cout << TyvekEnergy[i]/eV <<"     *eV     "<<TyvekReflectivity[i]<<std::endl;
-            
-        }*/
       
       
         SniperPtr<IMCParamsSvc> mcgt(*m_scope, "MCParamsSvc");
@@ -643,20 +515,8 @@ LSExpDetectorConstruction::setupReflectorInCD()
           assert(0);
         }
         
-        IDetElement* glob_info = det_elem("GlobalGeomInfo");
-        bool use_param_svc = glob_info->geom_info("UseParamSvc");
-        if(use_param_svc){
-           helper_mpt(tyvek_mt, "REFLECTIVITY",mcgt.data(), "Material.Tyvek.REFLECTIVITY");
-        }
-        else
-        {       
-           tyvek_mt->AddProperty("REFLECTIVITY", TyvekEnergy, TyvekReflectivity, 36);
-        }
-       // tyvek_mt->DumpTable(); 
-     
-        tyvek_surface->SetMaterialPropertiesTable(tyvek_mt);
-        //tyvek_mt->AddProperty("REFLECTIVITY", TyvekEnergy, TyvekReflectivity, 4);
-        //tyvek_surface->SetMaterialPropertiesTable(tyvek_mt);
+       helper_mpt(tyvek_mt, "REFLECTIVITY",mcgt.data(), "Material.Tyvek.REFLECTIVITY");
+       tyvek_surface->SetMaterialPropertiesTable(tyvek_mt);
 
       /////////////////////surface of outer water veto and tyvek around water pool wall (current tyvek was put at lining place)////////////////
         G4VPhysicalVolume* tyvekOuter = store->GetVolume("pPoolLining");
@@ -671,7 +531,7 @@ LSExpDetectorConstruction::setupReflectorInCD()
         tyvekouter_surface->SetType(dielectric_metal);
         tyvekouter_surface->SetFinish(ground);
         tyvekouter_surface->SetSigmaAlpha(0.2);
-        tyvekouter_mt->AddProperty("REFLECTIVITY", TyvekEnergy, TyvekReflectivity, 36);
+        helper_mpt(tyvekouter_mt, "REFLECTIVITY",mcgt.data(), "Material.Tyvek.REFLECTIVITY");
         tyvekouter_surface->SetMaterialPropertiesTable(tyvekouter_mt);
 
     }
